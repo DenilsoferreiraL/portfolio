@@ -2,7 +2,7 @@ import styled from 'styled-components'
 // import Link from 'next/link'
 
 export const FooterContainer = styled.footer`
-  background-color: ${({ theme }) => theme.colors.secondary};
+  background-color: ${({ theme }) => theme.colors.primary};
   color: white;
   padding: 2rem 0;
   margin-top: auto;
@@ -83,12 +83,12 @@ export const SocialLinks = styled.div`
   gap: 1rem;
 
   a {
-    color:${({ theme }) => theme.colors.primary};
+    color:${({ theme }) => theme.colors.textLight};
     text-decoration: none;
     transition: color 0.2s;
 
     &:hover {
-      color: ${({ theme }) => theme.colors.textLight};
+      color: ${({ theme }) => theme.colors.textSecondary};
     }
   }
 `

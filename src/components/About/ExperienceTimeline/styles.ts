@@ -168,8 +168,8 @@ export const TimelineSkills = styled.div`
 export const SkillTag = styled.span`
   display: inline-block;
   padding: 0.25rem 0.75rem;
-  background: ${({ theme }) => theme.colors.lightPrimary || '#e6f0fd'};
-  color: ${({ theme }) => theme.colors.primary};
+  background: ${({ theme }) => theme.colors.primary || '#CCC'};
+  color: ${({ theme }) => theme.colors.textLight};
   border-radius: 1rem;
   font-size: 0.8rem;
 `

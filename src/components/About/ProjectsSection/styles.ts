@@ -77,7 +77,7 @@ export const ProjectDescription = styled.p`
 
 export const ProjectDate = styled.span`
   display: inline-block;
-  background: ${({ theme }) => theme.colors.accent};
+  background: ${({ theme }) => theme.colors.primary};
   color: white;
   padding: 0.3125rem 0.625rem;
   border-radius: 1.25rem;
