@@ -38,14 +38,14 @@ export function Footer() {
             <S.FooterBottom>
                 <p>&copy; {currentYear} Meu Portfólio. Todos os direitos reservados.</p>
                 <S.SocialLinks>
-                    <Link href="https://github.com" target="_blank" rel="noopener noreferrer">
+                    <Link href="/" target="_blank" rel="noopener noreferrer">
                         GitHub
                     </Link>
-                    <Link href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+                    <Link href="/" target="_blank" rel="noopener noreferrer">
                         LinkedIn
                     </Link>
-                    <Link href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-                        Twitter
+                    <Link href="/" target="_blank" rel="noopener noreferrer">
+                        Instagram
                     </Link>
                 </S.SocialLinks>
             </S.FooterBottom>

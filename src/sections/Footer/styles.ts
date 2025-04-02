@@ -30,7 +30,7 @@ export const FooterSection = styled.div`
 export const FooterTitle = styled.h3`
   font-size: 1.25rem;
   margin-bottom: 0.5rem;
-  color: ${({ theme }) => theme.colors.secondary};
+  color: ${({ theme }) => theme.colors.primary};
 `
 
 export const FooterText = styled.p`
@@ -68,7 +68,7 @@ export const FooterBottom = styled.div`
   align-items: center;
   padding: 1.5rem 2rem 0;
   margin-top: 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
   font-size: 0.9rem;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
@@ -83,12 +83,12 @@ export const SocialLinks = styled.div`
   gap: 1rem;
 
   a {
-    color: white;
+    color:${({ theme }) => theme.colors.primary};
     text-decoration: none;
     transition: color 0.2s;
 
     &:hover {
-      color: ${({ theme }) => theme.colors.secondary};
+      color: ${({ theme }) => theme.colors.textLight};
     }
   }
 `
