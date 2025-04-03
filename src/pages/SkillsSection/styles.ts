@@ -1,61 +1,58 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
-export const SkillsContainer = styled.section`
-  padding: 4rem 2rem;
-  background: ${({ theme }) => theme.colors.lightBackground || '#f9f9f9'};
-`
+export const SkillsContainer = styled(motion.section)`
+  padding: 5rem 2rem;
+  background: ${({ theme }) => theme.colors.background || '#ffffff'};
+`;
 
-export const SectionTitle = styled.h2`
+export const SectionTitle = styled(motion.h2)`
   text-align: center;
   font-size: 2.5rem;
   color: ${({ theme }) => theme.colors.primary};
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
+  position: relative;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    font-size: 2rem;
-  }
-`
+`;
 
-export const SkillsGrid = styled.div`
-  max-width: 800px;
+export const SkillsCloud = styled(motion.div)`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  max-width: 1200px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+`;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    grid-template-columns: 1fr;
-  }
-`
-
-export const SkillItem = styled.div`
-  margin-bottom: 1.5rem;
-`
-
-export const SkillName = styled.h3`
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
-  color: ${({ theme }) => theme.colors.text};
-`
-
-export const SkillBar = styled.div`
-  height: 10px;
-  background: ${({ theme }) => theme.colors.border || '#e0e0e0'};
-  border-radius: 5px;
+export const SkillPill = styled(motion.div)`
+  padding: 1rem 1.5rem;
+  border-radius: 50px;
+  background: ${({ theme }) => theme.colors.background};
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  position: relative;
   overflow: hidden;
-`
+  cursor: pointer;
+`;
 
-export const SkillLevel = styled.div<{ level: number }>`
-  height: 100%;
-  width: ${({ level }) => level}%;
-  background: ${({ theme }) => theme.colors.secondary};
-  border-radius: 5px;
-  transition: width 1s ease-in-out;
-`
+export const SkillIconWrapper = styled(motion.div)`
+  font-size: 1.5rem;
+  display: flex;
+  color: ${({ theme }) => theme.colors.primary};
+`;
 
-export const SkillPercentage = styled.span`
-  display: inline-block;
+export const SkillName = styled(motion.h3)`
+  font-size: 1.1rem;
+  color: ${({ theme }) => theme.colors.text};
+  position: relative;
+  z-index: 2;
+`;
+
+export const SkillExperience = styled(motion.div)`
+  font-size: 0.8rem;
+  color: ${({ theme }) => theme.colors.textPrimary};
+  font-style: italic;
   margin-top: 0.3rem;
-  font-size: 0.9rem;
-  color: ${({ theme }) => theme.colors.textSecondary};
-`
+`;
