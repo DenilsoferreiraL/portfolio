@@ -5,6 +5,7 @@ import Link from 'next/link'
 export const HeroContainer = styled.section`
   background: ${({ theme }) => theme.colors.background};
   padding: 4rem 2rem;
+  padding-top: 10rem;
 `
 
 export const HeroContent = styled.div`

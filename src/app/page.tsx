@@ -1,6 +1,6 @@
 import { Footer } from "@/sections/Footer";
 import { Header } from "@/sections/Header";
-import { AboutPage } from './AboutPage/page'
+import { AboutPage } from './Home/page'
 
 
 export default function Home() {

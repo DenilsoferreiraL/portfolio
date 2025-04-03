@@ -4,12 +4,17 @@ import Link from 'next/link'
 
 export const HeaderContainer = styled.header`
   display: flex;
+  width: 100%;
   justify-content: space-between;
   align-items: center;
   padding: 2rem;
   background-color: ${({ theme }) => theme.colors.primary};
   color: white;
-`
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10; 
+`;
 
 export const Logo = styled.div`
   font-size: 1.5rem;

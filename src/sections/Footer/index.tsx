@@ -20,9 +20,9 @@ export function Footer() {
                     <S.FooterTitle>Links Rápidos</S.FooterTitle>
                     <S.FooterLinks>
                         <Link href="/">Home</Link>
-                        <Link href="/projects">Projetos</Link>
-                        <Link href="/about">Sobre</Link>
-                        <Link href="/contact">Contato</Link>
+                        <Link href="/">Projetos</Link>
+                        <Link href="/">Sobre</Link>
+                        <Link href="/">Contato</Link>
                     </S.FooterLinks>
                 </S.FooterSection>
 

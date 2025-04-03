@@ -1,9 +1,11 @@
-import { AboutHero } from '@/components/About/AboutHero'
-import { SkillsSection } from '@/components/About/SkillsSection'
-import { ExperienceTimeline } from '@/components/About/ExperienceTimeline'
-import { EducationSection } from '@/components/About/EducationSection'
+
 import { portfolioData } from '@/data/portfolio-data'
-import { ProjectsSection } from '@/components/About/ProjectsSection'
+import { AboutHero } from '@/pages/AboutHero'
+import { EducationSection } from '@/pages/EducationSection'
+import { ExperienceTimeline } from '@/pages/ExperienceTimeline'
+import { ProjectsSection } from '@/pages/ProjectsSection'
+import { SkillsSection } from '@/pages/SkillsSection'
+
 
 export const AboutPage = () => {
     const { about } = portfolioData
