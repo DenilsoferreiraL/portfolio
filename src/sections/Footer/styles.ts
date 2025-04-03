@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { motion } from 'framer-motion'
 
 export const FooterContainer = styled(motion.footer)`
-  background: ${({ theme }) => theme.colors.primary};
+  background: ${({ theme }) => theme.colors.primary || '#000'};
   color: white;
   padding: 0rem 0 1rem;
   margin-top: auto;
