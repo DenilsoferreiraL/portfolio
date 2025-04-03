@@ -12,10 +12,10 @@ export function Header() {
                 <Link href="/">Logo</Link>
             </S.Logo>
             <S.Nav>
+                <S.NavLink href="/">Habilidade</S.NavLink>
                 <S.NavLink href="/">Projetos</S.NavLink>
-                <S.NavLink href="/">Habilidades</S.NavLink>
-                <S.NavLink href="/">Experiência</S.NavLink>
-                <S.NavLink href="/">Formação</S.NavLink>
+                <S.NavLink href="/">Cronologia</S.NavLink>
+                <S.NavLink href="/">Qualificação</S.NavLink>
             </S.Nav>
         </S.HeaderContainer>
     )

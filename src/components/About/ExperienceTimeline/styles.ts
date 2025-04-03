@@ -13,6 +13,8 @@ export const SectionTitle = styled.h2`
   color: ${({ theme }) => theme.colors.primary};
   margin-bottom: 3rem;
 
+ 
+
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     font-size: 2rem;
   }

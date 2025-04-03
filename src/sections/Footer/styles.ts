@@ -30,7 +30,7 @@ export const FooterSection = styled.div`
 export const FooterTitle = styled.h3`
   font-size: 1.25rem;
   margin-bottom: 0.5rem;
-  color: ${({ theme }) => theme.colors.primary};
+  color: ${({ theme }) => theme.colors.textLight};
 `
 
 export const FooterText = styled.p`

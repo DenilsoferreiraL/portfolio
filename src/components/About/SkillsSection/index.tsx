@@ -15,7 +15,7 @@ interface SkillsSectionProps {
 
 export function SkillsSection({
     skills,
-    title = "Minhas Habilidades"
+    title = "Conhecimentos-Chave"
 }: SkillsSectionProps) {
     return (
         <S.SkillsContainer>

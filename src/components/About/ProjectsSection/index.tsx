@@ -1,9 +1,6 @@
 'use client'
 
-import React from 'react';
 import * as S from './styles';
-
-// 1. Definir a interface do projeto
 interface Project {
     id: number;
     title: string;
@@ -11,16 +8,17 @@ interface Project {
     imageUrl: string;
     date: string;
 }
-
 interface ProjectsSectionProps {
     projects: Project[];
+    title?: string
 }
 
-// 3. Implementar o componente tipado
-export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) => {
+export function ProjectsSection({ projects,
+    title = "Autoria"
+}: ProjectsSectionProps) {
     return (
         <S.Container>
-            <S.Title>Meus Projetos</S.Title>
+            <S.Title>{title}</S.Title>
             <S.ProjectsGrid>
                 {projects.map((project) => (
                     <S.ProjectCard key={project.id}>

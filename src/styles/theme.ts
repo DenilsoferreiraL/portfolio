@@ -8,7 +8,6 @@ export const defaultTheme: DefaultTheme = {
         text: '#333333',
         textLight: '#FFFFFF',
         title: '#666',
-        accent: '#3498db',
         cardBackground: '#ffffff',
         border: '#eeeeee',
         textPrimary: '#2c3e50',

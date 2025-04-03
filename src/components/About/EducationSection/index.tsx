@@ -19,7 +19,7 @@ interface EducationSectionProps {
 }
 
 export function EducationSection({ education,
-    title = "Formação Acadêmica"
+    title = "Qualificação"
 }: EducationSectionProps) {
     return (
         <S.EducationContainer>

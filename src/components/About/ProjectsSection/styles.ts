@@ -17,10 +17,10 @@ export const Title = styled.h2`
   &::after {
     content: '';
     display: block;
-    width: 5rem;
-    height: 0.25rem;
-    background: ${({ theme }) => theme.colors.accent};
-    margin: 0.9375rem auto;
+    width: 8rem;
+    height: 0.15rem;
+    background: ${({ theme }) => theme.colors.secondary};
+    margin: 0.375rem auto;
     border-radius: 0.125rem;
   }
 `;
@@ -54,7 +54,7 @@ export const ProjectCard = styled.div`
 
 export const ProjectImage = styled.img`
   width: 100%;
-  height: 12.5rem;
+  height: 18rem;
   object-fit: cover;
   border-bottom: 0.0625rem solid ${({ theme }) => theme.colors.border};
 `;

@@ -18,7 +18,7 @@ interface ExperienceTimeLineProps {
 }
 export function ExperienceTimeline({
     experiences,
-    title = "Experiência Profissional"
+    title = "Cronologia"
 }: ExperienceTimeLineProps) {
     return (
         <S.TimelineContainer>
