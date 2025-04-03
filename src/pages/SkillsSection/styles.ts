@@ -1,4 +1,3 @@
-// src/components/About/SkillsSection/styles.ts
 import styled from 'styled-components'
 
 export const SkillsContainer = styled.section`
