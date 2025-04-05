@@ -16,7 +16,6 @@ export const AboutPage = () => {
                 title={about.title}
                 subtitle={about.subtitle}
                 description={about.description}
-                image={about.image}
             />
             <SkillsSection skills={about.skills} />
             <ProjectsSection projects={about.projects} />
