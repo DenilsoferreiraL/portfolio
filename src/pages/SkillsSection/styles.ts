@@ -1,9 +1,31 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
-export const SkillsContainer = styled(motion.section)`
-  padding: 8rem 2rem;
-  background: ${({ theme }) => theme.colors.background || '#ffffff'};
+export const ContainerSkills = styled(motion.section)`
+display: flex;
+width: 100%;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 8rem 2rem;
+min-height: 60vh;
+`;
+export const ContentSkills = styled(motion.section)`
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 8rem 2rem;
+    background-color: ${({ theme }) => theme.colors.secondary};
+    border-radius: 50px;
+    box-shadow: -1px 7px 28px 0px rgba(115,115,115,0.34);
+    -webkit-box-shadow: 5px 12px 32px 3px rgba(115,115,115,0.34);
+
+    @media (max-width: 768px){
+        width: 100%;
+        padding: 4rem 2rem;
+    }
 `;
 
 export const SectionTitle = styled(motion.h2)`

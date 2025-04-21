@@ -18,7 +18,7 @@ const containerVariants = {
         opacity: 1,
         transition: {
             staggerChildren: 0.1,
-            delayChildren: 0.3
+            delayChildren: 0.2
         }
     }
 }
@@ -71,41 +71,41 @@ export function SkillsSection({
     title = "Habilidades Técnicas"
 }: SkillsSectionProps) {
     return (
-        <S.SkillsContainer
-            id='habilidade'
+        <S.ContainerSkills id='habilidade'
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
-            variants={containerVariants}
-        >
-            <S.SectionTitle variants={itemVariants}>{title}</S.SectionTitle>
+            variants={containerVariants}>
+            <S.ContentSkills>
+                <S.SectionTitle variants={itemVariants}>{title}</S.SectionTitle>
 
-            <S.SkillsCloud>
-                {skills.map((skill) => (
-                    <S.SkillPill
-                        key={skill.name}
-                        whileHover="hover"
-                        variants={hoverVariants}
-                    >
-                        <S.SkillIconWrapper>
-                            {skillIcons[skill.name] || <SiJavascript />}
-                        </S.SkillIconWrapper>
-                        <div>
-                            <S.SkillName>{skill.name}</S.SkillName>
-                            {skill.years && (
-                                <S.SkillExperience>
-                                    {skill.years}+ {skill.years > 1 ? 'anos' : 'ano'}
-                                </S.SkillExperience>
-                            )}
-                            {skill.projects && !skill.years && (
-                                <S.SkillExperience>
-                                    {skill.projects}+ projetos
-                                </S.SkillExperience>
-                            )}
-                        </div>
-                    </S.SkillPill>
-                ))}
-            </S.SkillsCloud>
-        </S.SkillsContainer>
+                <S.SkillsCloud>
+                    {skills.map((skill) => (
+                        <S.SkillPill
+                            key={skill.name}
+                            whileHover="hover"
+                            variants={hoverVariants}
+                        >
+                            <S.SkillIconWrapper>
+                                {skillIcons[skill.name] || <SiJavascript />}
+                            </S.SkillIconWrapper>
+                            <div >
+                                <S.SkillName>{skill.name}</S.SkillName>
+                                {skill.years && (
+                                    <S.SkillExperience>
+                                        {skill.years}+ {skill.years > 1 ? 'anos' : 'ano'}
+                                    </S.SkillExperience>
+                                )}
+                                {skill.projects && !skill.years && (
+                                    <S.SkillExperience>
+                                        {skill.projects}+ projetos
+                                    </S.SkillExperience>
+                                )}
+                            </div>
+                        </S.SkillPill>
+                    ))}
+                </S.SkillsCloud>
+            </S.ContentSkills>
+        </S.ContainerSkills>
     )
 }

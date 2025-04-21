@@ -11,9 +11,9 @@ interface AboutHeroProps {
 }
 
 const aboutHeroData: AboutHeroProps = {
-    title: 'Sobre mim',
-    subtitle: 'Desenvolvedor Front-End',
-    description: 'Sou um desenvolvedor Front-End apaixonado por criar experiências digitais envolventes e funcionais. Com um olhar atento aos detalhes e uma abordagem centrada no usuário, busco sempre entregar soluções que superem as expectativas.'
+    title: 'Denilso Ferreira',
+    subtitle: 'Desenvolvedor Web',
+    description: 'Sou um desenvolvedor Web '
 }
 
 export function AboutHero() {

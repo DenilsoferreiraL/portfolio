@@ -10,6 +10,7 @@ export const HeroContainer = styled(motion.section)`
   position: relative;
   overflow: hidden;
   isolation: isolate;
+  
 
   @media (max-width: 768px) {
    min-height:115vh;
@@ -165,7 +166,7 @@ export const Shape = styled(motion.div)`
   position: absolute;
   border-radius: 50%;
   background: ${({ theme }) => theme.colors.secondary};
-  opacity: 0.08;
+  opacity: 1;
   filter: blur(1px);
   will-change: transform;
 `;

@@ -5,7 +5,6 @@ export const Container = styled(motion.section)`
   max-width: 1200px;
   margin: 0 auto;
   padding: 8rem 2rem;
-  background-color: ${({ theme }) => theme.colors.background};
 `;
 
 export const Title = styled(motion.h2)`
@@ -14,16 +13,6 @@ export const Title = styled(motion.h2)`
   margin-bottom: 3.125rem;
   color: ${({ theme }) => theme.colors.primary};
   position: relative;
-
-  &::after {
-    content: '';
-    display: block;
-    width: 8rem;
-    height: 0.15rem;
-    background: ${({ theme }) => theme.colors.secondary};
-    margin: 0.375rem auto;
-    border-radius: 0.125rem;
-  }
 `;
 
 export const ProjectsGrid = styled(motion.div)`
