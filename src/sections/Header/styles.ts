@@ -13,6 +13,9 @@ export const HeaderContainer = styled.header`
   top: 0;
   left: 0;
   z-index: 10; 
+  box-shadow: 1px 11px 26px 3px rgba(0,0,0,0.24);
+-webkit-box-shadow: 1px 11px 26px 3px rgba(0,0,0,0.24);
+-moz-box-shadow: 1px 11px 26px 3px rgba(0,0,0,0.24);
 `;
 
 export const Logo = styled.div`
@@ -25,7 +28,7 @@ export const Logo = styled.div`
   }
 `
 
-export const Nav = styled.nav`
+export const DesktopNav = styled.nav`
   display: flex;
   gap: 1.5rem;
 `

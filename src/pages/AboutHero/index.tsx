@@ -10,7 +10,13 @@ interface AboutHeroProps {
     description: string
 }
 
-export function AboutHero({ title, subtitle, description }: AboutHeroProps) {
+const aboutHeroData: AboutHeroProps = {
+    title: 'Sobre mim',
+    subtitle: 'Desenvolvedor Front-End',
+    description: 'Sou um desenvolvedor Front-End apaixonado por criar experiências digitais envolventes e funcionais. Com um olhar atento aos detalhes e uma abordagem centrada no usuário, busco sempre entregar soluções que superem as expectativas.'
+}
+
+export function AboutHero() {
     const controls = useAnimation()
     const subtitleRef = useRef<HTMLDivElement>(null)
 
@@ -99,6 +105,7 @@ export function AboutHero({ title, subtitle, description }: AboutHeroProps) {
         }
     }
 
+
     return (
         <S.HeroContainer
             initial="hidden"
@@ -126,7 +133,7 @@ export function AboutHero({ title, subtitle, description }: AboutHeroProps) {
             <S.HeroContent>
                 <S.TextContainer>
                     <S.Title variants={titleVariants}>
-                        {title.split('').map((letter, i) => (
+                        {aboutHeroData.title.split('').map((letter, i) => (
                             <motion.span
                                 key={i}
                                 custom={i}
@@ -138,11 +145,11 @@ export function AboutHero({ title, subtitle, description }: AboutHeroProps) {
                     </S.Title>
 
                     <S.Subtitle>
-                        <span ref={subtitleRef}>{subtitle}</span>
+                        <span ref={subtitleRef}>{aboutHeroData.subtitle}</span>
                     </S.Subtitle>
 
                     <S.Description variants={titleVariants}>
-                        {description}
+                        {aboutHeroData.description}
                     </S.Description>
 
                     <S.CtaButton

@@ -46,12 +46,29 @@ export interface Education {
 }
 
 interface EducationSectionProps {
-    education: Education[]
     title?: string
 }
 
+const educationData: Education[] = [
+    {
+        id: 1,
+        degree: "Bacharel em Ciência da Computação",
+        institution: "Universidade Federal de São Paulo (UNIFESP)",
+        year: "2020 - 2024",
+        description:
+            "Cursando o Bacharelado em Ciência da Computação, com foco em desenvolvimento de software e inteligência artificial."
+    },
+    {
+        id: 2,
+        degree: "Técnico em Informática",
+        institution: "Escola Técnica Estadual (ETEC) de São Paulo",
+        year: "2018 - 2020",
+        description:
+            "Concluído o curso técnico em informática, com ênfase em desenvolvimento web e programação."
+    }
+]
+
 export function EducationSection({
-    education,
     title = "Qualificação"
 }: EducationSectionProps) {
     return (
@@ -64,7 +81,7 @@ export function EducationSection({
             <S.SectionTitle variants={titleVariants}>{title}</S.SectionTitle>
 
             <S.EducationGrid>
-                {education.map((edu, index) => (
+                {educationData.map((edu, index) => (
                     <S.EducationCard
                         key={edu.id}
                         variants={itemVariants}

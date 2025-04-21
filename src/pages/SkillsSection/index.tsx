@@ -1,5 +1,6 @@
 'use client'
 
+import { JSX } from 'react'
 import * as S from './styles'
 import {
     SiJavascript,
@@ -53,19 +54,20 @@ const skillIcons: Record<string, JSX.Element> = {
     'UI/UX Design': <SiFigma />
 }
 
-interface Skill {
-    name: string
-    years?: number
-    projects?: number
-}
-
 interface SkillsSectionProps {
-    skills: Skill[]
     title?: string
 }
 
+const skills = [
+    { name: 'JavaScript', years: 5 },
+    { name: 'TypeScript', years: 4 },
+    { name: 'React', years: 4 },
+    { name: 'Node.js', years: 3 },
+    { name: 'Next.js', years: 2 },
+    { name: 'UI/UX Design', projects: 10 }
+]
+
 export function SkillsSection({
-    skills,
     title = "Habilidades Técnicas"
 }: SkillsSectionProps) {
     return (

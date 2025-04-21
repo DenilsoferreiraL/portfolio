@@ -56,12 +56,37 @@ export interface Experience {
 }
 
 interface ExperienceTimeLineProps {
-    experiences: Experience[]
     title?: string
 }
 
+const experiences: Experience[] = [
+    {
+        id: 1,
+        role: "Desenvolvedor Frontend",
+        company: "Empresa A",
+        period: "Jan 2022 - Presente",
+        description: "Desenvolvimento de aplicações web utilizando React e Next.js.",
+        skills: ["JavaScript", "React", "Next.js"]
+    },
+    {
+        id: 2,
+        role: "Desenvolvedor Backend",
+        company: "Empresa B",
+        period: "Jan 2021 - Dez 2021",
+        description: "Desenvolvimento de APIs RESTful utilizando Node.js e Express.",
+        skills: ["Node.js", "Express"]
+    },
+    {
+        id: 3,
+        role: "UI/UX Designer",
+        company: "Empresa C",
+        period: "Jan 2020 - Dez 2020",
+        description: "Criação de protótipos e wireframes utilizando Figma.",
+        skills: ["UI/UX Design", "Figma"]
+    }
+]
+
 export function ExperienceTimeline({
-    experiences,
     title = "Cronologia"
 }: ExperienceTimeLineProps) {
     return (

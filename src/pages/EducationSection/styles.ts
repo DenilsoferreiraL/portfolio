@@ -14,8 +14,6 @@ export const SectionTitle = styled(motion.h2)`
   color: ${({ theme }) => theme.colors.primary};
   margin-bottom: 3rem;
   position: relative;
-  display: inline-block;
-  left: 50%;
   transform: translateX(-50%);
 
   &::after {

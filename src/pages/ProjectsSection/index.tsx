@@ -39,11 +39,34 @@ interface Project {
 }
 
 interface ProjectsSectionProps {
-    projects: Project[];
     title?: string
 }
 
-export function ProjectsSection({ projects, title = "Autoria" }: ProjectsSectionProps) {
+const projectsData: Project[] = [
+    {
+        id: 1,
+        title: "Project 1",
+        description: "Description of project 1",
+        imageUrl: "https://i.pinimg.com/236x/0a/b1/fa/0ab1faaa71504156bd0361b5ad3f3534.jpg",
+        date: "2023-01-01"
+    },
+    {
+        id: 2,
+        title: "Project 2",
+        description: "Description of project 2",
+        imageUrl: "https://i.pinimg.com/236x/0a/b1/fa/0ab1faaa71504156bd0361b5ad3f3534.jpg",
+        date: "2023-02-01"
+    },
+    {
+        id: 3,
+        title: "Project 3",
+        description: "Description of project 3",
+        imageUrl: "https://i.pinimg.com/236x/0a/b1/fa/0ab1faaa71504156bd0361b5ad3f3534.jpg",
+        date: "2023-03-01"
+    }
+]
+
+export function ProjectsSection({ title = "Autoria" }: ProjectsSectionProps) {
     return (
         <S.Container
             initial="hidden"
@@ -54,7 +77,7 @@ export function ProjectsSection({ projects, title = "Autoria" }: ProjectsSection
             <S.Title variants={itemVariants}>{title}</S.Title>
 
             <S.ProjectsGrid>
-                {projects.map((project) => (
+                {projectsData.map((project) => (
                     <S.ProjectCard
                         key={project.id}
                         variants={itemVariants}

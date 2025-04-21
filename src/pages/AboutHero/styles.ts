@@ -10,7 +10,14 @@ export const HeroContainer = styled(motion.section)`
   position: relative;
   overflow: hidden;
   isolation: isolate;
+
+  @media (max-width: 768px) {
+   min-height:115vh;
+   padding: 8rem 0;
+  }
+
 `;
+
 
 export const HeroContent = styled(motion.div)`
   max-width: 1000px;
