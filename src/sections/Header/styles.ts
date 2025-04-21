@@ -1,6 +1,10 @@
 import styled from 'styled-components'
 import Link from 'next/link'
 
+interface NavMenuProps {
+  isOpen: boolean;
+}
+
 export const HeaderContainer = styled.header`
   display: flex;
   width: 100%;
@@ -31,6 +35,10 @@ export const Logo = styled.div`
 export const DesktopNav = styled.nav`
   display: flex;
   gap: 1.5rem;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `
 
 export const NavLink = styled(Link)`
@@ -42,3 +50,16 @@ export const NavLink = styled(Link)`
     opacity: 0.8;
   }
 `
+
+export const MenuToggle = styled.button<NavMenuProps>`
+  display: ${({ isOpen }) => (isOpen ? 'block' : 'none')};
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+
+  @media (max-width: 768px) {
+    display: block;
+  }
+`;
