@@ -72,6 +72,7 @@ export function SkillsSection({
 }: SkillsSectionProps) {
     return (
         <S.SkillsContainer
+            id='habilidade'
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}

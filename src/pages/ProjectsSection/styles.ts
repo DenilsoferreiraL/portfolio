@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 export const Container = styled(motion.section)`
   max-width: 1200px;
   margin: 0 auto;
-  padding: 4rem 2rem;
+  padding: 8rem 2rem;
   background-color: ${({ theme }) => theme.colors.background};
 `;
 

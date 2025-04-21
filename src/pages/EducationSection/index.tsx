@@ -73,6 +73,7 @@ export function EducationSection({
 }: EducationSectionProps) {
     return (
         <S.EducationContainer
+            id='qualificacao'
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}

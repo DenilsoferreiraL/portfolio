@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
 export const SkillsContainer = styled(motion.section)`
-  padding: 5rem 2rem;
+  padding: 8rem 2rem;
   background: ${({ theme }) => theme.colors.background || '#ffffff'};
 `;
 

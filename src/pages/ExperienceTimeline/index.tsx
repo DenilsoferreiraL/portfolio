@@ -91,6 +91,7 @@ export function ExperienceTimeline({
 }: ExperienceTimeLineProps) {
     return (
         <S.TimelineContainer
+            id='cronologia'
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}

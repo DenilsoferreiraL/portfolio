@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components'
 import { motion } from 'framer-motion'
 
 export const TimelineContainer = styled(motion.section)`
-  padding: 5rem 1rem;
+  padding: 8rem 1rem;
   background: ${({ theme }) => theme.colors.background};
   position: relative;
 `

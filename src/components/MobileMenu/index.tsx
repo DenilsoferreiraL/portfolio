@@ -97,12 +97,12 @@ const NavItems = styled.ul`
 `;
 
 const VisitButton = styled.button`
-  background-color: #3c3c3c;
-  color: white;
+  background-color: #ffffff;
+  color: #000;
   padding: 12px 20px;
   border: none;
   border-radius: 6px;
-  font-size: 14px;
+  font-size: 16px;
   cursor: pointer;
   margin-top: 20px;
 

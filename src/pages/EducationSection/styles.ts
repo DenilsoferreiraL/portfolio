@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { motion } from 'framer-motion'
 
 export const EducationContainer = styled(motion.section)`
-  padding: 5rem 2rem;
+  padding: 8rem 2rem;
   background: ${({ theme }) => theme.colors.background || '#f9f9f9'};
   position: relative;
   overflow: hidden;
