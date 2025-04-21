@@ -1,9 +1,6 @@
 import styled from 'styled-components'
 import Link from 'next/link'
 
-interface NavMenuProps {
-  isOpen: boolean;
-}
 
 export const HeaderContainer = styled.header`
   display: flex;
@@ -51,8 +48,8 @@ export const NavLink = styled(Link)`
   }
 `
 
-export const MenuToggle = styled.button<NavMenuProps>`
-  display: ${({ isOpen }) => (isOpen ? 'block' : 'none')};
+export const MenuToggle = styled.button<{ $isOpen: boolean }>`
+  display: ${({ $isOpen }) => ($isOpen ? 'block' : 'none')};
   background: none;
   border: none;
   color: white;

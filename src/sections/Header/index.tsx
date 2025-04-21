@@ -16,12 +16,26 @@ export function Header() {
             <S.Logo>
                 <Link href="/">Logo</Link>
             </S.Logo>
-            <S.MenuToggle isOpen={isMenuOpen} onClick={() => setIsMenuOpen(true)}>
+            <S.MenuToggle $isOpen={isMenuOpen} onClick={() => setIsMenuOpen(true)}>
                 <FaBars />
             </S.MenuToggle>
             <S.DesktopNav>
                 {navLinks.map(({ label, href }) => (
-                    <S.NavLink key={href} href={href}>
+                    <S.NavLink
+                        key={href}
+                        href={href}
+                        onClick={(e) => {
+                            e.preventDefault(); // impede o comportamento padrão
+                            const targetId = href.replace('#', '');
+                            const targetElement = document.getElementById(targetId);
+                            if (targetElement) {
+                                targetElement.scrollIntoView({
+                                    behavior: 'smooth',
+                                    block: 'start',
+                                });
+                            }
+                        }}
+                    >
                         {label}
                     </S.NavLink>
                 ))}
