@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { JSX } from 'react'
 import * as S from './styles'
 import { FaReact, FaNodeJs, FaDatabase, FaServer, FaCode, FaMobileAlt } from 'react-icons/fa'
 import { SiTypescript, SiNextdotjs, SiPostgresql, SiDocker } from 'react-icons/si'

@@ -1,123 +1,173 @@
-'use client';
-import styled from 'styled-components';
-import { FaTimes } from 'react-icons/fa';
-import { motion } from 'framer-motion';
-import { useEffect } from 'react';
-import { navLinks } from '@/data/navLinks';
-import Link from 'next/link';
+// 'use client'
 
-interface Props {
-  isOpen: boolean;
-  onClose: () => void;
-}
+// import styled from 'styled-components'
+// import { motion, AnimatePresence } from 'framer-motion'
+// import { FaTimes } from 'react-icons/fa'
+// import { useEffect } from 'react'
+// import { navLinks } from '@/data/navLinks'
 
-export function MobileMenu({ isOpen, onClose }: Props) {
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden'; // trava o scroll
-    } else {
-      document.body.style.overflow = '';
-    }
+// interface MobileMenuProps {
+//   isOpen: boolean
+//   onClose: () => void
+// }
 
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [isOpen]);
+// export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
+//   useEffect(() => {
+//     if (isOpen) {
+//       document.body.style.overflow = 'hidden'
+//     } else {
+//       document.body.style.overflow = ''
+//     }
 
-  if (!isOpen) return null;
+//     return () => {
+//       document.body.style.overflow = ''
+//     }
+//   }, [isOpen])
 
-  return (
-    <Overlay
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-    >
-      <MenuContainer
-        initial={{ y: '-100%' }}
-        animate={{ y: 0 }}
-        exit={{ y: '-100%' }}
-        transition={{ type: 'spring', stiffness: 70 }}
-      >
-        <CloseButton onClick={onClose}>
-          <FaTimes />
-        </CloseButton>
-        <NavItems>
-          {navLinks.map(({ label, href }) => (
-            <li key={href}>
-              <Link href={href} onClick={onClose}>
-                {label}
-              </Link>
-            </li>
-          ))}
-          <VisitButton>Entre em contato</VisitButton>
-        </NavItems>
-      </MenuContainer>
-    </Overlay>
-  );
-}
+//   const handleNavClick = (href: string) => {
+//     const targetId = href.replace('#', '')
+//     const targetElement = document.getElementById(targetId)
+//     if (targetElement) {
+//       targetElement.scrollIntoView({
+//         behavior: 'smooth',
+//         block: 'start',
+//       })
+//     }
+//     onClose()
+//   }
 
-// Styled Components
+//   return (
+//     <AnimatePresence>
+//       {isOpen && (
+//         <S.Overlay
+//           initial={{ opacity: 0 }}
+//           animate={{ opacity: 1 }}
+//           exit={{ opacity: 0 }}
+//           onClick={onClose}
+//         >
+//           <S.MenuContainer
+//             initial={{ x: '100%' }}
+//             animate={{ x: 0 }}
+//             exit={{ x: '100%' }}
+//             transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+//             onClick={(e) => e.stopPropagation()}
+//           >
+//             <S.CloseButton
+//               onClick={onClose}
+//               whileHover={{ scale: 1.1 }}
+//               whileTap={{ scale: 0.9 }}
+//             >
+//               <FaTimes />
+//             </S.CloseButton>
 
-const Overlay = styled(motion.div)`
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.85);
-  backdrop-filter: blur(8px);
-  z-index: 999;
-`;
+//             <S.NavList>
+//               {navLinks.map(({ label, href }) => (
+//                 <S.NavItem
+//                   key={href}
+//                   initial={{ x: 50, opacity: 0 }}
+//                   animate={{ x: 0, opacity: 1 }}
+//                   transition={{ duration: 0.3 }}
+//                 >
+//                   <S.NavLink
+//                     href={href}
+//                     onClick={(e) => {
+//                       e.preventDefault()
+//                       handleNavClick(href)
+//                     }}
+//                     whileHover={{ color: '#4F46E5' }}
+//                   >
+//                     {label}
+//                   </S.NavLink>
+//                 </S.NavItem>
+//               ))}
+//             </S.NavList>
 
-const MenuContainer = styled(motion.div)`
-  height: 100%;
-  width: 100%;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-`;
+//             <S.ContactButton
+//               whileHover={{ scale: 1.05 }}
+//               whileTap={{ scale: 0.95 }}
+//               onClick={() => {
+//                 const contactSection = document.getElementById('contato')
+//                 if (contactSection) {
+//                   contactSection.scrollIntoView({ behavior: 'smooth' })
+//                 }
+//                 onClose()
+//               }}
+//             >
+//               Entre em Contato
+//             </S.ContactButton>
+//           </S.MenuContainer>
+//         </S.Overlay>
+//       )}
+//     </AnimatePresence>
+//   )
+// }
 
-const NavItems = styled.ul`
-  list-style: none;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-  font-size: 20px;
-  color: white;
-
-  li a {
-  color: white;
-  text-decoration: none;
-  transition: color 0.3s;
-
-  &:hover {
-    color: #aaa;
-  }
-}
-`;
-
-const VisitButton = styled.button`
-  background-color: #ffffff;
-  color: #000;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 6px;
-  font-size: 16px;
-  cursor: pointer;
-  margin-top: 20px;
-
-  &:hover {
-    background-color: #575757;
-  }
-`;
-
-const CloseButton = styled.button`
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  font-size: 28px;
-  background: none;
-  color: white;
-  border: none;
-  cursor: pointer;
-`;
+// const S = {
+//   Overlay: styled(motion.div)`
+//     position: fixed;
+//     top: 0;
+//     left: 0;
+//     right: 0;
+//     bottom: 0;
+//     background: rgba(0, 0, 0, 0.7);
+//     backdrop-filter: blur(5px);
+//     z-index: 999;
+//     display: flex;
+//     justify-content: flex-end;
+//   `,
+//   MenuContainer: styled(motion.div)`
+//     width: 85%;
+//     max-width: 400px;
+//     height: 100%;
+//     background: ${({ theme }) => theme.colors.background};
+//     padding: 2rem;
+//     display: flex;
+//     flex-direction: column;
+//     box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+//   `,
+//   CloseButton: styled(motion.button)`
+//     position: absolute;
+//     top: 1.5rem;
+//     right: 1.5rem;
+//     background: none;
+//     border: none;
+//     color: ${({ theme }) => theme.colors.text};
+//     font-size: 1.5rem;
+//     cursor: pointer;
+//     padding: 0.5rem;
+//     border-radius: 50%;
+//   `,
+//   NavList: styled.ul`
+//     list-style: none;
+//     margin-top: 3rem;
+//     display: flex;
+//     flex-direction: column;
+//     gap: 1.5rem;
+//     padding: 0;
+//   `,
+//   NavItem: styled(motion.li)`
+//     padding: 0.5rem 0;
+//   `,
+//   NavLink: styled(motion.a)`
+//     color: ${({ theme }) => theme.colors.text};
+//     text-decoration: none;
+//     font-size: 1.2rem;
+//     font-weight: 500;
+//     display: block;
+//     padding: 0.5rem 0;
+//     transition: color 0.2s ease;
+//   `,
+//   ContactButton: styled(motion.button)`
+//     margin-top: auto;
+//     margin-bottom: 2rem;
+//     padding: 1rem;
+//     background: ${({ theme }) => theme.colors.primary};
+//     color: white;
+//     border: none;
+//     border-radius: 8px;
+//     font-size: 1rem;
+//     font-weight: 600;
+//     cursor: pointer;
+//     transition: all 0.2s ease;
+//   `,
+// }
