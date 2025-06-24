@@ -1,7 +1,7 @@
 'use client'
 
 import * as S from './styles'
-import { motion, useAnimation } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { useEffect, useRef } from 'react'
 
 interface AboutHeroProps {
@@ -17,7 +17,6 @@ const aboutHeroData: AboutHeroProps = {
 }
 
 export function AboutHero() {
-    const controls = useAnimation()
     const subtitleRef = useRef<HTMLDivElement>(null)
 
     const bubbles = Array.from({ length: 12 }).map((_, i) => ({

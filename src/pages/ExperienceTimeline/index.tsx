@@ -2,6 +2,7 @@
 
 import * as S from './styles'
 import { FaCode, FaServer, FaRocket, FaChartLine } from 'react-icons/fa'
+import React from 'react'
 
 // Animations
 const containerVariants = {
@@ -55,7 +56,7 @@ export interface Experience {
     description: string[]
     achievements?: string[]
     skills?: string[]
-    icon: JSX.Element
+    icon: React.ReactNode
 }
 
 interface ExperienceTimeLineProps {

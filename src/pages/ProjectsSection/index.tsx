@@ -121,7 +121,7 @@ export function ProjectsSection({ title = "Autoria" }: ProjectsSectionProps) {
             <S.ProjectsGrid>
                 {projectsData.map((project) => (
                     <S.ProjectCardWrapper key={project.id}>
-                        <S.ProjectCard jectCard
+                        <S.ProjectCard
                             variants={itemVariants}
                             whileHover={cardHover}
                             transition={{ duration: 0.3 }}

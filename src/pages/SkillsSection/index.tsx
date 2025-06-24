@@ -62,12 +62,12 @@ const bubbleVariants = {
         }
     }),
     float: {
-        x: [null, `${Math.random() * 30 - 15}%`],
-        y: [null, `${Math.random() * 30 - 15}%`],
+        x: ["0%", `${Math.random() * 30 - 15}%`],
+        y: ["0%", `${Math.random() * 30 - 15}%`],
         transition: {
-            duration: (i: number) => 40 + i * 10,
+            duration: 40,
             repeat: Infinity,
-            repeatType: "reverse",
+            repeatType: "reverse" as const,
             ease: "linear"
         }
     }
