@@ -11,25 +11,23 @@ interface AboutHeroProps {
 }
 
 const aboutHeroData: AboutHeroProps = {
-    title: 'Denilso Ferreira',
-    subtitle: 'Desenvolvedor Web',
-    description: 'Sou um desenvolvedor Web '
+    title: 'Desenvolvedor Web',
+    subtitle: 'Denilso Ferreira Leite',
+    description: 'Do conceito à implementação, meu processo é focado em excelência técnica e resultados. Sistemas feitos para durar e escalar junto com suas ambições.'
 }
 
 export function AboutHero() {
     const controls = useAnimation()
     const subtitleRef = useRef<HTMLDivElement>(null)
 
-    // Configuração das bolhas de background
-    const bubbles = Array.from({ length: 15 }).map((_, i) => ({
+    const bubbles = Array.from({ length: 12 }).map((_, i) => ({
         id: i,
-        size: Math.random() * 300 + 100,
+        size: Math.random() * 200 + 80,
         x: Math.random() * 100,
         y: Math.random() * 100,
         duration: Math.random() * 40 + 40
     }))
 
-    // Efeito de digitação no subtítulo
     useEffect(() => {
         const animateText = async () => {
             if (subtitleRef.current) {
@@ -46,7 +44,6 @@ export function AboutHero() {
         animateText()
     }, [])
 
-    // Animations
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
@@ -105,7 +102,6 @@ export function AboutHero() {
         }
     }
 
-
     return (
         <S.HeroContainer
             initial="hidden"
@@ -153,7 +149,7 @@ export function AboutHero() {
                     </S.Description>
 
                     <S.CtaButton
-                        href="/contact"
+                        href="https://wa.me/5563992922509"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 1, duration: 0.6 }}
@@ -163,7 +159,7 @@ export function AboutHero() {
                         }}
                         whileTap={{ scale: 0.95 }}
                     >
-                        Entre em Contato
+                        Vamos Conversar!
                     </S.CtaButton>
                 </S.TextContainer>
             </S.HeroContent>

@@ -3,41 +3,62 @@ import { motion } from 'framer-motion';
 
 export const HeroContainer = styled(motion.section)`
   background: ${({ theme }) => theme.colors.background};
-  padding: 8rem 2rem;
+  padding: 6rem 1rem;
   min-height: 100vh;
+  min-height: 100dvh; /* Nova propriedade para mobile */
   display: flex;
   align-items: center;
   position: relative;
   overflow: hidden;
   isolation: isolate;
-  
+  box-sizing: border-box;
+  margin-top: 50px;
 
   @media (max-width: 768px) {
-   min-height:115vh;
-   padding: 8rem 0;
+    padding: 3rem 1rem;
+    min-height: calc(100dvh - 60px); /* Ajuste para navegadores mobile */
+    height: auto;
+    display: flex;
+    align-items: center;
   }
-
 `;
-
 
 export const HeroContent = styled(motion.div)`
   max-width: 1000px;
+  width: 100%;
   margin: 0 auto;
   position: relative;
   z-index: 10;
   text-align: center;
+  padding: 0 1rem;
+  box-sizing: border-box;
+
+  @media (max-width: 768px) {
+    padding: 0 0.5rem;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 `;
 
 export const TextContainer = styled(motion.div)`
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.2rem;
   position: relative;
+  width: 100%;
+  box-sizing: border-box;
+
+  @media (max-width: 768px) {
+    gap: 2rem;
+    padding: 1rem 0;
+  }
 `;
 
 export const Title = styled(motion.h1)`
-  font-size: clamp(2.5rem, 8vw, 5rem);
-  margin-bottom: 1.5rem;
+  font-size: clamp(2rem, 6vw, 4rem);
+  margin-bottom: 1rem;
   line-height: 1.1;
   font-weight: 800;
   background: linear-gradient(
@@ -56,46 +77,66 @@ export const Title = styled(motion.h1)`
   &::after {
     content: '';
     position: absolute;
-    bottom: -15px;
+    bottom: -10px;
     left: 50%;
     transform: translateX(-50%);
-    width: 100px;
-    height: 3px;
+    width: 600px;
+    height: 2px;
     background: linear-gradient(
       to right,
       ${({ theme }) => theme.colors.primary},
       ${({ theme }) => theme.colors.secondary}
     );
     border-radius: 3px;
+
+    @media (max-width: 768px) {
+      bottom: -8px;
+      width: 280px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    margin-bottom: 0.5rem;
   }
 `;
 
 export const Subtitle = styled(motion.h2)`
-  font-size: clamp(1.2rem, 4vw, 1.8rem);
+  font-size: clamp(1rem, 3vw, 1.5rem);
   color: ${({ theme }) => theme.colors.text};
-  font-weight: 400;
-  letter-spacing: 0.5px;
-  max-width: 800px;
+ font-weight: 800;
+  letter-spacing: 0.3px;
+  max-width: 100%;
   margin: 0 auto;
   position: relative;
   display: inline-block;
-  padding: 0 1rem;
+  padding: 0 0.5rem;
+  font-weight: 600;
 
-  span {
-    position: relative;
-    display: inline-block;
+  @media (max-width: 768px) {
+    font-size: 1.1rem;
   }
 `;
 
 export const Description = styled(motion.p)`
-  font-size: clamp(1rem, 3vw, 1.2rem);
-  line-height: 1.8;
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+  line-height: 1.6;
   color: ${({ theme }) => theme.colors.text};
   opacity: 0.9;
-  max-width: 700px;
-  margin: 0 auto 3rem;
+  max-width: 90%;
+  margin: 0 auto 2rem;
   position: relative;
-  padding: 0 1rem;
+  padding: 0 0.5rem;
+  box-sizing: border-box;
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+    padding: 0 0.25rem;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    font-size: 1rem;
+  }
 `;
 
 export const CtaButton = styled(motion.a)`
@@ -109,18 +150,18 @@ export const CtaButton = styled(motion.a)`
     ${({ theme }) => theme.colors.secondary}
   );
   color: white;
-  padding: 1rem 2.5rem;
+  padding: 0.8rem 2rem;
   border-radius: 50px;
   text-decoration: none;
-  font-weight: 500;
-  font-size: 1.1rem;
+  font-weight: 600;
+  font-size: 1rem;
   width: fit-content;
   margin: 0 auto;
   position: relative;
   overflow: hidden;
   border: none;
   cursor: pointer;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
   z-index: 1;
 
@@ -143,11 +184,16 @@ export const CtaButton = styled(motion.a)`
 
   &:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 
     &::before {
       opacity: 1;
     }
+  }
+
+  @media (max-width: 768px) {
+    padding: 0.7rem 1.8rem;
+    font-size: 0.95rem;
   }
 `;
 
