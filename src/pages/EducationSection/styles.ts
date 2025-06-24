@@ -2,115 +2,212 @@ import styled from 'styled-components'
 import { motion } from 'framer-motion'
 
 export const EducationContainer = styled(motion.section)`
-  padding: 8rem 2rem;
-  background: ${({ theme }) => theme.colors.background || '#f9f9f9'};
+  padding: 6rem 1.5rem;
+  background: ${({ theme }) => theme.colors.backgroundAlt || '#f8fafc'};
   position: relative;
-  overflow: hidden;
+  max-width: 1400px;
+  margin: 0 auto;
+
+  @media (max-width: 768px) {
+    padding: 4rem 1rem;
+  }
 `
 
 export const SectionTitle = styled(motion.h2)`
   text-align: center;
   font-size: 2.5rem;
   color: ${({ theme }) => theme.colors.primary};
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
   position: relative;
-  transform: translateX(-50%);
+  font-weight: 700;
+  display: inline-block;
+  width: 100%;
 
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background: ${({ theme }) => theme.colors.primary};
-    transform: scaleX(0);
-    transform-origin: right;
-    transition: transform 0.5s ease;
+  @media (max-width: 768px) {
+    font-size: 2rem;
+    margin-bottom: 3rem;
   }
+`
 
-  &:hover::after {
-    transform: scaleX(1);
-    transform-origin: left;
-  }
+export const TitleDecoration = styled.span`
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: ${({ theme }) => theme.colors.accent};
+  margin: 0.8rem auto 0;
+  border-radius: 2px;
 `
 
 export const EducationGrid = styled(motion.div)`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 2.5rem;
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 0 auto;
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
 `
 
 export const EducationCard = styled(motion.div)`
-  background: ${({ theme }) => theme.colors.background || '#FFFFFF'};
+  background: ${({ theme }) => theme.colors.cardBackground || '#fff'};
   padding: 2rem;
-  border-radius: 0.8rem;
-  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  border-left: 4px solid ${({ theme }) => theme.colors.primary};
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border: 1px solid ${({ theme }) => theme.colors.border};
   position: relative;
   overflow: hidden;
 
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(0,0,0,0.03) 0%, rgba(0,0,0,0) 100%);
-    z-index: 0;
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
   }
 
-  &:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  @media (max-width: 768px) {
+    padding: 1.5rem;
   }
 `
 
-export const EducationYear = styled(motion.span)`
-  display: inline-block;
+export const EducationHeader = styled.div`
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  align-items: center;
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+    gap: 1rem;
+  }
+`
+
+export const EducationLogo = styled.div`
+  font-size: 1.8rem;
+  color: ${({ theme }) => theme.colors.primary};
+  padding: 1.2rem;
+  background: ${({ theme }) => theme.colors.primary}15;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 60px;
+  min-height: 60px;
+
+  @media (max-width: 768px) {
+    
+  }
+
+  @media (max-width: 480px) {
+    padding: 1rem;
+    min-width: 50px;
+    min-height: 50px;
+  }
+`
+
+export const EducationYear = styled.span`
+  display: block;
   font-weight: 600;
   color: ${({ theme }) => theme.colors.primary};
-  margin-bottom: 0.8rem;
-  padding: 0.3rem 0.8rem;
-  background: rgba(0,0,0,0.03);
-  border-radius: 20px;
+  margin-bottom: 0.5rem;
   font-size: 0.9rem;
 `
 
-export const EducationDegree = styled(motion.h3)`
-  font-size: 1.4rem;
-  margin-bottom: 0.7rem;
+export const EducationDegree = styled.h3`
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
   color: ${({ theme }) => theme.colors.text};
-  position: relative;
-  z-index: 1;
-`
+  font-weight: 700;
+  line-height: 1.3;
 
-export const EducationInstitution = styled(motion.h4)`
-  font-size: 1.1rem;
-  margin-bottom: 1.2rem;
-  color: ${({ theme }) => theme.colors.textSecondary};
-  font-weight: 500;
-  position: relative;
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-
-  &::before {
-    content: '▹';
-    color: ${({ theme }) => theme.colors.primary};
-    font-size: 1.2rem;
+  @media (max-width: 768px) {
+    font-size: 1.3rem;
   }
 `
 
-export const EducationDescription = styled(motion.p)`
-  line-height: 1.7;
+export const EducationInstitution = styled.h4`
+  font-size: 1.1rem;
+  color: ${({ theme }) => theme.colors.textSecondary};
+  font-weight: 500;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
+`
+
+export const HighlightsTitle = styled.h5`
+  font-size: 1.1rem;
+  color: ${({ theme }) => theme.colors.primary};
+  margin: 1.5rem 0 1rem;
+  font-weight: 600;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
+`
+
+export const EducationHighlights = styled.ul`
+  margin-bottom: 2rem;
+  padding-left: 1rem;
+`
+
+export const HighlightItem = styled.li`
   color: ${({ theme }) => theme.colors.text};
-  opacity: 0.9;
+  margin-bottom: 0.8rem;
   position: relative;
-  z-index: 1;
+  line-height: 1.6;
+  font-size: 0.95rem;
+
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+  }
+`
+
+export const SkillsTitle = styled(HighlightsTitle)`
+  margin-top: 2rem;
+`
+
+export const SkillsGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 0.8rem;
+  margin-top: 1rem;
+
+  @media (max-width: 480px) {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  }
+`
+
+export const SkillTag = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 0.8rem;
+  background: ${({ theme }) => theme.colors.primary}10;
+  color: ${({ theme }) => theme.colors.primary};
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border: 1px solid ${({ theme }) => theme.colors.primary}20;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: ${({ theme }) => theme.colors.primary}15;
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 768px) {
+    padding: 0.5rem 0.7rem;
+    font-size: 0.8rem;
+  }
+`
+
+export const TechIcon = styled.span`
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+  }
 `

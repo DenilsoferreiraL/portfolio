@@ -1,6 +1,9 @@
 'use client'
 
+import React from 'react'
 import * as S from './styles'
+import { FaReact, FaNodeJs, FaDatabase, FaServer, FaCode, FaMobileAlt } from 'react-icons/fa'
+import { SiTypescript, SiNextdotjs, SiPostgresql, SiDocker } from 'react-icons/si'
 
 const containerVariants = {
     hidden: { opacity: 0 },
@@ -37,12 +40,27 @@ const titleVariants = {
     }
 }
 
+const techIcons: Record<string, JSX.Element> = {
+    'React': <FaReact />,
+    'Node.js': <FaNodeJs />,
+    'TypeScript': <SiTypescript />,
+    'Next.js': <SiNextdotjs />,
+    'PostgreSQL': <SiPostgresql />,
+    'Docker': <SiDocker />,
+    'Backend': <FaServer />,
+    'Frontend': <FaCode />,
+    'Mobile': <FaMobileAlt />,
+    'Banco de Dados': <FaDatabase />
+}
+
 export interface Education {
     id: number | string
     degree: string
     institution: string
     year: string
-    description: string
+    highlights: string[]
+    skills: string[]
+    imageURL: string
 }
 
 interface EducationSectionProps {
@@ -52,24 +70,33 @@ interface EducationSectionProps {
 const educationData: Education[] = [
     {
         id: 1,
-        degree: "Bacharel em Ciência da Computação",
-        institution: "Universidade Federal de São Paulo (UNIFESP)",
-        year: "2020 - 2024",
-        description:
-            "Cursando o Bacharelado em Ciência da Computação, com foco em desenvolvimento de software e inteligência artificial."
-    },
-    {
-        id: 2,
-        degree: "Técnico em Informática",
-        institution: "Escola Técnica Estadual (ETEC) de São Paulo",
-        year: "2018 - 2020",
-        description:
-            "Concluído o curso técnico em informática, com ênfase em desenvolvimento web e programação."
+        imageURL: "https://media.licdn.com/dms/image/v2/D4D0BAQGs0Jd8tULJZw/company-logo_200_200/company-logo_200_200/0/1659810942474/dev_club_devs_logo?e=1756339200&v=beta&t=Og_tcOCebxmIIzH45XDqh8eW1DDI02Lql8fEu6KglFY",
+        degree: "Desenvolvimento Full Stack",
+        institution: "Dev Club - Curso Superior de Tecnologia (CST)",
+        year: "Set 2022 - Set 2024",
+        highlights: [
+            "Aprendizado prático com foco nas demandas reais do mercado",
+            "Colaboração diária em grupo para resolução de problemas complexos",
+            "Desenvolvimento de projetos completos com metodologias ágeis",
+            "Ênfase em usabilidade e acessibilidade nos projetos"
+        ],
+        skills: [
+            "React",
+            "Node.js",
+            "TypeScript",
+            "Next.js",
+            "PostgreSQL",
+            "Docker",
+            "Backend",
+            "Frontend",
+            "Mobile",
+            "Banco de Dados"
+        ]
     }
 ]
 
 export function EducationSection({
-    title = "Qualificação"
+    title = "Formação Profissional"
 }: EducationSectionProps) {
     return (
         <S.EducationContainer
@@ -79,7 +106,10 @@ export function EducationSection({
             viewport={{ once: true, margin: "-100px" }}
             variants={containerVariants}
         >
-            <S.SectionTitle variants={titleVariants}>{title}</S.SectionTitle>
+            <S.SectionTitle variants={titleVariants}>
+                {title}
+                <S.TitleDecoration />
+            </S.SectionTitle>
 
             <S.EducationGrid>
                 {educationData.map((edu, index) => (
@@ -89,18 +119,43 @@ export function EducationSection({
                         whileHover={{ y: -5 }}
                         custom={index}
                     >
-                        <S.EducationYear variants={itemVariants}>
-                            {edu.year}
-                        </S.EducationYear>
-                        <S.EducationDegree variants={itemVariants}>
-                            {edu.degree}
-                        </S.EducationDegree>
-                        <S.EducationInstitution variants={itemVariants}>
-                            {edu.institution}
-                        </S.EducationInstitution>
-                        <S.EducationDescription variants={itemVariants}>
-                            {edu.description}
-                        </S.EducationDescription>
+                        <S.EducationHeader>
+                            <S.EducationLogo>
+                                <img src={edu.imageURL} alt={edu.institution} width={130} height={130} />
+                            </S.EducationLogo>
+                            <div>
+                                <S.EducationYear>
+                                    {edu.year}
+                                </S.EducationYear>
+                                <S.EducationDegree>
+                                    {edu.degree}
+                                </S.EducationDegree>
+                                <S.EducationInstitution>
+                                    {edu.institution}
+                                </S.EducationInstitution>
+                            </div>
+                        </S.EducationHeader>
+
+                        <S.HighlightsTitle>Principais Características:</S.HighlightsTitle>
+                        <S.EducationHighlights>
+                            {edu.highlights.map((highlight, i) => (
+                                <S.HighlightItem key={i}>
+                                    {highlight}
+                                </S.HighlightItem>
+                            ))}
+                        </S.EducationHighlights>
+
+                        <S.SkillsTitle>Tecnologias Dominadas:</S.SkillsTitle>
+                        <S.SkillsGrid>
+                            {edu.skills.map((skill, i) => (
+                                <S.SkillTag key={i}>
+                                    <S.TechIcon>
+                                        {techIcons[skill] || <FaCode />}
+                                    </S.TechIcon>
+                                    {skill}
+                                </S.SkillTag>
+                            ))}
+                        </S.SkillsGrid>
                     </S.EducationCard>
                 ))}
             </S.EducationGrid>
