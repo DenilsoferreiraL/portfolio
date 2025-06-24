@@ -1,6 +1,8 @@
 'use client'
 
 import * as S from './styles';
+import showroom from '../../../public/assets/showroom.png';
+import type { StaticImageData } from 'next/image';
 
 const containerVariants = {
     hidden: { opacity: 0 },
@@ -34,7 +36,7 @@ interface Project {
     id: number;
     title: string;
     description: string;
-    imageUrl: string;
+    image: StaticImageData | string;
     date: string;
 }
 
@@ -47,21 +49,21 @@ const projectsData: Project[] = [
         id: 1,
         title: "Project 1",
         description: "Description of project 1",
-        imageUrl: "https://i.pinimg.com/236x/0a/b1/fa/0ab1faaa71504156bd0361b5ad3f3534.jpg",
+        image: showroom,
         date: "2023-01-01"
     },
     {
         id: 2,
         title: "Project 2",
         description: "Description of project 2",
-        imageUrl: "https://i.pinimg.com/236x/0a/b1/fa/0ab1faaa71504156bd0361b5ad3f3534.jpg",
+        image: showroom,
         date: "2023-02-01"
     },
     {
         id: 3,
         title: "Project 3",
         description: "Description of project 3",
-        imageUrl: "https://i.pinimg.com/236x/0a/b1/fa/0ab1faaa71504156bd0361b5ad3f3534.jpg",
+        image: showroom,
         date: "2023-03-01"
     }
 ]
@@ -86,7 +88,7 @@ export function ProjectsSection({ title = "Autoria" }: ProjectsSectionProps) {
                         transition={{ duration: 0.3 }}
                     >
                         <S.ProjectImage
-                            src={project.imageUrl}
+                            src={typeof project.image === "string" ? project.image : project.image.src}
                             alt={project.title}
                             width={300}
                             height={200}

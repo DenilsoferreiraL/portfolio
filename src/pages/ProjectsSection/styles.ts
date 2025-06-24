@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 export const Container = styled(motion.section)`
   max-width: 1200px;
   margin: 0 auto;
-  padding: 8rem 2rem;
+  padding: 2rem;
 `;
 
 export const Title = styled(motion.h2)`
@@ -17,12 +17,13 @@ export const Title = styled(motion.h2)`
 
 export const ProjectsGrid = styled(motion.div)`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(18.75rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(25rem, 2fr));
   gap: 1.875rem;
-  padding: 1.25rem;
+  padding: 0.75rem;
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
+    padding: 0.5rem;
   }
 `;
 
@@ -32,11 +33,12 @@ export const ProjectCard = styled(motion.div)`
   overflow: hidden;
   box-shadow: 0 0.3125rem 0.9375rem rgba(0, 0, 0, 0.1);
   position: relative;
+  cursor: pointer;
 `;
 
 export const ProjectImage = styled(motion.img)`
   width: 100%;
-  height: 18rem;
+  height: 20rem;
   object-fit: cover;
   border-bottom: 0.0625rem solid ${({ theme }) => theme.colors.border};
 `;
