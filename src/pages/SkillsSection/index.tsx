@@ -59,12 +59,11 @@ interface SkillsSectionProps {
 }
 
 const skills = [
-    { name: 'JavaScript', years: 5 },
-    { name: 'TypeScript', years: 4 },
-    { name: 'React', years: 4 },
-    { name: 'Node.js', years: 3 },
+    { name: 'TypeScript', years: 3 },
+    { name: 'React', years: 3 },
+    { name: 'Node.js', years: 2 },
     { name: 'Next.js', years: 2 },
-    { name: 'UI/UX Design', projects: 10 }
+    { name: 'UI/UX Design', projects: 2 }
 ]
 
 export function SkillsSection({
