@@ -1,9 +1,11 @@
 'use client'
 
 import * as S from './styles';
-import showroom from '../../../public/assets/showroom.png';
+import driveshow from '../../../public/assets/driveshow.png';
 import type { StaticImageData } from 'next/image';
 import Link from 'next/link';
+import { FiExternalLink, FiGithub } from 'react-icons/fi';
+import { motion } from 'framer-motion';
 
 const containerVariants = {
     hidden: { opacity: 0 },
@@ -37,9 +39,13 @@ interface Project {
     id: number;
     title: string;
     description: string;
+    detailedDescription: string;
     image: StaticImageData | string;
     date: string;
     url: string;
+    githubUrl?: string;
+    technologies: string[];
+    features: string[];
 }
 
 interface ProjectsSectionProps {
@@ -50,11 +56,55 @@ const projectsData: Project[] = [
     {
         id: 1,
         title: "DriveShow",
-        description: "Description of project 1",
-        image: showroom,
+        description: "Plataforma de exibição de veículos premium",
+        detailedDescription: "Um showroom virtual completo com visualização 360° dos veículos, configuração personalizada e realidade aumentada.",
+        image: driveshow,
         date: "Maio 2025",
-        url: "https://driveshow.vercel.app/"
+        url: "https://driveshow.vercel.app/",
+        githubUrl: "https://github.com/seu-usuario/driveshow",
+        technologies: ["Next.js", "Three.js", "Tailwind CSS", "Framer Motion"],
+        features: [
+            "Visualização 360° dos veículos",
+            "Configurador de modelos",
+            "Realidade aumentada",
+            "Sistema de agendamento de test-drive"
+        ]
     },
+    {
+        id: 2,
+        title: "DriveShow",
+        description: "Plataforma de exibição de veículos premium",
+        detailedDescription: "Um showroom virtual completo com visualização 360° dos veículos, configuração personalizada e realidade aumentada.",
+        image: driveshow,
+        date: "Maio 2025",
+        url: "https://driveshow.vercel.app/",
+        githubUrl: "https://github.com/seu-usuario/driveshow",
+        technologies: ["Next.js", "Three.js", "Tailwind CSS", "Framer Motion"],
+        features: [
+            "Visualização 360° dos veículos",
+            "Configurador de modelos",
+            "Realidade aumentada",
+            "Sistema de agendamento de test-drive"
+        ]
+    },
+    {
+        id: 3,
+        title: "DriveShow",
+        description: "Plataforma de exibição de veículos premium",
+        detailedDescription: "Um showroom virtual completo com visualização 360° dos veículos, configuração personalizada e realidade aumentada.",
+        image: driveshow,
+        date: "Maio 2025",
+        url: "https://driveshow.vercel.app/",
+        githubUrl: "https://github.com/seu-usuario/driveshow",
+        technologies: ["Next.js", "Three.js", "Tailwind CSS", "Framer Motion"],
+        features: [
+            "Visualização 360° dos veículos",
+            "Configurador de modelos",
+            "Realidade aumentada",
+            "Sistema de agendamento de test-drive"
+        ]
+    },
+
 ]
 
 export function ProjectsSection({ title = "Autoria" }: ProjectsSectionProps) {
@@ -67,46 +117,68 @@ export function ProjectsSection({ title = "Autoria" }: ProjectsSectionProps) {
             variants={containerVariants}
         >
             <S.Title variants={itemVariants}>{title}</S.Title>
+            <S.Subtitle variants={itemVariants}>Projetos selecionados com dedicação e expertise</S.Subtitle>
 
             <S.ProjectsGrid>
                 {projectsData.map((project) => (
-                    <S.ProjectCard
-                        key={project.id}
-                        variants={itemVariants}
-                        whileHover={cardHover}
-                        transition={{ duration: 0.3 }}
-                    >
-                        <S.ProjectImage
-                            src={typeof project.image === "string" ? project.image : project.image.src}
-                            alt={project.title}
-                            width={300}
-                            height={200}
-                            whileHover={{ scale: 1.03 }}
+                    <S.ProjectCardWrapper key={project.id}>
+                        <S.ProjectCard
+                            variants={itemVariants}
+                            whileHover={cardHover}
                             transition={{ duration: 0.3 }}
-                        />
+                        >
+                            <S.ProjectImageContainer>
+                                <S.ProjectImage
+                                    src={typeof project.image === "string" ? project.image : project.image.src}
+                                    alt={project.title}
+                                    width={400}
+                                    height={250}
+                                />
+                                <S.ProjectOverlay>
+                                    <S.ProjectFeatures>
+                                        {project.features.slice(0, 3).map((feature, index) => (
+                                            <S.FeatureItem key={index}>
+                                                <S.FeatureDot />
+                                                {feature}
+                                            </S.FeatureItem>
+                                        ))}
+                                    </S.ProjectFeatures>
+                                </S.ProjectOverlay>
+                            </S.ProjectImageContainer>
 
-                        <S.ProjectContent>
-                            <S.ProjectTitle>{project.title}</S.ProjectTitle>
-                            <S.ProjectDescription>{project.description}</S.ProjectDescription>
-                            <S.ButtonContainer>
-                                <S.ProjectDate
-                                    whileHover={{ scale: 1.05 }}
-                                    transition={{ type: "spring", stiffness: 400 }}
-                                >
-                                    {project.date}
-                                </S.ProjectDate>
-                                {/* Botão para acessar o site */}
+                            <S.ProjectContent>
+                                <S.ProjectHeader>
+                                    <S.ProjectTitle>{project.title}</S.ProjectTitle>
+                                    <S.ProjectDate>{project.date}</S.ProjectDate>
+                                </S.ProjectHeader>
 
-                                <Link href={project.url} target="_blank" rel="noopener noreferrer">
-                                    <S.VisitButton title={`Acessar ${project.title}`} aria-label={`Acessar ${project.title}`}>
-                                        Acessar
-                                    </S.VisitButton>
-                                </Link>
-                            </S.ButtonContainer>
+                                <S.ProjectDescription>{project.description}</S.ProjectDescription>
 
+                                <S.TechnologiesList>
+                                    {project.technologies.map((tech, index) => (
+                                        <S.TechnologyTag key={index}>{tech}</S.TechnologyTag>
+                                    ))}
+                                </S.TechnologiesList>
 
-                        </S.ProjectContent>
-                    </S.ProjectCard>
+                                <S.ProjectActions>
+                                    <Link href={project.url} target="_blank" rel="noopener noreferrer">
+                                        <S.VisitButton>
+                                            <FiExternalLink size={18} />
+                                            Visitar
+                                        </S.VisitButton>
+                                    </Link>
+                                    {project.githubUrl && (
+                                        <Link href={project.githubUrl} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
+                                            <S.GithubButton>
+                                                <FiGithub size={18} />
+                                                Código
+                                            </S.GithubButton>
+                                        </Link>
+                                    )}
+                                </S.ProjectActions>
+                            </S.ProjectContent>
+                        </S.ProjectCard>
+                    </S.ProjectCardWrapper>
                 ))}
             </S.ProjectsGrid>
         </S.Container>
