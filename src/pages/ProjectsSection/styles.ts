@@ -38,7 +38,7 @@ export const ProjectCard = styled(motion.div)`
 
 export const ProjectImage = styled(motion.img)`
   width: 100%;
-  height: 20rem;
+  height: 15rem;
   object-fit: cover;
   border-bottom: 0.0625rem solid ${({ theme }) => theme.colors.border};
 `;
@@ -60,11 +60,33 @@ export const ProjectDescription = styled(motion.p)`
 `;
 
 export const ProjectDate = styled(motion.span)`
-  display: inline-block;
   background: ${({ theme }) => theme.colors.primary};
   color: white;
-  padding: 0.3125rem 0.625rem;
+  padding: 8px 16px;
   border-radius: 1.25rem;
   font-size: 0.8rem;
   font-weight: bold;
+`;
+
+export const ButtonContainer = styled.div`
+    display: flex;
+    justify-content: space-between;
+    margin-top: auto;
+`;
+
+export const VisitButton = styled.button`
+    align-items: center;
+    background-color:rgb(0, 0, 0);
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 1.25rem;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: bold;
+    transition: background-color 0.3s;
+
+    &:hover {
+        background-color:rgb(98, 98, 98);
+    }
 `;

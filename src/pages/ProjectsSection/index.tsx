@@ -3,6 +3,7 @@
 import * as S from './styles';
 import showroom from '../../../public/assets/showroom.png';
 import type { StaticImageData } from 'next/image';
+import Link from 'next/link';
 
 const containerVariants = {
     hidden: { opacity: 0 },
@@ -38,6 +39,7 @@ interface Project {
     description: string;
     image: StaticImageData | string;
     date: string;
+    url: string;
 }
 
 interface ProjectsSectionProps {
@@ -47,25 +49,12 @@ interface ProjectsSectionProps {
 const projectsData: Project[] = [
     {
         id: 1,
-        title: "Project 1",
+        title: "DriveShow",
         description: "Description of project 1",
         image: showroom,
-        date: "2023-01-01"
+        date: "Maio 2025",
+        url: "https://driveshow.vercel.app/"
     },
-    {
-        id: 2,
-        title: "Project 2",
-        description: "Description of project 2",
-        image: showroom,
-        date: "2023-02-01"
-    },
-    {
-        id: 3,
-        title: "Project 3",
-        description: "Description of project 3",
-        image: showroom,
-        date: "2023-03-01"
-    }
 ]
 
 export function ProjectsSection({ title = "Autoria" }: ProjectsSectionProps) {
@@ -99,12 +88,23 @@ export function ProjectsSection({ title = "Autoria" }: ProjectsSectionProps) {
                         <S.ProjectContent>
                             <S.ProjectTitle>{project.title}</S.ProjectTitle>
                             <S.ProjectDescription>{project.description}</S.ProjectDescription>
-                            <S.ProjectDate
-                                whileHover={{ scale: 1.05 }}
-                                transition={{ type: "spring", stiffness: 400 }}
-                            >
-                                {project.date}
-                            </S.ProjectDate>
+                            <S.ButtonContainer>
+                                <S.ProjectDate
+                                    whileHover={{ scale: 1.05 }}
+                                    transition={{ type: "spring", stiffness: 400 }}
+                                >
+                                    {project.date}
+                                </S.ProjectDate>
+                                {/* Botão para acessar o site */}
+
+                                <Link href={project.url} target="_blank" rel="noopener noreferrer">
+                                    <S.VisitButton title={`Acessar ${project.title}`} aria-label={`Acessar ${project.title}`}>
+                                        Acessar
+                                    </S.VisitButton>
+                                </Link>
+                            </S.ButtonContainer>
+
+
                         </S.ProjectContent>
                     </S.ProjectCard>
                 ))}
