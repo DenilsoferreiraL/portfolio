@@ -7,31 +7,34 @@ width: 100%;
 flex-direction: column;
 justify-content: center;
 align-items: center;
-padding: 8rem 2rem;
 min-height: 60vh;
 `;
 export const ContentSkills = styled(motion.section)`
     display: flex;
-    width: 50%;
+    width: 100%;
+    height: 100%;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 8rem 2rem;
-    background-color: ${({ theme }) => theme.colors.secondary};
-    border-radius: 50px;
+    padding: 22rem 2rem;
+background: linear-gradient(
+    135deg,
+    ${({ theme }) => theme.colors.primary},
+    ${({ theme }) => theme.colors.secondary}
+  );
     box-shadow: -1px 7px 28px 0px rgba(115,115,115,0.34);
     -webkit-box-shadow: 5px 12px 32px 3px rgba(115,115,115,0.34);
 
     @media (max-width: 768px){
         width: 100%;
-        padding: 4rem 2rem;
+        padding: 12rem 1rem;
     }
 `;
 
 export const SectionTitle = styled(motion.h2)`
   text-align: center;
   font-size: 2.5rem;
-  color: ${({ theme }) => theme.colors.primary};
+  color: ${({ theme }) => theme.colors.textLight};
   margin-bottom: 4rem;
   position: relative;
 
