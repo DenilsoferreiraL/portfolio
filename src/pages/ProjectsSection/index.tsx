@@ -5,7 +5,6 @@ import driveshow from '../../../public/assets/driveshow.png';
 import type { StaticImageData } from 'next/image';
 import Link from 'next/link';
 import { FiExternalLink, FiGithub } from 'react-icons/fi';
-import { motion } from 'framer-motion';
 
 const containerVariants = {
     hidden: { opacity: 0 },
@@ -122,7 +121,7 @@ export function ProjectsSection({ title = "Autoria" }: ProjectsSectionProps) {
             <S.ProjectsGrid>
                 {projectsData.map((project) => (
                     <S.ProjectCardWrapper key={project.id}>
-                        <S.ProjectCard
+                        <S.ProjectCard jectCard
                             variants={itemVariants}
                             whileHover={cardHover}
                             transition={{ duration: 0.3 }}

@@ -7,8 +7,8 @@ export const Container = styled(motion.section)`
   padding: 4rem 2rem;
   background: ${({ theme }) => theme.colors.background};
 
-  @media (max-width: 768px) {
-    padding: 0;
+   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    padding: 1rem;
   }
 `;
 
