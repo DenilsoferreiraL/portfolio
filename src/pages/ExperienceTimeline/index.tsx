@@ -1,6 +1,8 @@
 'use client'
 
 import * as S from './styles'
+import { motion } from 'framer-motion'
+import { FaCode, FaServer, FaDatabase, FaRocket, FaChartLine } from 'react-icons/fa'
 
 // Animations
 const containerVariants = {
@@ -40,9 +42,9 @@ const dotVariants = {
 
 const contentVariants = {
     hover: {
-        y: -1,
-        boxShadow: "0 8px 30px rgba(0,0,0,0.12)",
-        transition: { duration: 0.1, ease: "easeOut" }
+        y: -5,
+        boxShadow: "0 15px 40px rgba(0,0,0,0.15)",
+        transition: { duration: 0.2, ease: "easeOut" }
     }
 }
 
@@ -51,8 +53,10 @@ export interface Experience {
     role: string
     company: string
     period: string
-    description: string
+    description: string[]
+    achievements?: string[]
     skills?: string[]
+    icon: JSX.Element
 }
 
 interface ExperienceTimeLineProps {
@@ -62,44 +66,74 @@ interface ExperienceTimeLineProps {
 const experiences: Experience[] = [
     {
         id: 1,
-        role: "Desenvolvedor Frontend",
-        company: "Empresa A",
-        period: "Jan 2022 - Presente",
-        description: "Desenvolvimento de aplicações web utilizando React e Next.js.",
-        skills: ["JavaScript", "React", "Next.js"]
+        role: "Desenvolvedor Front-end Freelancer (Pleno)",
+        company: "Trabalho Autônomo",
+        period: "Jul 2023 - Presente · 2 anos",
+        description: [
+            "Desenvolvimento de aplicações web completas para clientes de diversos setores, desde institucionais até produtos digitais complexos",
+            "Atuação full-stack com foco especial em otimização de performance e experiência do usuário"
+        ],
+        achievements: [
+            "Redução de 40% no tempo de carregamento em projetos legados através de code splitting e caching estratégico",
+            "Implementação de arquitetura escalável que permitiu crescimento de 300% na base de usuários sem perda de performance",
+            "Integração perfeita entre front-end e back-end em 100% dos projetos entregues"
+        ],
+        skills: [
+            "React.js",
+            "Next.js",
+            "TypeScript",
+            "Node.js",
+            "PostgreSQL",
+            "Docker",
+            "Figma",
+            "AWS",
+            "Vercel",
+            "CI/CD"
+        ],
+        icon: <FaCode />
     },
     {
         id: 2,
-        role: "Desenvolvedor Backend",
-        company: "Empresa B",
-        period: "Jan 2021 - Dez 2021",
-        description: "Desenvolvimento de APIs RESTful utilizando Node.js e Express.",
-        skills: ["Node.js", "Express"]
-    },
-    {
-        id: 3,
-        role: "UI/UX Designer",
-        company: "Empresa C",
-        period: "Jan 2020 - Dez 2020",
-        description: "Criação de protótipos e wireframes utilizando Figma.",
-        skills: ["UI/UX Design", "Figma"]
+        role: "Desenvolvedor Full-stack",
+        company: "Projetos Pessoais",
+        period: "2021 - 2023 · 2 anos",
+        description: [
+            "Desenvolvimento de projetos completos para aprimoramento técnico e construção de portfólio",
+            "Exploração de tecnologias modernas e melhores práticas de desenvolvimento"
+        ],
+        achievements: [
+            "Domínio avançado de TypeScript em projetos complexos",
+            "Implementação bem-sucedida de SSR/SSG com Next.js",
+            "Modelagem eficiente de bancos de dados relacionais e não-relacionais"
+        ],
+        skills: [
+            "JavaScript",
+            "TypeScript",
+            "React",
+            "Next.js",
+            "Node.js",
+            "Express",
+            "MongoDB",
+            "PostgreSQL",
+            "REST API",
+            "GraphQL"
+        ],
+        icon: <FaServer />
     }
 ]
 
 export function ExperienceTimeline({
-    title = "Cronologia"
+    title = "Jornada Profissional"
 }: ExperienceTimeLineProps) {
     return (
         <S.TimelineContainer
-            id='cronologia'
+            id='experiencia'
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={containerVariants}
         >
-            <S.SectionTitle
-                variants={itemVariants}
-            >
+            <S.SectionTitle variants={itemVariants}>
                 {title}
             </S.SectionTitle>
 
@@ -111,7 +145,11 @@ export function ExperienceTimeline({
                         variants={itemVariants}
                         custom={index}
                     >
-                        <S.TimelineDot variants={dotVariants} />
+                        <S.TimelineDot variants={dotVariants}>
+                            <S.IconWrapper>
+                                {exp.icon}
+                            </S.IconWrapper>
+                        </S.TimelineDot>
 
                         <S.TimelineContent
                             whileHover="hover"
@@ -130,23 +168,47 @@ export function ExperienceTimeline({
                             </S.TimelineCompany>
 
                             <S.TimelineDescription>
-                                {exp.description}
+                                {exp.description.map((desc, i) => (
+                                    <S.DescriptionItem key={i}>
+                                        <S.BulletPoint />
+                                        {desc}
+                                    </S.DescriptionItem>
+                                ))}
                             </S.TimelineDescription>
+
+                            {exp.achievements && (
+                                <S.AchievementsContainer>
+                                    <S.AchievementsTitle>
+                                        <FaRocket /> Conquistas
+                                    </S.AchievementsTitle>
+                                    {exp.achievements.map((achievement, i) => (
+                                        <S.AchievementItem key={i}>
+                                            <S.AchievementIcon />
+                                            {achievement}
+                                        </S.AchievementItem>
+                                    ))}
+                                </S.AchievementsContainer>
+                            )}
 
                             {exp.skills && (
                                 <S.TimelineSkills>
-                                    {exp.skills.map(skill => (
-                                        <S.SkillTag
-                                            key={skill}
-                                            whileHover={{
-                                                scale: 1.05,
-                                                backgroundColor: 'rgba(0,0,0,0.05)'
-                                            }}
-                                            transition={{ type: "spring", stiffness: 400 }}
-                                        >
-                                            {skill}
-                                        </S.SkillTag>
-                                    ))}
+                                    <S.SkillsTitle>
+                                        <FaChartLine /> Tecnologias
+                                    </S.SkillsTitle>
+                                    <S.SkillsGrid>
+                                        {exp.skills.map(skill => (
+                                            <S.SkillTag
+                                                key={skill}
+                                                whileHover={{
+                                                    scale: 1.05,
+                                                    backgroundColor: 'rgba(0,0,0,0.05)'
+                                                }}
+                                                transition={{ type: "spring", stiffness: 400 }}
+                                            >
+                                                {skill}
+                                            </S.SkillTag>
+                                        ))}
+                                    </S.SkillsGrid>
                                 </S.TimelineSkills>
                             )}
                         </S.TimelineContent>
