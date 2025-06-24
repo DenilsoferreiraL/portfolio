@@ -5,7 +5,7 @@ export const TimelineContainer = styled(motion.section)`
   background: ${({ theme }) => theme.colors.background};
   position: relative;
   max-width: 1400px;
-  margin: 0 auto;
+  margin: 100px auto;
 `
 
 export const SectionTitle = styled(motion.h2)`

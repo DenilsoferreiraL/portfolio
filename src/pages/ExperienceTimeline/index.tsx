@@ -1,8 +1,7 @@
 'use client'
 
 import * as S from './styles'
-import { motion } from 'framer-motion'
-import { FaCode, FaServer, FaDatabase, FaRocket, FaChartLine } from 'react-icons/fa'
+import { FaCode, FaServer, FaRocket, FaChartLine } from 'react-icons/fa'
 
 // Animations
 const containerVariants = {
@@ -127,7 +126,7 @@ export function ExperienceTimeline({
 }: ExperienceTimeLineProps) {
     return (
         <S.TimelineContainer
-            id='experiencia'
+            id='jornada'
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
