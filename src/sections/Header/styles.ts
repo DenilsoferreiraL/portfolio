@@ -136,6 +136,16 @@ export const MobileMenuOverlay = styled(motion.div)`
   z-index: 9998;
   display: flex;
 `
+export const MobileMenuBelowHeader = styled(motion.div)`
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: ${({ theme }) => theme.colors.background};
+  z-index: 9998;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+`
 
 export const MobileMenuContainer = styled(motion.div)`
   flex: 2;
@@ -164,8 +174,8 @@ export const CloseButton = styled(motion.button)`
 
 export const MobileNavList = styled.ul`
   list-style: none;
-  margin-top: 3rem;
   display: flex;
+  align-items: center;
   flex-direction: column;
   gap: 1.5rem;
   padding: 0;
