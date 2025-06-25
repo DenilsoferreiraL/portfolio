@@ -1,20 +1,11 @@
 'use client'
 
-import { JSX, useState, useMemo } from 'react'
+import { JSX, useState, useEffect } from 'react'
 import * as S from './styles'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
-    SiJavascript,
-    SiTypescript,
-    SiReact,
-    SiNodedotjs,
-    SiNextdotjs,
-    SiFigma,
-    SiGit,
-    SiTailwindcss,
-    SiStyledcomponents,
-    SiGraphql,
-    SiMongodb
+    SiJavascript, SiTypescript, SiReact, SiNodedotjs, SiNextdotjs, SiFigma,
+    SiGit, SiTailwindcss, SiStyledcomponents, SiGraphql, SiMongodb
 } from 'react-icons/si'
 import { FaServer, FaDatabase, FaMobile } from 'react-icons/fa'
 
@@ -36,7 +27,7 @@ const itemVariants = {
         y: 0,
         opacity: 1,
         transition: {
-            type: "spring",
+            type: 'spring',
             stiffness: 100,
             damping: 15
         }
@@ -46,7 +37,7 @@ const itemVariants = {
 const hoverVariants = {
     hover: {
         y: -5,
-        boxShadow: "0 8px 25px rgba(0,0,0,0.12)",
+        boxShadow: '0 8px 25px rgba(0,0,0,0.12)',
         transition: { duration: 0.3 }
     }
 }
@@ -58,22 +49,22 @@ const bubbleVariants = {
         transition: {
             delay,
             duration: 2,
-            ease: "easeInOut"
+            ease: 'easeInOut'
         }
     }),
     float: {
-        x: ["0%", `${Math.random() * 30 - 15}%`],
-        y: ["0%", `${Math.random() * 30 - 15}%`],
+        x: ['0%', '10%'],
+        y: ['0%', '-10%'],
         transition: {
             duration: 40,
             repeat: Infinity,
-            repeatType: "reverse" as const,
-            ease: "linear"
+            repeatType: 'reverse' as const,
+            ease: 'linear'
         }
     }
 }
 
-// Mapeamento de ícones
+// Ícones
 const skillIcons: Record<string, JSX.Element> = {
     'JavaScript': <SiJavascript />,
     'TypeScript': <SiTypescript />,
@@ -151,38 +142,43 @@ const skills: Skill[] = [
         description: 'Design de interfaces focadas na experiência do usuário com prototipação no Figma.',
         projectsUsed: ['Redesign App Mobile', 'Dashboard Analytics'],
         level: 'Intermediário'
-    },
+    }
 ]
 
 export function SkillsSection({
-    title = "Minhas Habilidades"
+    title = 'Minhas Habilidades'
 }: SkillsSectionProps) {
     const [selectedSkill, setSelectedSkill] = useState<Skill | null>(null)
+    const [bubbles, setBubbles] = useState<
+        { id: number; size: number; x: number; y: number; opacity: number }[]
+    >([])
 
-    const bubbles = useMemo(() => {
-        return Array.from({ length: 15 }).map((_, i) => ({
+    useEffect(() => {
+        const generated = Array.from({ length: 15 }).map((_, i) => ({
             id: i,
             size: Math.random() * 200 + 80,
             x: Math.random() * 100,
             y: Math.random() * 100,
             opacity: Math.random() * 1 + 1
         }))
+        setBubbles(generated)
     }, [])
 
     return (
-        <S.ContainerSkills id='habilidade'
+        <S.ContainerSkills
+            id="habilidade"
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={containerVariants}>
-
+            viewport={{ once: true, margin: '-100px' }}
+            variants={containerVariants}
+        >
             <S.FloatingShapes>
                 {bubbles.map((bubble, i) => (
                     <motion.div
                         key={`bubble-${bubble.id}`}
                         custom={i * 0.2}
                         initial="hidden"
-                        animate={["visible", "float"]}
+                        animate={['visible', 'float']}
                         variants={bubbleVariants}
                         style={{
                             position: 'absolute',
@@ -192,6 +188,7 @@ export function SkillsSection({
                             height: `${bubble.size}px`,
                             left: `${bubble.x}%`,
                             top: `${bubble.y}%`,
+                            opacity: bubble.opacity,
                             filter: 'blur(1px)',
                             willChange: 'transform'
                         }}
@@ -230,12 +227,8 @@ export function SkillsSection({
                                             {skill.projects}+ projetos
                                         </S.SkillExperience>
                                     )}
-                                    <S.SkillLevel $level={skill.level}>
-                                        {skill.level}
-                                    </S.SkillLevel>
-                                    <S.ViewDetailsButton>
-                                        Ver detalhes
-                                    </S.ViewDetailsButton>
+                                    <S.SkillLevel $level={skill.level}>{skill.level}</S.SkillLevel>
+                                    <S.ViewDetailsButton>Ver detalhes</S.ViewDetailsButton>
                                 </S.SkillContent>
                             </S.SkillCard>
                         </motion.div>
@@ -277,7 +270,9 @@ export function SkillsSection({
                                         {selectedSkill.years && (
                                             <div>
                                                 <S.InfoLabel>Experiência</S.InfoLabel>
-                                                <S.InfoValue>{selectedSkill.years}+ {selectedSkill.years > 1 ? 'anos' : 'ano'}</S.InfoValue>
+                                                <S.InfoValue>
+                                                    {selectedSkill.years}+ {selectedSkill.years > 1 ? 'anos' : 'ano'}
+                                                </S.InfoValue>
                                             </div>
                                         )}
                                         {selectedSkill.projects && !selectedSkill.years && (
