@@ -60,42 +60,8 @@ const projectsData: Project[] = [
         image: driveshow,
         date: "Maio 2025",
         url: "https://driveshow.vercel.app/",
-        githubUrl: "https://github.com/seu-usuario/driveshow",
-        technologies: ["Next.js", "Three.js", "Tailwind CSS", "Framer Motion"],
-        features: [
-            "Visualização 360° dos veículos",
-            "Configurador de modelos",
-            "Realidade aumentada",
-            "Sistema de agendamento de test-drive"
-        ]
-    },
-    {
-        id: 2,
-        title: "DriveShow",
-        description: "Plataforma de exibição de veículos premium",
-        detailedDescription: "Um showroom virtual completo com visualização 360° dos veículos, configuração personalizada e realidade aumentada.",
-        image: driveshow,
-        date: "Maio 2025",
-        url: "https://driveshow.vercel.app/",
-        githubUrl: "https://github.com/seu-usuario/driveshow",
-        technologies: ["Next.js", "Three.js", "Tailwind CSS", "Framer Motion"],
-        features: [
-            "Visualização 360° dos veículos",
-            "Configurador de modelos",
-            "Realidade aumentada",
-            "Sistema de agendamento de test-drive"
-        ]
-    },
-    {
-        id: 3,
-        title: "DriveShow",
-        description: "Plataforma de exibição de veículos premium",
-        detailedDescription: "Um showroom virtual completo com visualização 360° dos veículos, configuração personalizada e realidade aumentada.",
-        image: driveshow,
-        date: "Maio 2025",
-        url: "https://driveshow.vercel.app/",
-        githubUrl: "https://github.com/seu-usuario/driveshow",
-        technologies: ["Next.js", "Three.js", "Tailwind CSS", "Framer Motion"],
+        githubUrl: "https://api.whatsapp.com/send?phone=5563992922509&text=Ol%C3%A1%2C%20tenho%20interesse%20em%20saber%20mais%20sobre%20o%20projeto%20DriveShow%20que%20vi%20em%20seu%20portf%C3%B3lio.",
+        technologies: ["Next.js", "Three.js", "Tailwind CSS", "TypeScript"],
         features: [
             "Visualização 360° dos veículos",
             "Configurador de modelos",
@@ -170,7 +136,7 @@ export function ProjectsSection({ title = "Autoria" }: ProjectsSectionProps) {
                                         <Link href={project.githubUrl} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
                                             <S.GithubButton>
                                                 <FiGithub size={18} />
-                                                Código
+                                                Solicitar código
                                             </S.GithubButton>
                                         </Link>
                                     )}
