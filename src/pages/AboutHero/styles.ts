@@ -80,12 +80,12 @@ export const Title = styled(motion.h1)`
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   position: relative;
   display: inline-block;
-  max-width: 100%; /* Garante que não ultrapasse a largura do container */
-  word-wrap: break-word; /* Permite que palavras longas quebrem */
-  overflow-wrap: break-word; /* Alternativa mais moderna */
-  hyphens: auto; /* Hifenização automática quando necessário */
-  text-align: center; /* Centraliza o texto */
-  width: 100%; /* Ocupa toda a largura disponível */
+  max-width: 100%; 
+  word-wrap: break-word; 
+  overflow-wrap: break-word; 
+  hyphens: auto; 
+  text-align: center; 
+  width: 100%; 
 
   &::after {
     content: '';
@@ -93,8 +93,8 @@ export const Title = styled(motion.h1)`
     bottom: -10px;
     left: 50%;
     transform: translateX(-50%);
-    width: 80%; /* Reduz a largura para se adaptar melhor */
-    max-width: 600px; /* Mantém um limite máximo */
+    width: 80%; 
+    max-width: 600px; 
     height: 2px;
     background: linear-gradient(
       to right,
@@ -105,15 +105,15 @@ export const Title = styled(motion.h1)`
 
     @media (max-width: 768px) {
       bottom: -8px;
-      width: 100%; /* Aumenta a porcentagem em telas pequenas */
+      width: 100%; 
       max-width: 280px;
     }
   }
 
   @media (max-width: 768px) {
     margin-bottom: 0.5rem;
-    font-size: clamp(1.8rem, 8vw, 3rem); /* Ajuste mais responsivo */
-    line-height: 1.2; /* Aumenta o line-height para mobile */
+    font-size: clamp(1.8rem, 10vw, 3rem); 
+    line-height: 1.2; 
   }
 `;
 
