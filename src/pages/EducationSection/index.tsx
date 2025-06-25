@@ -5,17 +5,6 @@ import * as S from './styles'
 import { FaReact, FaNodeJs, FaDatabase, FaServer, FaCode, FaMobileAlt } from 'react-icons/fa'
 import { SiTypescript, SiNextdotjs, SiPostgresql, SiDocker } from 'react-icons/si'
 
-const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-        opacity: 1,
-        transition: {
-            staggerChildren: 0.2,
-            delayChildren: 0.3
-        }
-    }
-}
-
 const itemVariants = {
     hidden: { y: 30, opacity: 0 },
     visible: {
@@ -104,7 +93,6 @@ export function EducationSection({
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
-            variants={containerVariants}
         >
             <S.SectionTitle variants={titleVariants}>
                 {title}

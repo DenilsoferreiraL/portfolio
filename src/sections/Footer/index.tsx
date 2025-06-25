@@ -7,17 +7,6 @@ import { FaArrowRightLong } from "react-icons/fa6";
 import { FiGithub, FiLinkedin, FiInstagram, FiMail, FiPhone, FiMapPin } from 'react-icons/fi'
 
 // Animations
-const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-        opacity: 1,
-        transition: {
-            staggerChildren: 0.2,
-            delayChildren: 0.3
-        }
-    }
-}
-
 const itemVariants = {
     hidden: { y: 20, opacity: 0 },
     visible: {
@@ -49,7 +38,6 @@ export function Footer() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
-            variants={containerVariants}
         >
             <S.FooterWave>
                 <svg
