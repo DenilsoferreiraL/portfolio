@@ -3,8 +3,11 @@ import { motion } from 'framer-motion'
 
 export const EducationContainer = styled(motion.section)`
   padding: 6rem 1.5rem;
-  background: ${({ theme }) => theme.colors.backgroundAlt || '#f8fafc'};
+  background: ${({ theme }) => theme.colors.primary || '#f8fafc'};
   position: relative;
+  width: 100%;
+  margin-top: 2rem;
+  border-radius: 50px 50px 0 0;
   max-width: 1400px;
   margin: 0 auto;
 
@@ -16,7 +19,7 @@ export const EducationContainer = styled(motion.section)`
 export const SectionTitle = styled(motion.h2)`
   text-align: center;
   font-size: 2.5rem;
-  color: ${({ theme }) => theme.colors.primary};
+  color: ${({ theme }) => theme.colors.textLight};
   margin-bottom: 4rem;
   position: relative;
   font-weight: 700;

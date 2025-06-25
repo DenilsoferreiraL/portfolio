@@ -11,7 +11,7 @@ interface AboutHeroProps {
 }
 
 const aboutHeroData: AboutHeroProps = {
-    title: 'Desenvolvedor Web',
+    title: 'Desenvolvedor Web ',
     subtitle: 'Denilso Ferreira Leite',
     description: 'Do conceito à implementação, meu processo é focado em excelência técnica e resultados. Sistemas feitos para durar e escalar junto com suas ambições.'
 }

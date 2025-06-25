@@ -5,6 +5,7 @@ export const defaultTheme: DefaultTheme = {
         primary: '#000',
         secondary: '#9dbfda',
         background: '#ffffff',
+        backgroundAlternative: '#f8f9fa',
         text: '#333333',
         textLight: '#FFFFFF',
         title: '#666',

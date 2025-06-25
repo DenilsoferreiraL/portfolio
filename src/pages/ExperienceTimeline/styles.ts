@@ -69,6 +69,35 @@ export const Timeline = styled(motion.ul)`
   }
 `
 
+// export const TimelineItem = styled(motion.li) <{ $isEven: boolean }>`
+//   position: relative;
+//   margin-bottom: 5rem;
+//   width: 100%;
+//   clear: both;
+
+//   ${({ $isEven }) => $isEven
+//     ? css`
+//       padding-left: 50%;
+//       text-align: left;
+//       padding-right: 5%;
+//     `
+//     : css`
+//       padding-right: 50%;
+//       text-align: right;
+//       padding-left: 5%;
+//     `}
+
+//   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+//     padding-left: 5px !important;
+//     padding-right: 0px !important;
+//     text-align: left !important;
+//   }
+
+//   &:last-child {
+//     margin-bottom: 0;
+//   }
+// `
+
 export const TimelineItem = styled(motion.li) <{ $isEven: boolean }>`
   position: relative;
   margin-bottom: 5rem;
@@ -77,15 +106,15 @@ export const TimelineItem = styled(motion.li) <{ $isEven: boolean }>`
 
   ${({ $isEven }) => $isEven
     ? css`
-      padding-left: 50%;
-      text-align: left;
-      padding-right: 5%;
-    `
+        padding-left: 50%;
+        text-align: left;
+        padding-right: 5%;
+      `
     : css`
-      padding-right: 50%;
-      text-align: right;
-      padding-left: 5%;
-    `}
+        padding-right: 50%;
+        text-align: left;
+        padding-left: 5%;
+      `}
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     padding-left: 5px !important;
@@ -97,6 +126,7 @@ export const TimelineItem = styled(motion.li) <{ $isEven: boolean }>`
     margin-bottom: 0;
   }
 `
+
 
 export const TimelineDot = styled(motion.div)`
   position: absolute;
@@ -136,30 +166,12 @@ export const TimelineContent = styled(motion.div)`
   transition: all 0.3s ease;
   border: 1px solid ${({ theme }) => theme.colors.border};
 
-  &::before {
-    content: '';
-    position: absolute;
-    top: 30px;
-    width: 0;
-    height: 0;
-    border-style: solid;
-    z-index: 1;
-
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    padding: 1rem;
+  }
     ${({ theme }) => {
     const borderColor = theme.colors.cardBackground || '#fff'
-    return css`
-        ${TimelineItem}:nth-child(odd) & {
-          right: -15px;
-          border-width: 12px 0 12px 15px;
-          border-color: transparent transparent transparent ${borderColor};
-        }
-        
-        ${TimelineItem}:nth-child(even) & {
-          left: -15px;
-          border-width: 12px 15px 12px 0;
-          border-color: transparent ${borderColor} transparent transparent;
-        }
-        
+    return css` 
         @media (max-width: ${theme.breakpoints.tablet}) {
           right: auto !important;
           left: 15px !important;
@@ -168,7 +180,7 @@ export const TimelineContent = styled(motion.div)`
         }
       `
   }}
-  }
+  
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     padding: 1.8rem;

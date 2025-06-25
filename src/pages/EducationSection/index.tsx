@@ -121,7 +121,7 @@ export function EducationSection({
                     >
                         <S.EducationHeader>
                             <S.EducationLogo>
-                                <img src={edu.imageURL} alt={edu.institution} width={130} height={130} />
+                                <img src={edu.imageURL} alt={edu.institution} width={130} height={130} style={{ borderRadius: 10 }} />
                             </S.EducationLogo>
                             <div>
                                 <S.EducationYear>
