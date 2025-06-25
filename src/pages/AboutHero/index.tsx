@@ -2,7 +2,7 @@
 
 import * as S from './styles'
 import { motion } from 'framer-motion'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 interface AboutHeroProps {
     title: string
@@ -17,31 +17,47 @@ const aboutHeroData: AboutHeroProps = {
 }
 
 export function AboutHero() {
+    const [isMounted, setIsMounted] = useState(false)
     const subtitleRef = useRef<HTMLDivElement>(null)
-
-    const bubbles = Array.from({ length: 12 }).map((_, i) => ({
-        id: i,
-        size: Math.random() * 200 + 80,
-        x: Math.random() * 100,
-        y: Math.random() * 100,
-        duration: Math.random() * 40 + 40
-    }))
+    const [bubbles, setBubbles] = useState<Array<{
+        id: number
+        size: number
+        x: number
+        y: number
+        duration: number
+    }>>([])
 
     useEffect(() => {
-        const animateText = async () => {
-            if (subtitleRef.current) {
-                const text = subtitleRef.current.textContent || ''
-                subtitleRef.current.textContent = ''
+        setIsMounted(true)
+
+        // Gera bolhas flutuantes
+        const newBubbles = Array.from({ length: 12 }).map((_, i) => ({
+            id: i,
+            size: Math.random() * 200 + 80,
+            x: Math.random() * 100,
+            y: Math.random() * 100,
+            duration: Math.random() * 20 + 10
+        }))
+        setBubbles(newBubbles)
+
+        // Animação do texto
+        if (subtitleRef.current) {
+            const animateText = async () => {
+                const text = subtitleRef.current?.textContent || ''
+                if (subtitleRef.current) subtitleRef.current.textContent = ''
 
                 for (let i = 0; i < text.length; i++) {
-                    subtitleRef.current.textContent += text[i]
-                    await new Promise(resolve => setTimeout(resolve, 50))
+                    if (subtitleRef.current) {
+                        subtitleRef.current.textContent += text[i]
+                        await new Promise(resolve => setTimeout(resolve, 50))
+                    }
                 }
             }
+            animateText()
         }
-
-        animateText()
     }, [])
+
+    if (!isMounted) return null
 
     const containerVariants = {
         hidden: { opacity: 0 },
