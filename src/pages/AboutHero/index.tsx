@@ -4,6 +4,14 @@ import * as S from './styles'
 import { motion } from 'framer-motion'
 import { useEffect, useRef, useState } from 'react'
 
+interface BubbleProps {
+    id: number
+    size: number
+    x: number
+    y: number
+    duration: number
+}
+
 interface AboutHeroProps {
     title: string
     subtitle: string
@@ -17,28 +25,20 @@ const aboutHeroData: AboutHeroProps = {
 }
 
 export function AboutHero() {
-    const [isMounted, setIsMounted] = useState(false)
     const subtitleRef = useRef<HTMLDivElement>(null)
-    const [bubbles, setBubbles] = useState<Array<{
-        id: number
-        size: number
-        x: number
-        y: number
-        duration: number
-    }>>([])
+    const [bubbles, setBubbles] = useState<BubbleProps[]>([])
 
+    // Gerar bolhas apenas no client-side
     useEffect(() => {
-        setIsMounted(true)
-
-        // Gera bolhas flutuantes
-        const newBubbles = Array.from({ length: 12 }).map((_, i) => ({
-            id: i,
-            size: Math.random() * 200 + 80,
-            x: Math.random() * 100,
-            y: Math.random() * 100,
-            duration: Math.random() * 20 + 10
-        }))
-        setBubbles(newBubbles)
+        setBubbles(
+            Array.from({ length: 12 }).map((_, i) => ({
+                id: i,
+                size: Math.random() * 200 + 80,
+                x: Math.random() * 100,
+                y: Math.random() * 100,
+                duration: Math.random() * 20 + 10
+            }))
+        )
 
         // Animação do texto
         if (subtitleRef.current) {
@@ -56,8 +56,6 @@ export function AboutHero() {
             animateText()
         }
     }, [])
-
-    if (!isMounted) return null
 
     const containerVariants = {
         hidden: { opacity: 0 },
@@ -123,23 +121,26 @@ export function AboutHero() {
             animate="visible"
             variants={containerVariants}
         >
-            <S.FloatingShapes>
-                {bubbles.map((bubble, i) => (
-                    <S.Shape
-                        key={bubble.id}
-                        custom={i * 0.2}
-                        initial="hidden"
-                        animate={["visible", "float"]}
-                        variants={bubbleVariants}
-                        style={{
-                            width: bubble.size,
-                            height: bubble.size,
-                            left: `${bubble.x}%`,
-                            top: `${bubble.y}%`,
-                        }}
-                    />
-                ))}
-            </S.FloatingShapes>
+            {/* Renderizar bolhas apenas após hidratação */}
+            {bubbles.length > 0 && (
+                <S.FloatingShapes>
+                    {bubbles.map((bubble, i) => (
+                        <S.Shape
+                            key={bubble.id}
+                            custom={i * 0.2}
+                            initial="hidden"
+                            animate={["visible", "float"]}
+                            variants={bubbleVariants}
+                            style={{
+                                width: bubble.size,
+                                height: bubble.size,
+                                left: `${bubble.x}%`,
+                                top: `${bubble.y}%`,
+                            }}
+                        />
+                    ))}
+                </S.FloatingShapes>
+            )}
 
             <S.HeroContent>
                 <S.TextContainer>
