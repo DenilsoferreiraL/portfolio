@@ -11,9 +11,9 @@ interface AboutHeroProps {
 }
 
 const aboutHeroData: AboutHeroProps = {
-    title: 'Desenvolvedor Web ',
+    title: 'Desenvolvedor Front-end',
     subtitle: 'Denilso Ferreira Leite',
-    description: 'Do conceito à implementação, meu processo é focado em excelência técnica e resultados. Sistemas feitos para durar e escalar junto com suas ambições.'
+    description: 'Código validado com performance mensurável, escalabilidade comprovada e UX/UI que converte. Entrego a solução digital que seu negócio precisa.'
 }
 
 export function AboutHero() {

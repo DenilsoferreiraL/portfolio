@@ -135,7 +135,7 @@ export function Header() {
 
                         <div style={{ marginTop: '2rem' }}>
                             <p style={{ fontSize: '1rem', color: '#666' }}>
-                                © {new Date().getFullYear()} Portfolio. Todos os direitos reservados.
+                                © 2025 Portfolio. Todos os direitos reservados.
                             </p>
                         </div>
                     </motion.div>
