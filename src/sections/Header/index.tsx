@@ -71,7 +71,7 @@ export function Header() {
                                         e.preventDefault()
                                         handleNavClick(href)
                                     }}
-                                    whileHover={{ color: '#4F46E5' }}
+                                    whileHover={{ color: '#8c8c8c' }}
                                 >
                                     {label}
                                     <S.NavUnderline />

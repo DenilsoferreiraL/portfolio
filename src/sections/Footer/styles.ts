@@ -2,140 +2,186 @@ import styled from 'styled-components'
 import { motion } from 'framer-motion'
 
 export const FooterContainer = styled(motion.footer)`
-  background: ${({ theme }) => theme.colors.primary || '#000'};
+  background: ${({ theme }) => theme.colors.primary || '#2c3e50'};
   color: white;
-  padding: 0rem 0 1rem;
-  margin-top: auto;
+  padding-top: 5rem;
+  position: relative;
   overflow: hidden;
+  text-decoration: none;
+`
+
+export const FooterWave = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  transform: rotate(180deg);
+  
+  svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
 `
 
 export const FooterContent = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 3rem;
+  display: flex;
   max-width: 1200px;
+  justify-content: space-between;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 1rem 1.5rem;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+  gap: 1rem;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
+  @media (max-width: 768px) {
+    padding: 1rem;
+}
 `
 
 export const FooterSection = styled(motion.div)`
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.5rem;
 `
 
 export const FooterTitle = styled(motion.h3)`
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   margin-bottom: 0.5rem;
-  color: ${({ theme }) => theme.colors.textlight};
+  color: white;
   font-weight: 600;
+  position: relative;
+  display: inline-block;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background: ${({ theme }) => theme.colors.secondary || '#3498db'};
+    border-radius: 3px;
+  }
 `
 
 export const FooterText = styled(motion.p)`
+  line-height: 1.7;
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.9);
+`
+
+export const MotivationText = styled(motion.p)`
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.8);
+  border-left: 3px solid ${({ theme }) => theme.colors.secondary};
+  padding-left: 1rem;
+  margin-top: 1rem;
+  font-size: 1.1rem;
   line-height: 1.6;
-  opacity: 0.8;
-  font-size: 0.95rem;
 `
 
 export const FooterLinks = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 1rem;
+`
 
-  a {
-    color: white;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    opacity: 0.8;
-    font-size: 0.95rem;
-    position: relative;
-    width: fit-content;
+export const NavLink = styled.div`
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: fit-content;
+  padding: 0.5rem 0;
+  position: relative;
+  overflow: hidden;
 
-    &:hover {
-      opacity: 1;
-      color:${({ theme }) => theme.colors.secondary};
-      transform: translateX(5px);
-    }
+  &:hover {
+    color: ${({ theme }) => theme.colors.secondary};
+    transform: translateX(5px);
+  }
+`
 
-    &::after {
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 1px;
-      bottom: -2px;
-      left: 0;
-      background-color: ${({ theme }) => theme.colors.secondary};
-      transition: width 0.3s ease;
-    }
+export const LinkArrow = styled.span`
+  transition: all 0.3s ease;
+  display: inline-block;
 
-    &:hover::after {
-      width: 100%;
-    }
+  ${NavLink}:hover & {
+    transform: translateX(5px);
+    color: ${({ theme }) => theme.colors.secondary};
   }
 `
 
 export const FooterContact = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-  opacity: 0.8;
-  font-size: 0.95rem;
+  gap: 1rem;
+`
 
-  span {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+export const ContactItem = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
 
-  
+  svg {
+    min-width: 20px;
+  }
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.secondary};
+    transform: translateX(5px);
   }
 `
 
 export const FooterBottom = styled(motion.div)`
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
-  padding: 2rem 2rem 0;
-  margin-top: 3rem;
+  padding: 1rem;
+  margin-top: 2rem;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-  font-size: 0.85rem;
-  opacity: 0.8;
+  gap: 1.5rem;
+`
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    flex-direction: column;
-    gap: 1.5rem;
-    text-align: center;
-  }
+export const Copyright = styled.p`
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
 `
 
 export const SocialLinks = styled.div`
   display: flex;
   gap: 1.5rem;
-
-  a {
-    color: white;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.9rem;
-
-    &:hover {
-      color: ${({ theme }) => theme.colors.textlight};
-      transform: translateY(-2px);
-    }
-  }
 `
 
-export const FooterWave = styled.div`
-  position: relative;
-  width: 100%;
-  height: 50px;
-  margin-bottom: -1px;
-  overflow: hidden;
+export const SocialIcon = styled(motion.div)`
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.secondary};
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  span {
+    @media (max-width: 480px) {
+      display: none;
+    }
+  }
 `
