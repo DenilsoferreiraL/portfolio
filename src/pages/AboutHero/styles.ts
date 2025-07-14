@@ -64,6 +64,7 @@ export const TextContainer = styled(motion.div)`
 
 
 export const Title = styled(motion.h1)`
+  padding: 0 0 1rem;
   font-size: clamp(2rem, 6vw, 4rem);
   margin-bottom: 1rem;
   line-height: 1.1;
@@ -80,12 +81,12 @@ export const Title = styled(motion.h1)`
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   position: relative;
   display: inline-block;
+  width: 100%; 
   max-width: 100%; 
   word-wrap: break-word; 
   overflow-wrap: break-word; 
   hyphens: auto; 
   text-align: center; 
-  width: 100%; 
 
   &::after {
     content: '';
@@ -112,7 +113,7 @@ export const Title = styled(motion.h1)`
 
   @media (max-width: 768px) {
     margin-bottom: 0.5rem;
-    font-size: clamp(1.8rem, 10vw, 3rem); 
+    font-size: clamp(1.8rem, 11vw, 3rem); 
     line-height: 1.2; 
   }
 `;
