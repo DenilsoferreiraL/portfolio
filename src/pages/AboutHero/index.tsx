@@ -4,8 +4,6 @@ import { motion, useAnimation, AnimatePresence } from 'framer-motion'
 import { useEffect, useRef, useState } from 'react'
 import { FiArrowRight, FiMessageSquare } from 'react-icons/fi'
 import styled from 'styled-components'
-
-// Tipagens TypeScript
 interface FloatingOrb {
     id: string
     size: number
@@ -14,7 +12,6 @@ interface FloatingOrb {
     delay: number
     duration: number
 }
-
 interface HighlightItem {
     text: string
     icon: JSX.Element
@@ -23,13 +20,12 @@ interface HighlightItem {
 
 }
 
-// Componentes de ícones (substitua por seus próprios ícones)
 const LightningIcon = () => <span>⚡</span>
 const DeviceIcon = () => <span>📱</span>
 const ScaleIcon = () => <span>🏗️</span>
 const SearchIcon = () => <span>🔍</span>
 
-// Dados do componente
+
 const heroContent = {
     title: 'Denilso Ferreira',
     role: 'Front-end Specialist',
@@ -60,7 +56,7 @@ const heroContent = {
     ]
 }
 
-// Componente principal
+
 export function AboutHero() {
     const controls = useAnimation()
     const [activeHighlight, setActiveHighlight] = useState(0)
@@ -377,7 +373,7 @@ const HighlightItem = styled(motion.div) <{ highlightColor: string }>`
   align-items: center;
   gap: 0.5rem;
   font-weight: 600;
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   color: ${({ highlightColor }) => highlightColor};
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
