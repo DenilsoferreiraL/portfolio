@@ -60,29 +60,32 @@ const educationData: Education[] = [
     {
         id: 1,
         imageURL: "https://media.licdn.com/dms/image/v2/D4D0BAQGs0Jd8tULJZw/company-logo_200_200/company-logo_200_200/0/1659810942474/dev_club_devs_logo?e=1756339200&v=beta&t=Og_tcOCebxmIIzH45XDqh8eW1DDI02Lql8fEu6KglFY",
-        degree: "Desenvolvimento Full Stack",
+        degree: "Análise e Desenvolvimento de Sistemas (Desenvolvimento Web Full Stack)",
         institution: "Dev Club - Curso Superior de Tecnologia (CST)",
         year: "Set 2022 - Set 2024",
         highlights: [
-            "Aprendizado prático com foco nas demandas reais do mercado",
-            "Colaboração diária em grupo para resolução de problemas complexos",
-            "Desenvolvimento de projetos completos com metodologias ágeis",
-            "Ênfase em usabilidade e acessibilidade nos projetos"
+            "Formação completa em desenvolvimento web full stack, com práticas orientadas ao mercado",
+            "Participação diária em atividades de grupo, resolução de problemas e fortalecimento da colaboração",
+            "Desenvolvimento de projetos completos com foco em usabilidade, acessibilidade e performance",
+            "Aprendizado de front-end e back-end, passando por APIs, banco de dados e deploy em ambiente cloud"
         ],
         skills: [
-            "React",
+            "React.js",
+            "Next.js",
             "Node.js",
             "TypeScript",
-            "Next.js",
             "PostgreSQL",
+            "MongoDB",
             "Docker",
+            "Figma",
             "Backend",
             "Frontend",
-            "Mobile",
-            "Banco de Dados"
+            "APIs REST/GraphQL",
+            "CI/CD"
         ]
     }
-]
+];
+
 
 export function EducationSection({
     title = "Formação Profissional"

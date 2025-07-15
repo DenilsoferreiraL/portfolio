@@ -9,7 +9,7 @@ export const EducationContainer = styled(motion.section)`
   margin-top: 2rem;
   border-radius: 50px 50px 0 0;
   max-width: 1400px;
-  margin: 100px auto;
+  margin: 0px auto;
 
   @media (max-width: 768px) {
     padding: 4rem 1rem;
