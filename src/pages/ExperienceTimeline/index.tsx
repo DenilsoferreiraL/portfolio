@@ -1,7 +1,7 @@
 'use client'
 
 import * as S from './styles'
-import { FaCode, FaServer, FaRocket, FaChartLine } from 'react-icons/fa'
+import { FaCode, FaRocket, FaChartLine, FaLaptopCode } from 'react-icons/fa'
 import React from 'react'
 
 // Animations
@@ -81,15 +81,16 @@ const experiences: Experience[] = [
         id: 1,
         role: "Desenvolvedor Front-end Freelancer (Pleno)",
         company: "Trabalho Autônomo",
-        period: "'Revisar' Jul 2023 - Presente · 3 anos",
+        period: "Fev 2024 - Presente · 1 ano e 5 meses",
         description: [
-            "Desenvolvimento de aplicações web completas para clientes de diversos setores, desde institucionais até produtos digitais complexos",
-            "Atuação full-stack com foco especial em otimização de performance e experiência do usuário"
+            "Desenvolvimento de aplicações web para clientes dos setores institucionais e produtos digitais, com foco em escalabilidade e performance.",
+            "Otimização de sistemas legados com melhorias de performance, arquitetura e experiência do usuário.",
+            "Atuação full-stack com React.js, Next.js, TypeScript e Node.js, incluindo integração com APIs REST e GraphQL."
         ],
         achievements: [
-            "Redução de 40% no tempo de carregamento em projetos legados através de code splitting e caching estratégico",
-            "Implementação de arquitetura escalável que permitiu crescimento de 300% na base de usuários sem perda de performance",
-            "Integração perfeita entre front-end e back-end em 100% dos projetos entregues"
+            "Redução de 40% no tempo de carregamento de aplicações legadas com code splitting, lazy loading e caching.",
+            "Deploy e monitoramento em ambientes cloud (AWS e Vercel), com pipelines de CI/CD.",
+            "Entrega de projetos complexos com integração de front-end e back-end, bancos de dados PostgreSQL e MongoDB."
         ],
         skills: [
             "React.js",
@@ -97,43 +98,48 @@ const experiences: Experience[] = [
             "TypeScript",
             "Node.js",
             "PostgreSQL",
+            "MongoDB",
             "Docker",
             "Figma",
             "AWS",
             "Vercel",
-            "CI/CD"
+            "CI/CD",
+            "GraphQL",
+            "REST API"
         ],
         icon: <FaCode />
     },
     {
         id: 2,
-        role: "Desenvolvedor Full-stack",
-        company: "Projetos Pessoais",
-        period: "2021 - 2023 · 2 anos",
+        role: "Desenvolvedor Front-end Freelancer (Júnior)",
+        company: "Trabalho Autônomo",
+        period: "Jul 2023 - Jan 2024 · 7 meses",
         description: [
-            "Desenvolvimento de projetos completos para aprimoramento técnico e construção de portfólio",
-            "Exploração de tecnologias modernas e melhores práticas de desenvolvimento"
+            "Primeira atuação prática em projetos comerciais como freelancer, com desenvolvimento de interfaces web responsivas usando React.js e Next.js.",
+            "Construção de páginas otimizadas para SEO e integração com APIs REST, garantindo entregas dentro do prazo e com foco em aprendizado prático.",
+            "Início da atuação com back-end utilizando Node.js e Express, realizando as primeiras integrações com bancos de dados."
         ],
         achievements: [
-            "Domínio avançado de TypeScript em projetos complexos",
-            "Implementação bem-sucedida de SSR/SSG com Next.js",
-            "Modelagem eficiente de bancos de dados relacionais e não-relacionais"
+            "Entrega de projetos institucionais completos com React e Next.js, reforçando a base técnica em front-end.",
+            "Primeiras integrações reais com APIs e bancos de dados relacionais (PostgreSQL).",
+            "Aprimoramento das soft skills em comunicação com clientes e gerenciamento de demandas no modelo autônomo."
         ],
         skills: [
-            "JavaScript",
-            "TypeScript",
-            "React",
+            "React.js",
             "Next.js",
+            "TypeScript",
             "Node.js",
             "Express",
-            "MongoDB",
             "PostgreSQL",
-            "REST API",
-            "GraphQL"
+            "Figma",
+            "REST API"
         ],
-        icon: <FaServer />
+        icon: <FaLaptopCode />
     }
-]
+];
+
+
+
 
 export function ExperienceTimeline({
     title = "Jornada Profissional"
