@@ -108,8 +108,9 @@ export function Header() {
                             zIndex: 998,
                             padding: '2rem 1.5rem',
                             boxShadow: '0 4px 10px rgba(0,0,0,0.1)',
-                            height: 'calc(100vh - 70px)',
-                            overflowY: 'auto'
+                            height: 'calc(100vh - 60px)',
+                            overflowY: 'auto',
+                            marginTop: '60px',
                         }}
                     >
                         <S.MobileNavList>
@@ -140,7 +141,7 @@ export function Header() {
                         </div>
                     </motion.div>
                 )}
-            </AnimatePresence>
+            </AnimatePresence >
         </>
     )
 }
