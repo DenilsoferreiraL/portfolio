@@ -6,6 +6,7 @@ export const ContainerSkills = styled(motion.section)`
   overflow: hidden;
   background: ${({ theme }) => theme.colors.background};
   isolation: isolate;
+  margin: 0px auto;
 `;
 
 export const ContentSkills = styled(motion.section)`

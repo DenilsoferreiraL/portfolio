@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 export const Container = styled(motion.section)`
   max-width: 1400px;
-  margin: 100px auto;
+  margin: 0px auto;
   padding: 4rem 2rem;
   background: ${({ theme }) => theme.colors.background};
 
