@@ -60,7 +60,7 @@ const projectsData: Project[] = [
         image: driveshow,
         date: "Maio 2025",
         url: "https://driveshow.vercel.app/",
-        githubUrl: "https://github.com/seuuser/driveshow",
+        githubUrl: "https://api.whatsapp.com/send?phone=5563992922509&text=Ol%C3%A1%2C%20tenho%20interesse%20em%20saber%20mais%20sobre%20o%20projeto%20DriveShow%20que%20vi%20em%20seu%20portf%C3%B3lio.",
         technologies: [
             "Next.js 14 (App Router)",
             "Tailwind CSS + Framer Motion",

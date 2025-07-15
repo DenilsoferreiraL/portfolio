@@ -2,188 +2,158 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
 export const HeroContainer = styled(motion.section)`
-  background: ${({ theme }) => theme.colors.background};
-  padding: 6rem 1rem;
-  height: 100vh; 
-  max-height: 900px; 
-  min-height: 600px; 
+  background: linear-gradient(
+    to bottom,
+    ${({ theme }) => theme.colors.background} 0%,
+    ${({ theme }) => theme.colors.backgroundDark} 100%
+  );
+  padding: 8rem 2rem 6rem;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   position: relative;
   overflow: hidden;
   isolation: isolate;
   box-sizing: border-box;
-  margin-top: 50px;
 
   @media (max-width: 768px) {
-    padding: 3rem 1rem;
-    height: 90vh; 
-    max-height: 800px;
-    min-height: 500px;
-  }
-
-  @media (max-height: 700px) {
-    height: 100vh;
-    min-height: 100vh;
+    padding: 6rem 1.5rem 4rem;
+    min-height: 90vh;
   }
 `;
 
 export const HeroContent = styled(motion.div)`
-  max-width: 1000px;
+  max-width: 1200px;
   width: 100%;
   margin: 0 auto;
   position: relative;
   z-index: 10;
   text-align: center;
-  padding: 0 1rem;
+  padding: 0 2rem;
   box-sizing: border-box;
-  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 
   @media (max-width: 768px) {
-    padding: 0 0.5rem;
+    padding: 0 1rem;
   }
 `;
 
 export const TextContainer = styled(motion.div)`
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
+  gap: 1.5rem;
   position: relative;
   width: 100%;
-  box-sizing: border-box;
-  margin: auto 0;
-
-  @media (max-width: 768px) {
-    gap: 1.5rem;
-    padding: 1rem 0;
-  }
+  max-width: 800px;
+  margin: 0 auto;
 `;
 
-
 export const Title = styled(motion.h1)`
-  padding: 0 0 1rem;
-  font-size: clamp(2rem, 6vw, 4rem);
-  margin-bottom: 1rem;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
   line-height: 1.1;
   font-weight: 800;
   background: linear-gradient(
     to right,
     ${({ theme }) => theme.colors.primary},
-    ${({ theme }) => theme.colors.secondary},
-    ${({ theme }) => theme.colors.primary}
+    ${({ theme }) => theme.colors.secondary}
   );
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin: 0.5rem 0 1.5rem;
   position: relative;
   display: inline-block;
-  width: 100%; 
-  max-width: 100%; 
-  word-wrap: break-word; 
-  overflow-wrap: break-word; 
-  hyphens: auto; 
-  text-align: center; 
-
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80%; 
-    max-width: 600px; 
-    height: 2px;
-    background: linear-gradient(
-      to right,
-      ${({ theme }) => theme.colors.primary},
-      ${({ theme }) => theme.colors.secondary}
-    );
-    border-radius: 3px;
-
-    @media (max-width: 768px) {
-      bottom: -8px;
-      width: 100%; 
-      max-width: 280px;
-    }
-  }
+  text-align: center;
+  letter-spacing: -0.5px;
 
   @media (max-width: 768px) {
-    margin-bottom: 0.5rem;
-    font-size: clamp(1.8rem, 11vw, 3rem); 
-    line-height: 1.2; 
+    font-size: clamp(2rem, 10vw, 3.5rem);
+    margin: 0.5rem 0 1rem;
   }
 `;
 
 export const Subtitle = styled(motion.h2)`
-  font-size: clamp(1rem, 3vw, 1.5rem);
-  color: ${({ theme }) => theme.colors.text};
- font-weight: 800;
-  letter-spacing: 0.3px;
-  max-width: 100%;
+  font-size: clamp(1.1rem, 3vw, 1.6rem);
+  color: ${({ theme }) => theme.colors.textSecondary};
+  font-weight: 600;
+  letter-spacing: 0.5px;
   margin: 0 auto;
   position: relative;
   display: inline-block;
-  padding: 0 0.5rem;
-  font-weight: 600;
+  padding: 0.5rem 1rem;
+  background: rgba(${({ theme }) => theme.colors.primaryRgb}, 0.1);
+  border-radius: 50px;
+  backdrop-filter: blur(5px);
 
   @media (max-width: 768px) {
-    font-size: 1.1rem;
+    font-size: clamp(1rem, 4vw, 1.4rem);
   }
 `;
 
 export const Description = styled(motion.p)`
-  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
-  line-height: 1.6;
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  line-height: 1.7;
   color: ${({ theme }) => theme.colors.text};
-  opacity: 0.9;
   max-width: 90%;
-  margin: 0 auto 2rem;
+  margin: 0 auto 2.5rem;
   position: relative;
-  padding: 0 0.5rem;
-  box-sizing: border-box;
 
   @media (max-width: 768px) {
     max-width: 100%;
-    margin-bottom: 1.5rem;
-    line-height: 1.5;
-    padding: 0 0.25rem;
-    word-break: keep-all;
-    overflow-wrap: break-word;
-    font-size: 1rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
   }
+`;
+
+export const HighlightsContainer = styled.div`
+  position: relative;
+  height: 2.5rem;
+  margin: 1rem 0;
+  display: inline-flex;
+  justify-content: center;
+  width: 100%;
+`;
+
+export const HighlightUnderline = styled.span`
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: ${({ theme }) => theme.colors.primary};
+  border-radius: 2px;
 `;
 
 export const CtaButton = styled(motion.a)`
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
+  gap: 0.75rem;
   background: linear-gradient(
     135deg,
     ${({ theme }) => theme.colors.primary},
     ${({ theme }) => theme.colors.secondary}
   );
   color: white;
-  padding: 0.8rem 2rem;
+  padding: 1rem 2.5rem;
   border-radius: 50px;
   text-decoration: none;
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 1.1rem;
   width: fit-content;
-  margin: 0 auto;
+  margin: 1rem auto 0;
   position: relative;
   overflow: hidden;
   border: none;
   cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 20px rgba(${({ theme }) => theme.colors.primaryRgb}, 0.3);
   transition: all 0.3s ease;
   z-index: 1;
 
-  &::before {
+  &::after {
     content: '';
     position: absolute;
     top: 0;
@@ -197,21 +167,29 @@ export const CtaButton = styled(motion.a)`
     );
     opacity: 0;
     z-index: -1;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.4s ease;
   }
 
   &:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 8px 25px rgba(${({ theme }) => theme.colors.primaryRgb}, 0.4);
 
-    &::before {
+    &::after {
       opacity: 1;
     }
   }
 
+  svg {
+    transition: transform 0.3s ease;
+  }
+
+  &:hover svg:last-child {
+    transform: translateX(3px);
+  }
+
   @media (max-width: 768px) {
-    padding: 0.7rem 1.8rem;
-    font-size: 0.95rem;
+    padding: 0.9rem 2rem;
+    font-size: 1rem;
   }
 `;
 
@@ -224,13 +202,12 @@ export const FloatingShapes = styled.div`
   pointer-events: none;
   z-index: 1;
   overflow: hidden;
+  mix-blend-mode: overlay;
 `;
 
 export const Shape = styled(motion.div)`
   position: absolute;
   border-radius: 50%;
-  background: ${({ theme }) => theme.colors.secondary};
-  opacity: 1;
-  filter: blur(1px);
+  background: ${({ theme }) => theme.colors.primary};
   will-change: transform;
 `;
