@@ -55,20 +55,27 @@ const projectsData: Project[] = [
     {
         id: 1,
         title: "DriveShow",
-        description: "Plataforma de exibição de veículos premium",
-        detailedDescription: "Um showroom virtual completo com visualização 360° dos veículos, configuração personalizada e realidade aumentada.",
+        description: "Plataforma imersiva para exibição de veículos de luxo com tecnologia web avançada",
+        detailedDescription: "Solução completa para concessionárias premium, oferecendo experiência de visualização 360° interativa, configurador de veículos em tempo real e integração com realidade aumentada. Desenvolvido para aumentar engajamento e conversões através de uma experiência de usuário cinematográfica.",
         image: driveshow,
         date: "Maio 2025",
         url: "https://driveshow.vercel.app/",
-        githubUrl: "https://api.whatsapp.com/send?phone=5563992922509&text=Ol%C3%A1%2C%20tenho%20interesse%20em%20saber%20mais%20sobre%20o%20projeto%20DriveShow%20que%20vi%20em%20seu%20portf%C3%B3lio.",
-        technologies: ["Next.js", "Three.js", "Tailwind CSS", "TypeScript"],
+        githubUrl: "https://github.com/seuuser/driveshow",
+        technologies: [
+            "Next.js 14 (App Router)",
+            "Tailwind CSS + Framer Motion",
+            "TypeScript",
+            "React Three Fiber (3D)",
+            "Zod (Validação)",
+            "React Hook Form (Formulários avançados)",
+            "Recharts (Dashboards)"
+        ],
         features: [
-            "Visualização 360° dos veículos",
-            "Configurador de modelos",
-            "Realidade aumentada",
-            "Sistema de agendamento de test-drive"
+            "Sistema de agendamento com calendário inteligente",
+            "Dashboard administrativo com analytics",
+            "Animações fluidas e microinterações"
         ]
-    },
+    }
 
 ]
 

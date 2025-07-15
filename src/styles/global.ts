@@ -11,6 +11,7 @@ export const GlobalStyle = createGlobalStyle`
   /* Scroll suave */
   html {
   scroll-behavior: smooth;
+  scroll-padding-top: 80px;
 }
 
   body {

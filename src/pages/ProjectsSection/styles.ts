@@ -102,6 +102,7 @@ export const ProjectOverlay = styled.div`
   display: flex;
   align-items: flex-end;
   padding: 1.5rem;
+  backdrop-filter: blur(3px);
 
   ${ProjectCard}:hover & {
     opacity: 1;
@@ -117,7 +118,7 @@ export const ProjectFeatures = styled.ul`
 
 export const FeatureItem = styled.li`
   color: white;
-  font-size: 0.85rem;
+  font-size: 1rem;
   margin-bottom: 0.5rem;
   display: flex;
   align-items: center;
@@ -218,12 +219,15 @@ export const VisitButton = styled.button`
   font-size: 0.85rem;
   font-weight: 500;
   transition: all 0.3s ease;
+  text-decoration: none; 
+  
   flex: 1;
   justify-content: center;
 
   &:hover {
     background: ${({ theme }) => theme.colors.primaryDark};
     transform: translateY(-2px);
+    text-decoration: none; 
   }
 `;
 
