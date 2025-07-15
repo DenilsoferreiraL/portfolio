@@ -40,63 +40,32 @@ export const Timeline = styled(motion.ul)`
   margin: 0 auto;
   padding: 0 2rem;
   list-style: none;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    width: 4px;
-    background: linear-gradient(
-      to bottom,
-      ${({ theme }) => theme.colors.primary} 0%,
-      ${({ theme }) => theme.colors.primary} 80%,
-      transparent 100%
-    );
-    transform: translateX(-50%);
-    z-index: 1;
-
-    @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-      left: 40px;
-    }
-
-    @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-      padding: 0 ;
-    }
-
-    
-  }
 `
 
-// export const TimelineItem = styled(motion.li) <{ $isEven: boolean }>`
-//   position: relative;
-//   margin-bottom: 5rem;
-//   width: 100%;
-//   clear: both;
 
-//   ${({ $isEven }) => $isEven
-//     ? css`
-//       padding-left: 50%;
-//       text-align: left;
-//       padding-right: 5%;
-//     `
-//     : css`
-//       padding-right: 50%;
-//       text-align: right;
-//       padding-left: 5%;
-//     `}
+export const TimelineLine = styled(motion.div)`
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    ${({ theme }) => theme.colors.primary} 0%,
+    ${({ theme }) => theme.colors.primary} 80%,
+    transparent 100%
+  );
+  transform: translateX(-50%);
+  z-index: 1;
 
-//   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-//     padding-left: 5px !important;
-//     padding-right: 0px !important;
-//     text-align: left !important;
-//   }
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    left: 40px;
+  }
 
-//   &:last-child {
-//     margin-bottom: 0;
-//   }
-// `
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    padding: 0;
+  }
+`
 
 export const TimelineItem = styled(motion.li) <{ $isEven: boolean }>`
   position: relative;
@@ -127,29 +96,31 @@ export const TimelineItem = styled(motion.li) <{ $isEven: boolean }>`
   }
 `
 
-
-export const TimelineDot = styled(motion.div)`
+export const TimelineDot = styled.div`
   position: absolute;
   top: 20px;
-  left: 47.8%;
+  left: 50%;
   width: 50px;
   height: 50px;
   background: ${({ theme }) => theme.colors.background};
-  border: 3px solid ${({ theme }) => theme.colors.primary};
+  border: 4px solid ${({ theme }) => theme.colors.primary};
   border-radius: 50%;
   transform: translateX(-50%);
-  z-index: 2;
+  z-index: 99;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 0 0 6px ${({ theme }) => theme.colors.background};
+
+  /* Remover o efeito de "furar" */
+  box-shadow: none;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    left: -14px;
+    left: 8px;
     width: 45px;
     height: 45px;
   }
 `
+
 
 export const IconWrapper = styled.div`
   color: ${({ theme }) => theme.colors.primary};
@@ -169,7 +140,8 @@ export const TimelineContent = styled(motion.div)`
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     padding: 1rem;
   }
-    ${({ theme }) => {
+
+  ${({ theme }) => {
     const borderColor = theme.colors.cardBackground || '#fff'
     return css` 
         @media (max-width: ${theme.breakpoints.tablet}) {
@@ -180,7 +152,6 @@ export const TimelineContent = styled(motion.div)`
         }
       `
   }}
-  
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     padding: 1.8rem;

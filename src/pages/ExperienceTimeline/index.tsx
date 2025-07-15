@@ -22,7 +22,7 @@ const itemVariants = {
         y: 0,
         opacity: 1,
         transition: {
-            duration: 0.6,
+            duration: 0.4,
             ease: "easeOut"
         }
     }
@@ -48,6 +48,19 @@ const contentVariants = {
     }
 }
 
+const lineVariants = {
+    hidden: { height: 0, opacity: 0 },
+    visible: {
+        height: "100%",
+        opacity: 1,
+        transition: {
+            delay: 0.9,
+            duration: 1.5,
+            ease: "easeInOut"
+        }
+    }
+}
+
 export interface Experience {
     id: string | number
     role: string
@@ -68,7 +81,7 @@ const experiences: Experience[] = [
         id: 1,
         role: "Desenvolvedor Front-end Freelancer (Pleno)",
         company: "Trabalho Autônomo",
-        period: "Jul 2023 - Presente · 2 anos",
+        period: "'Revisar' Jul 2023 - Presente · 3 anos",
         description: [
             "Desenvolvimento de aplicações web completas para clientes de diversos setores, desde institucionais até produtos digitais complexos",
             "Atuação full-stack com foco especial em otimização de performance e experiência do usuário"
@@ -138,6 +151,8 @@ export function ExperienceTimeline({
             </S.SectionTitle>
 
             <S.Timeline>
+                <S.TimelineLine variants={lineVariants} />
+
                 {experiences.map((exp, index) => (
                     <S.TimelineItem
                         key={exp.id}
