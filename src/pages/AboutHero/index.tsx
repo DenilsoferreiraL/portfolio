@@ -28,10 +28,10 @@ const SearchIcon = () => <span>🔍</span>
 
 const heroContent = {
     title: 'Denilso Ferreira',
-    role: 'Front-end Specialist',
+    role: 'Front-end Pleno',
     message: "https://api.whatsapp.com/send?phone=5563992922509&text=Ol%C3%A1%2C%20vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar%20com%20voc%C3%AA.%20Podemos%20trocar%20uma%20ideia%3F",
     description: 'Código validado com performance mensurável, escalabilidade comprovada e UX/UI que converte. Entrego a solução digital que seu negócio precisa.',
-    cta: 'Vamos conversar sobre seu projeto',
+    cta: 'Vamos conversar',
     highlights: [
         {
             text: 'Performance otimizada',
@@ -264,7 +264,7 @@ const HeroContainer = styled(motion.section)`
 
   @media (max-width: 768px) {
     padding: 4rem 1.5rem;
-    min-height: 90vh;
+    min-height: 100vh;
   }
 `
 
