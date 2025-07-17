@@ -28,7 +28,7 @@ const SearchIcon = () => <span>🔍</span>
 
 const heroContent = {
     title: 'Denilso Ferreira',
-    role: 'Front-end Pleno',
+    role: 'Desenvolvedor Front-end',
     message: "https://api.whatsapp.com/send?phone=5563992922509&text=Ol%C3%A1%2C%20vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar%20com%20voc%C3%AA.%20Podemos%20trocar%20uma%20ideia%3F",
     description: 'Código validado com performance mensurável, escalabilidade comprovada e UX/UI que converte. Entrego a solução digital que seu negócio precisa.',
     cta: 'Vamos conversar',
@@ -56,16 +56,14 @@ const heroContent = {
     ]
 }
 
-
 export function AboutHero() {
     const controls = useAnimation()
     const [activeHighlight, setActiveHighlight] = useState(0)
     const [orbs, setOrbs] = useState<FloatingOrb[]>([])
     const containerRef = useRef<HTMLDivElement>(null)
 
-    // Inicializa orbs e animações
     useEffect(() => {
-        // Criar orbs flutuantes
+
         const generateOrbs = () => {
             const newOrbs: FloatingOrb[] = Array.from({ length: 12 }).map((_, i) => ({
                 id: `orb-${i}`,
@@ -78,12 +76,12 @@ export function AboutHero() {
             setOrbs(newOrbs)
         }
 
-        // Rotação de highlights
+
         const highlightInterval = setInterval(() => {
             setActiveHighlight(prev => (prev + 1) % heroContent.highlights.length)
         }, 3500)
 
-        // Animação de entrada
+
         const startAnimations = async () => {
             await controls.start('visible')
             generateOrbs()
@@ -93,7 +91,7 @@ export function AboutHero() {
         return () => clearInterval(highlightInterval)
     }, [controls])
 
-    // Variantes de animação
+
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
@@ -246,7 +244,7 @@ export function AboutHero() {
 }
 
 
-// Estilos modernos com styled-components
+
 const HeroContainer = styled(motion.section)`
   position: relative;
   width: 100%;
