@@ -82,7 +82,7 @@ const projectsData: Project[] = [
 export function ProjectsSection({ title = "Autoria" }: ProjectsSectionProps) {
     return (
         <S.Container
-            id='autoria'
+            id='projects'
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}

@@ -146,6 +146,7 @@ export function AboutHero() {
 
     return (
         <HeroContainer
+            id='home'
             ref={containerRef}
             initial="hidden"
             animate={controls}
