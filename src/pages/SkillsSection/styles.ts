@@ -5,7 +5,6 @@ export const ContainerSkills = styled(motion.section)`
   position: relative;
   overflow: hidden;
   background: ${({ theme }) => theme.colors.background};
-  isolation: isolate;
   margin: 0px auto;
 `;
 
@@ -153,7 +152,7 @@ export const FloatingShapes = styled.div`
   top: 0;
   left: 0;
   pointer-events: none;
-  z-index: 1;
+  z-index: 0;
   overflow: hidden;
 `;
 

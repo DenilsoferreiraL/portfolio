@@ -164,6 +164,14 @@ export function SkillsSection({
         setBubbles(generated)
     }, [])
 
+    useEffect(() => {
+        if (selectedSkill) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+    }, [selectedSkill]);
+
     return (
         <S.ContainerSkills
             id="habilidade"
@@ -238,6 +246,7 @@ export function SkillsSection({
                 <AnimatePresence>
                     {selectedSkill && (
                         <S.SkillDetailModal
+                            style={{ pointerEvents: 'auto' }}
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -20 }}
