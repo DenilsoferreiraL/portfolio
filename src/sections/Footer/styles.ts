@@ -2,9 +2,9 @@ import styled from 'styled-components'
 import { motion } from 'framer-motion'
 
 export const FooterContainer = styled(motion.footer)`
-  background: ${({ theme }) => theme.colors.primary || '#2c3e50'};
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
   color: white;
-  padding-top: 5rem;
+  padding-top: 2rem;
   position: relative;
   overflow: hidden;
   text-decoration: none;
