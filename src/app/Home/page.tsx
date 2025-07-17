@@ -4,6 +4,7 @@ import { AboutHero } from '@/pages/AboutHero'
 // import { ExperienceTimeline } from '@/pages/ExperienceTimeline'
 import { ProjectsSection } from '@/pages/ProjectsSection'
 import { SkillsSection } from '@/pages/SkillsSection'
+import SoftSkillsSection from '@/pages/SoftSkillsSection'
 
 
 export const AboutPage = () => {
@@ -12,6 +13,7 @@ export const AboutPage = () => {
         <main>
             <AboutHero />
             <SkillsSection />
+            <SoftSkillsSection />
             <ProjectsSection />
             {/* <ExperienceTimeline />
             <EducationSection /> */}
