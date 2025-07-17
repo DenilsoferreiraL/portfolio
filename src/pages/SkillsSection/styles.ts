@@ -17,11 +17,7 @@ export const ContentSkills = styled(motion.section)`
     justify-content: center;
     align-items: center;
     padding: 8rem 2rem;
-    background: linear-gradient(
-        135deg,
-        ${({ theme }) => theme.colors.primary},
-        ${({ theme }) => theme.colors.secondary}
-    );
+    background: black;
     box-shadow: -1px 7px 28px 0px rgba(115,115,115,0.34);
     -webkit-box-shadow: 5px 12px 32px 3px rgba(115,115,115,0.34);
 

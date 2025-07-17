@@ -154,9 +154,9 @@ export function SkillsSection({
     >([])
 
     useEffect(() => {
-        const generated = Array.from({ length: 15 }).map((_, i) => ({
+        const generated = Array.from({ length: 25 }).map((_, i) => ({
             id: i,
-            size: Math.random() * 200 + 80,
+            size: Math.random() * 150 + 80,
             x: Math.random() * 100,
             y: Math.random() * 100,
             opacity: Math.random() * 1 + 1
@@ -183,13 +183,13 @@ export function SkillsSection({
                         style={{
                             position: 'absolute',
                             borderRadius: '50%',
-                            background: 'rgba(255, 255, 255, 0.59)',
+                            background: 'rgb(213, 213, 213)',
                             width: `${bubble.size}px`,
                             height: `${bubble.size}px`,
                             left: `${bubble.x}%`,
                             top: `${bubble.y}%`,
                             opacity: bubble.opacity,
-                            filter: 'blur(1px)',
+                            filter: 'blur(2px)',
                             willChange: 'transform'
                         }}
                     />
