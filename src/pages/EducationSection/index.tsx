@@ -2,8 +2,9 @@
 
 import React, { JSX } from 'react'
 import * as S from './styles'
-import { FaReact, FaNodeJs, FaDatabase, FaServer, FaCode, FaMobileAlt } from 'react-icons/fa'
+import { FaReact, FaNodeJs, FaDatabase, FaCode, FaMobileAlt, FaFigma, FaLaptopCode } from 'react-icons/fa'
 import { SiTypescript, SiNextdotjs, SiPostgresql, SiDocker } from 'react-icons/si'
+import { DiMongodb } from "react-icons/di";
 
 const itemVariants = {
     hidden: { y: 30, opacity: 0 },
@@ -30,16 +31,18 @@ const titleVariants = {
 }
 
 const techIcons: Record<string, JSX.Element> = {
-    'React': <FaReact />,
+    'React.js': <FaReact />,
     'Node.js': <FaNodeJs />,
     'TypeScript': <SiTypescript />,
     'Next.js': <SiNextdotjs />,
     'PostgreSQL': <SiPostgresql />,
     'Docker': <SiDocker />,
-    'Backend': <FaServer />,
-    'Frontend': <FaCode />,
+    'Frontend': <FaLaptopCode />,
     'Mobile': <FaMobileAlt />,
-    'Banco de Dados': <FaDatabase />
+    'Backend': <FaDatabase />,
+    'MongoDB': <DiMongodb />,
+    'APIs REST/GraphQL': <FaCode />,
+    'Figma': <FaFigma />
 }
 
 export interface Education {

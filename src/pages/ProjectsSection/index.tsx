@@ -63,16 +63,16 @@ const projectsData: Project[] = [
         githubUrl: "https://api.whatsapp.com/send?phone=5563992922509&text=Ol%C3%A1%2C%20tenho%20interesse%20em%20saber%20mais%20sobre%20o%20projeto%20DriveShow%20que%20vi%20em%20seu%20portf%C3%B3lio.",
         technologies: [
             "Next.js 14 (App Router)",
-            "Tailwind CSS + Framer Motion",
+            "Tailwind CSS",
+            "Framer Motion",
             "TypeScript",
-            "React Three Fiber (3D)",
             "Zod (Validação)",
             "React Hook Form (Formulários avançados)",
             "Recharts (Dashboards)"
         ],
         features: [
-            "Sistema de agendamento com calendário inteligente",
-            "Dashboard administrativo com analytics",
+            "Sistema de agendamento de test drives",
+            "Filtro avançado de veículos",
             "Animações fluidas e microinterações"
         ]
     }
