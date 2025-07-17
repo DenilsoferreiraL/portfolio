@@ -1,6 +1,6 @@
 'use client'
 
-import { JSX, useState, useEffect } from 'react'
+import { useState, JSX } from 'react'
 import * as S from './styles'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
@@ -9,7 +9,6 @@ import {
 } from 'react-icons/si'
 import { FaServer, FaDatabase, FaMobile } from 'react-icons/fa'
 
-// Animations
 const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -36,35 +35,12 @@ const itemVariants = {
 
 const hoverVariants = {
     hover: {
-        y: -5,
-        boxShadow: '0 8px 25px rgba(0,0,0,0.12)',
+        scale: 1.05,
+        boxShadow: '0 8px 25px rgba(0,0,0,0.1)',
         transition: { duration: 0.3 }
     }
 }
 
-const bubbleVariants = {
-    hidden: { opacity: 0 },
-    visible: (delay: number) => ({
-        opacity: [0, 0.3, 0.25],
-        transition: {
-            delay,
-            duration: 2,
-            ease: 'easeInOut'
-        }
-    }),
-    float: {
-        x: ['0%', '10%'],
-        y: ['0%', '-10%'],
-        transition: {
-            duration: 40,
-            repeat: Infinity,
-            repeatType: 'reverse' as const,
-            ease: 'linear'
-        }
-    }
-}
-
-// Ícones
 const skillIcons: Record<string, JSX.Element> = {
     'JavaScript': <SiJavascript />,
     'TypeScript': <SiTypescript />,
@@ -89,10 +65,7 @@ interface Skill {
     description: string;
     projectsUsed?: string[];
     level: 'Iniciante' | 'Intermediário' | 'Avançado' | 'Especialista';
-}
-
-interface SkillsSectionProps {
-    title?: string
+    category: 'frontend' | 'backend' | 'design' | 'tools';
 }
 
 const skills: Skill[] = [
@@ -101,76 +74,71 @@ const skills: Skill[] = [
         years: 2,
         description: 'Criação de aplicações SSR e SSG com Next.js para melhor performance e SEO.',
         projectsUsed: ['Site Institucional', 'Blog Pessoal', 'Landing Page'],
-        level: 'Intermediário'
+        level: 'Intermediário',
+        category: 'frontend'
     },
     {
         name: 'React',
         years: 3,
         description: 'Criação de interfaces de usuário reativas e componentes reutilizáveis com React.js e hooks.',
         projectsUsed: ['Dashboard Admin', 'E-commerce', 'App de Notícias'],
-        level: 'Avançado'
+        level: 'Avançado',
+        category: 'frontend'
     },
     {
         name: 'TypeScript',
         years: 3,
         description: 'Desenvolvimento de aplicações tipadas com TypeScript para maior segurança e manutenibilidade do código.',
         projectsUsed: ['Projeto X', 'Sistema Y', 'Plataforma Z'],
-        level: 'Avançado'
+        level: 'Avançado',
+        category: 'frontend'
     },
     {
         name: 'Node.js',
         years: 2,
         description: 'Desenvolvimento de APIs RESTful e aplicações server-side com Node.js e Express.',
         projectsUsed: ['API de Pagamentos', 'Sistema de Autenticação'],
-        level: 'Intermediário'
+        level: 'Intermediário',
+        category: 'backend'
     },
     {
         name: 'Git',
         years: 3,
         description: 'Controle de versão e trabalho em equipe utilizando Git e plataformas como GitHub e GitLab.',
-        level: 'Avançado'
+        level: 'Avançado',
+        category: 'tools'
     },
     {
         name: 'Tailwind CSS',
         years: 2,
         description: 'Estilização rápida e responsiva utilizando a abordagem utility-first do Tailwind CSS.',
-        level: 'Intermediário'
+        level: 'Intermediário',
+        category: 'frontend'
     },
     {
         name: 'UI/UX Design',
         projects: 2,
         description: 'Design de interfaces focadas na experiência do usuário com prototipação no Figma.',
         projectsUsed: ['Redesign App Mobile', 'Dashboard Analytics'],
-        level: 'Intermediário'
+        level: 'Intermediário',
+        category: 'design'
     }
 ]
 
-export function SkillsSection({
-    title = 'Minhas Habilidades'
-}: SkillsSectionProps) {
+const categoryColors = {
+    frontend: '#3498db',
+    backend: '#2ecc71',
+    design: '#9b59b6',
+    tools: '#f39c12'
+}
+
+export function SkillsSection() {
     const [selectedSkill, setSelectedSkill] = useState<Skill | null>(null)
-    const [bubbles, setBubbles] = useState<
-        { id: number; size: number; x: number; y: number; opacity: number }[]
-    >([])
+    const [activeCategory, setActiveCategory] = useState<string | null>(null)
 
-    useEffect(() => {
-        const generated = Array.from({ length: 25 }).map((_, i) => ({
-            id: i,
-            size: Math.random() * 150 + 80,
-            x: Math.random() * 100,
-            y: Math.random() * 100,
-            opacity: Math.random() * 1 + 1
-        }))
-        setBubbles(generated)
-    }, [])
-
-    useEffect(() => {
-        if (selectedSkill) {
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = '';
-        }
-    }, [selectedSkill]);
+    const filteredSkills = activeCategory
+        ? skills.filter(skill => skill.category === activeCategory)
+        : skills
 
     return (
         <S.ContainerSkills
@@ -180,35 +148,49 @@ export function SkillsSection({
             viewport={{ once: true, margin: '-100px' }}
             variants={containerVariants}
         >
-            <S.FloatingShapes>
-                {bubbles.map((bubble, i) => (
-                    <motion.div
-                        key={`bubble-${bubble.id}`}
-                        custom={i * 0.2}
-                        initial="hidden"
-                        animate={['visible', 'float']}
-                        variants={bubbleVariants}
-                        style={{
-                            position: 'absolute',
-                            borderRadius: '50%',
-                            background: 'rgb(213, 213, 213)',
-                            width: `${bubble.size}px`,
-                            height: `${bubble.size}px`,
-                            left: `${bubble.x}%`,
-                            top: `${bubble.y}%`,
-                            opacity: bubble.opacity,
-                            filter: 'blur(2px)',
-                            willChange: 'transform'
-                        }}
-                    />
-                ))}
-            </S.FloatingShapes>
-
             <S.ContentSkills>
-                <S.SectionTitle variants={itemVariants}>{title}</S.SectionTitle>
+                <S.SectionTitle variants={itemVariants}>Minhas Habilidades</S.SectionTitle>
+                <S.SectionSubtitle>Conhecimentos e tecnologias que domino</S.SectionSubtitle>
+
+                <S.CategoryFilter>
+                    <S.FilterButton
+                        $isActive={!activeCategory}
+                        onClick={() => setActiveCategory(null)}
+                    >
+                        Todos
+                    </S.FilterButton>
+                    <S.FilterButton
+                        $isActive={activeCategory === 'frontend'}
+                        onClick={() => setActiveCategory('frontend')}
+                        $color={categoryColors.frontend}
+                    >
+                        Frontend
+                    </S.FilterButton>
+                    <S.FilterButton
+                        $isActive={activeCategory === 'backend'}
+                        onClick={() => setActiveCategory('backend')}
+                        $color={categoryColors.backend}
+                    >
+                        Backend
+                    </S.FilterButton>
+                    <S.FilterButton
+                        $isActive={activeCategory === 'design'}
+                        onClick={() => setActiveCategory('design')}
+                        $color={categoryColors.design}
+                    >
+                        Design
+                    </S.FilterButton>
+                    <S.FilterButton
+                        $isActive={activeCategory === 'tools'}
+                        onClick={() => setActiveCategory('tools')}
+                        $color={categoryColors.tools}
+                    >
+                        Ferramentas
+                    </S.FilterButton>
+                </S.CategoryFilter>
 
                 <S.SkillsGrid>
-                    {skills.map((skill, index) => (
+                    {filteredSkills.map((skill, index) => (
                         <motion.div
                             key={skill.name}
                             variants={itemVariants}
@@ -219,24 +201,36 @@ export function SkillsSection({
                                 variants={hoverVariants}
                                 $isSelected={selectedSkill?.name === skill.name}
                                 onClick={() => setSelectedSkill(skill)}
+                                $category={skill.category}
                             >
-                                <S.SkillIconWrapper>
+                                <S.SkillIconWrapper $category={skill.category}>
                                     {skillIcons[skill.name] || <SiJavascript />}
                                 </S.SkillIconWrapper>
                                 <S.SkillContent>
                                     <S.SkillName>{skill.name}</S.SkillName>
-                                    {skill.years && (
-                                        <S.SkillExperience>
-                                            {skill.years}+ {skill.years > 1 ? 'anos' : 'ano'}
-                                        </S.SkillExperience>
-                                    )}
-                                    {skill.projects && !skill.years && (
-                                        <S.SkillExperience>
-                                            {skill.projects}+ projetos
-                                        </S.SkillExperience>
-                                    )}
+                                    <S.SkillCategory $category={skill.category}>
+                                        {skill.category === 'frontend' && 'Frontend'}
+                                        {skill.category === 'backend' && 'Backend'}
+                                        {skill.category === 'design' && 'Design'}
+                                        {skill.category === 'tools' && 'Ferramentas'}
+                                    </S.SkillCategory>
+
+                                    <S.SkillStats>
+                                        {skill.years && (
+                                            <S.SkillStat>
+                                                <S.StatIcon>📅</S.StatIcon>
+                                                <S.StatValue>{skill.years}+ {skill.years > 1 ? 'anos' : 'ano'}</S.StatValue>
+                                            </S.SkillStat>
+                                        )}
+                                        {skill.projects && !skill.years && (
+                                            <S.SkillStat>
+                                                <S.StatIcon>📂</S.StatIcon>
+                                                <S.StatValue>{skill.projects}+ projetos</S.StatValue>
+                                            </S.SkillStat>
+                                        )}
+                                    </S.SkillStats>
+
                                     <S.SkillLevel $level={skill.level}>{skill.level}</S.SkillLevel>
-                                    <S.ViewDetailsButton>Ver detalhes</S.ViewDetailsButton>
                                 </S.SkillContent>
                             </S.SkillCard>
                         </motion.div>
@@ -246,62 +240,73 @@ export function SkillsSection({
                 <AnimatePresence>
                     {selectedSkill && (
                         <S.SkillDetailModal
-                            style={{ pointerEvents: 'auto' }}
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -20 }}
                             onClick={() => setSelectedSkill(null)}
                         >
                             <S.ModalContent onClick={(e) => e.stopPropagation()}>
-                                <S.ModalCloseButton
-                                    onClick={() => setSelectedSkill(null)}
-                                    aria-label="Fechar modal"
-                                >
-                                    <S.CloseIcon />
+                                <S.ModalCloseButton onClick={() => setSelectedSkill(null)}>
+                                    ✕
                                 </S.ModalCloseButton>
 
                                 <S.ModalHeader>
-                                    <S.SkillIconWrapperLarge>
+                                    <S.SkillIconWrapperLarge $category={selectedSkill.category}>
                                         {skillIcons[selectedSkill.name] || <SiJavascript />}
                                     </S.SkillIconWrapperLarge>
                                     <div>
                                         <S.ModalTitle>{selectedSkill.name}</S.ModalTitle>
-                                        <S.SkillLevel $level={selectedSkill.level}>
-                                            {selectedSkill.level}
-                                        </S.SkillLevel>
+                                        <S.SkillCategory $category={selectedSkill.category}>
+                                            {selectedSkill.category === 'frontend' && 'Frontend'}
+                                            {selectedSkill.category === 'backend' && 'Backend'}
+                                            {selectedSkill.category === 'design' && 'Design'}
+                                            {selectedSkill.category === 'tools' && 'Ferramentas'}
+                                        </S.SkillCategory>
                                     </div>
                                 </S.ModalHeader>
 
                                 <S.ModalBody>
                                     <S.SkillDescription>{selectedSkill.description}</S.SkillDescription>
 
-                                    <S.ExperienceInfo>
-                                        {selectedSkill.years && (
-                                            <div>
-                                                <S.InfoLabel>Experiência</S.InfoLabel>
-                                                <S.InfoValue>
-                                                    {selectedSkill.years}+ {selectedSkill.years > 1 ? 'anos' : 'ano'}
-                                                </S.InfoValue>
-                                            </div>
-                                        )}
-                                        {selectedSkill.projects && !selectedSkill.years && (
-                                            <div>
-                                                <S.InfoLabel>Projetos</S.InfoLabel>
-                                                <S.InfoValue>{selectedSkill.projects}+ realizados</S.InfoValue>
-                                            </div>
-                                        )}
-                                    </S.ExperienceInfo>
+                                    <S.ExperienceContainer>
+                                        <S.ExperienceInfo>
+                                            <S.ExperienceCard>
+                                                <S.InfoLabel>Nível</S.InfoLabel>
+                                                <S.SkillLevel $level={selectedSkill.level}>
+                                                    {selectedSkill.level}
+                                                </S.SkillLevel>
+                                            </S.ExperienceCard>
 
-                                    {selectedSkill.projectsUsed && (
-                                        <>
-                                            <S.InfoLabel>Projetos relevantes:</S.InfoLabel>
-                                            <S.ProjectsList>
-                                                {selectedSkill.projectsUsed.map((project, i) => (
-                                                    <S.ProjectItem key={i}>{project}</S.ProjectItem>
-                                                ))}
-                                            </S.ProjectsList>
-                                        </>
-                                    )}
+                                            {selectedSkill.years && (
+                                                <S.ExperienceCard>
+                                                    <S.InfoLabel>Experiência</S.InfoLabel>
+                                                    <S.InfoValue>
+                                                        {selectedSkill.years}+ {selectedSkill.years > 1 ? 'anos' : 'ano'}
+                                                    </S.InfoValue>
+                                                </S.ExperienceCard>
+                                            )}
+                                            {selectedSkill.projects && !selectedSkill.years && (
+                                                <S.ExperienceCard>
+                                                    <S.InfoLabel>Projetos</S.InfoLabel>
+                                                    <S.InfoValue>{selectedSkill.projects}+ realizados</S.InfoValue>
+                                                </S.ExperienceCard>
+                                            )}
+                                        </S.ExperienceInfo>
+
+                                        {selectedSkill.projectsUsed && (
+                                            <S.ProjectsContainer>
+                                                <S.InfoLabel>Projetos relevantes:</S.InfoLabel>
+                                                <S.ProjectsList>
+                                                    {selectedSkill.projectsUsed.map((project, i) => (
+                                                        <S.ProjectItem key={i}>
+                                                            <S.ProjectBullet $category={selectedSkill.category} />
+                                                            {project}
+                                                        </S.ProjectItem>
+                                                    ))}
+                                                </S.ProjectsList>
+                                            </S.ProjectsContainer>
+                                        )}
+                                    </S.ExperienceContainer>
                                 </S.ModalBody>
                             </S.ModalContent>
                         </S.SkillDetailModal>

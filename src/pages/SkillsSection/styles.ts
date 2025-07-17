@@ -2,158 +2,178 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
 export const ContainerSkills = styled(motion.section)`
-  position: relative;
-  overflow: hidden;
-  background: ${({ theme }) => theme.colors.background};
-  margin: 0px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6rem 2rem;
+  min-height: 100vh;
+  background: ${({ theme }) => theme.colors.backgroundAlternative};
+  color: ${({ theme }) => theme.colors.textPrimary};
 `;
 
 export const ContentSkills = styled(motion.section)`
-    display: flex;
-    width: 100%;
-    height: 100%;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 8rem 2rem;
-    background: black;
-    box-shadow: -1px 7px 28px 0px rgba(115,115,115,0.34);
-    -webkit-box-shadow: 5px 12px 32px 3px rgba(115,115,115,0.34);
-
-    @media (max-width: 768px){
-        width: 100%;
-        padding: 6rem 1rem;
-    }
+  width: 100%;
+  max-width: 1200px;
 `;
 
 export const SectionTitle = styled(motion.h2)`
   text-align: center;
   font-size: 2.5rem;
-  color: ${({ theme }) => theme.colors.textLight};
-  margin-bottom: 4rem;
-  position: relative;
+  margin-bottom: 1rem;
+  color: ${({ theme }) => theme.colors.textPrimary};
+  font-weight: 700;
+`;
 
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 3px;
-    background: ${({ theme }) => theme.colors.accent};
+export const SectionSubtitle = styled.p`
+  text-align: center;
+  font-size: 1.1rem;
+  color: ${({ theme }) => theme.colors.textSecondary};
+  margin-bottom: 3rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+`;
+
+export const CategoryFilter = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+`;
+
+export const FilterButton = styled.button<{ $isActive: boolean; $color?: string }>`
+  padding: 0.6rem 1.2rem;
+  border-radius: 20px;
+  border: none;
+  background: ${({ $isActive, $color }) =>
+    $isActive ? ($color || '#2c3e50') : '#f0f0f0'};
+  color: ${({ $isActive }) => $isActive ? '#fff' : '#666'};
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+
+  &:hover {
+    background: ${({ $color }) => $color || '#2c3e50'};
+    color: #fff;
   }
 `;
 
 export const SkillsGrid = styled(motion.div)`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 1.5rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  width: 100%;
-  padding: 0 2rem;
+`;
 
-  @media (max-width: 768px) {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+export const SkillCard = styled(motion.div) <{
+  $isSelected?: boolean;
+  $category: string;
+}>`
+  background: ${({ theme }) => theme.colors.cardBackground};
+  padding: 1.8rem;
+  border-radius: 12px;
+  border-left: 4px solid ${({ $category }) =>
+    $category === 'frontend' ? '#3498db' :
+      $category === 'backend' ? '#2ecc71' :
+        $category === 'design' ? '#9b59b6' : '#f39c12'};
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
   }
 `;
 
-export const SkillCard = styled(motion.div) <{ $isSelected?: boolean }>`
-  padding: 1.5rem;
-  border-radius: 12px;
-  background: ${({ theme }) => theme.colors.cardBackground};
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
-  transition: all 0.1s ease;
-  border: 1px solid ${({ theme }) => theme.colors.border};
-
-  &:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-  }
+export const SkillIconWrapper = styled.div<{ $category: string }>`
+  font-size: 2.2rem;
+  margin-bottom: 1.2rem;
+  color: ${({ $category }) =>
+    $category === 'frontend' ? '#3498db' :
+      $category === 'backend' ? '#2ecc71' :
+        $category === 'design' ? '#9b59b6' : '#f39c12'};
 `;
 
 export const SkillContent = styled.div`
   display: flex;
   flex-direction: column;
-  flex: 1;
-`;
-
-export const SkillIconWrapper = styled.div`
-  font-size: 1.8rem;
-  display: flex;
-  color: ${({ theme }) => theme.colors.primary};
-  padding: 0.5rem;
-  background: rgba(0, 0, 0, 0.05);
-  border-radius: 8px;
+  gap: 0.8rem;
+  flex-grow: 1;
 `;
 
 export const SkillName = styled.h3`
-  font-size: 1.2rem;
-  color: ${({ theme }) => theme.colors.text};
-  margin-bottom: 0.5rem;
-  font-weight: 600;
-`;
-
-export const SkillExperience = styled.div`
-  font-size: 0.9rem;
+  font-size: 1.4rem;
   color: ${({ theme }) => theme.colors.textPrimary};
-  margin-bottom: 0.5rem;
+  margin: 0;
 `;
 
-export const SkillLevel = styled.div<{ $level: string }>`
+export const SkillCategory = styled.span<{ $category: string }>`
   font-size: 0.8rem;
-  padding: 0.3rem 0.6rem;
-  border-radius: 20px;
-  display: inline-block;
-  margin-top: 0.5rem;
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
   font-weight: 500;
-  background: ${({ $level, theme }) => {
+  background: ${({ $category }) =>
+    $category === 'frontend' ? 'rgba(52, 152, 219, 0.1)' :
+      $category === 'backend' ? 'rgba(46, 204, 113, 0.1)' :
+        $category === 'design' ? 'rgba(155, 89, 182, 0.1)' : 'rgba(243, 156, 18, 0.1)'};
+  color: ${({ $category }) =>
+    $category === 'frontend' ? '#3498db' :
+      $category === 'backend' ? '#2ecc71' :
+        $category === 'design' ? '#9b59b6' : '#f39c12'};
+  align-self: flex-start;
+`;
+
+export const SkillStats = styled.div`
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+`;
+
+export const SkillStat = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+`;
+
+export const StatIcon = styled.span`
+  font-size: 0.9rem;
+`;
+
+export const StatValue = styled.span`
+  font-size: 0.9rem;
+  color: ${({ theme }) => theme.colors.textSecondary};
+`;
+
+export const SkillLevel = styled.span<{ $level: string }>`
+  font-size: 0.8rem;
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  font-weight: 500;
+  background: ${({ $level }) => {
     switch ($level) {
-      case 'Iniciante': return theme.colors.info;
-      case 'Intermediário': return theme.colors.warning;
-      case 'Avançado': return theme.colors.success;
-      case 'Especialista': return theme.colors.accent;
-      default: return theme.colors.info;
+      case 'Iniciante': return 'rgba(33, 150, 243, 0.1)';
+      case 'Intermediário': return 'rgba(255, 152, 0, 0.1)';
+      case 'Avançado': return 'rgba(76, 175, 80, 0.1)';
+      case 'Especialista': return 'rgba(233, 30, 99, 0.1)';
+      default: return 'rgba(33, 150, 243, 0.1)';
     }
   }};
-  color: white;
-`;
-
-export const ViewDetailsButton = styled.div`
-  padding: 0.5rem 1rem;
-  width: 100%;
-  background: ${({ theme }) => theme.colors.primary};
-  color: white;
-  border-radius: 10px;
-  font-size: 0.8rem;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  
-  &:hover {
-    background: ${({ theme }) => theme.colors.primaryDark};
-    transform: translateY(-2px);
-  }
-`;
-
-export const FloatingShapes = styled.div`
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  z-index: 0;
-  overflow: hidden;
+  color: ${({ $level }) => {
+    switch ($level) {
+      case 'Iniciante': return '#2196f3';
+      case 'Intermediário': return '#ff9800';
+      case 'Avançado': return '#4caf50';
+      case 'Especialista': return '#e91e63';
+      default: return '#2196f3';
+    }
+  }};
+  align-self: flex-start;
+  margin-top: auto;
 `;
 
 export const SkillDetailModal = styled(motion.div)`
@@ -166,129 +186,127 @@ export const SkillDetailModal = styled(motion.div)`
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 100;
+  z-index: 999;
   padding: 1rem;
   backdrop-filter: blur(5px);
 `;
 
 export const ModalContent = styled.div`
-  background: ${({ theme }) => theme.colors.background};
+  background: ${({ theme }) => theme.colors.cardBackground};
+  padding: 2.5rem;
   border-radius: 16px;
-  max-width: 600px;
+  max-width: 650px;
   width: 100%;
-  padding: 2rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  color: ${({ theme }) => theme.colors.textPrimary};
   position: relative;
-  max-height: 80vh;
-  overflow-y: auto;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
 `;
 
 export const ModalHeader = styled.div`
   display: flex;
   align-items: center;
   gap: 1.5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 `;
 
-export const SkillIconWrapperLarge = styled.div`
-  font-size: 3rem;
-  color: ${({ theme }) => theme.colors.primary};
-  padding: 1rem;
-  background: rgba(0, 0, 0, 0.05);
-  border-radius: 12px;
+export const SkillIconWrapperLarge = styled.div<{ $category: string }>`
+  font-size: 3.5rem;
+  color: ${({ $category }) =>
+    $category === 'frontend' ? '#3498db' :
+      $category === 'backend' ? '#2ecc71' :
+        $category === 'design' ? '#9b59b6' : '#f39c12'};
 `;
 
 export const ModalTitle = styled.h3`
   font-size: 1.8rem;
-  color: ${({ theme }) => theme.colors.text};
-  margin-bottom: 0.5rem;
+  margin: 0 0 0.3rem 0;
+  color: ${({ theme }) => theme.colors.textPrimary};
 `;
 
 export const ModalBody = styled.div`
-  margin-bottom: 2rem;
+  margin-top: 1rem;
 `;
 
 export const SkillDescription = styled.p`
-  color: ${({ theme }) => theme.colors.text};
-  line-height: 1.6;
+  color: ${({ theme }) => theme.colors.textSecondary};
   margin-bottom: 1.5rem;
+  line-height: 1.6;
+`;
+
+export const ExperienceContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 `;
 
 export const ExperienceInfo = styled.div`
   display: flex;
-  gap: 2rem;
-  margin-bottom: 1.5rem;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+`;
+
+export const ExperienceCard = styled.div`
+  background: ${({ theme }) => theme.colors.backgroundAlternative};
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  min-width: 120px;
 `;
 
 export const InfoLabel = styled.div`
-  font-size: 0.9rem;
-  color: ${({ theme }) => theme.colors.textPrimary};
+  font-size: 0.85rem;
+  color: ${({ theme }) => theme.colors.textSecondary};
   margin-bottom: 0.3rem;
 `;
 
 export const InfoValue = styled.div`
   font-size: 1.1rem;
   font-weight: 600;
-  color: ${({ theme }) => theme.colors.text};
+  color: ${({ theme }) => theme.colors.textPrimary};
+`;
+
+export const ProjectsContainer = styled.div`
+  margin-top: 0.5rem;
 `;
 
 export const ProjectsList = styled.ul`
-  margin-top: 1rem;
-  padding-left: 1.5rem;
+  margin-top: 0.8rem;
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
 `;
 
 export const ProjectItem = styled.li`
-  color: ${({ theme }) => theme.colors.text};
-  margin-bottom: 0.5rem;
-  position: relative;
-
-  &::before {
-    content: '•';
-    color: ${({ theme }) => theme.colors.primary};
-    font-weight: bold;
-    display: inline-block;
-    width: 1em;
-    margin-left: -1em;
-  }
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  color: ${({ theme }) => theme.colors.textSecondary};
 `;
 
-export const CloseIcon = styled.div`
-  width: 24px;
-  height: 24px;
-  position: relative;
-  
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100%;
-    height: 2px;
-    background: ${({ theme }) => theme.colors.text};
-  }
-  
-  &::before {
-    transform: translate(-50%, -50%) rotate(45deg);
-  }
-  
-  &::after {
-    transform: translate(-50%, -50%) rotate(-45deg);
-  }
+export const ProjectBullet = styled.span<{ $category: string }>`
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: ${({ $category }) =>
+    $category === 'frontend' ? '#3498db' :
+      $category === 'backend' ? '#2ecc71' :
+        $category === 'design' ? '#9b59b6' : '#f39c12'};
 `;
 
 export const ModalCloseButton = styled.button`
   position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
-  background: none;
+  top: 1.2rem;
+  right: 1.2rem;
+  background: transparent;
   border: none;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  color: ${({ theme }) => theme.colors.textSecondary};
+  font-size: 1.5rem;
   cursor: pointer;
-  border-radius: 50%;
-  transition: all 0.2s ease;
+  transition: color 0.2s;
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.textPrimary};
+  }
 `;
