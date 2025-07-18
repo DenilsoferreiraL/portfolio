@@ -14,43 +14,57 @@ const SearchIcon = () => <span>🔍</span>
 
 const heroContent = {
     title: 'Denilso Ferreira',
-    role: 'Desenvolvedor Front-end',
     message: "https://api.whatsapp.com/send?phone=5563992922509&text=Ol%C3%A1%2C%20vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar%20com%20voc%C3%AA.%20Podemos%20trocar%20uma%20ideia%3F",
-    description: 'Transformo ideias em experiências digitais excepcionais. Com expertise em React, TypeScript e Next.js, crio interfaces performáticas, acessíveis e que entregam resultados tangíveis para seu negócio.',
-    about: 'Com 3+ anos de experiência, especializei-me em desenvolvimento front-end moderno, focando em performance, acessibilidade e boas práticas. Meu objetivo é construir produtos digitais que não apenas impressionam visualmente, mas também resolvem problemas reais dos usuários.',
+    description: 'Eu ajudo empresas e empreendedores a transformar ideias em aplicações web modernas, rápidas e funcionais. Com React, Next.js e TypeScript, entrego soluções que melhoram a experiência do usuário e impulsionam resultados reais para o seu negócio.',
+    about: 'Como freelancer pleno, já desenvolvi projetos que combinam design, performance e segurança, sempre com foco na solução dos desafios do cliente. Trabalho de forma transparente, entregando código limpo e pronto para escalar conforme sua demanda crescer.',
     cta: 'Vamos conversar',
     highlights: [
         {
-            text: 'Performance otimizada',
+            text: 'Performance que mantém seus usuários engajados',
             icon: <LightningIcon />,
             color: '#0dc97e'
         },
         {
-            text: 'Design responsivo',
+            text: 'Design responsivo que funciona em todos os dispositivos',
             icon: <DeviceIcon />,
             color: '#146cd1'
         },
         {
-            text: 'Código escalável',
+            text: 'Código escalável para crescimento sem dor de cabeça',
             icon: <ScaleIcon />,
             color: '#fb4ead'
         },
         {
-            text: 'SEO integrado',
+            text: 'SEO e otimização para você ser encontrado no Google',
             icon: <SearchIcon />,
             color: '#ffc60c'
         }
     ]
 }
 
+const roles = [
+    'Desenvolvedor Front-end',
+    'Front-end Developer',
+]
+
+
 export function AboutHero() {
     const controls = useAnimation()
     const [activeHighlight, setActiveHighlight] = useState(0)
+    const [currentRole, setCurrentRole] = useState(0)
+
+    useEffect(() => {
+        const roleInterval = setInterval(() => {
+            setCurrentRole(prev => (prev + 1) % roles.length)
+        }, 3000)
+
+        return () => clearInterval(roleInterval)
+    }, [])
 
     useEffect(() => {
         const highlightInterval = setInterval(() => {
             setActiveHighlight(prev => (prev + 1) % heroContent.highlights.length)
-        }, 3500)
+        }, 5000)
 
         const startAnimations = async () => {
             await controls.start('visible')
@@ -99,10 +113,19 @@ export function AboutHero() {
             <S.ContentWrapper>
                 <S.HeroGrid>
                     <S.TextContent>
-                        <S.RoleBadge variants={itemVariants}>
-                            {heroContent.role}
+                        <S.RoleBadge variants={itemVariants} style={{ minHeight: '1.5rem' }}>
+                            <AnimatePresence mode="wait">
+                                <motion.span
+                                    key={roles[currentRole]}
+                                    initial={{ opacity: 0, y: 10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    exit={{ opacity: 0, y: -10 }}
+                                    transition={{ duration: 0.5 }}
+                                >
+                                    {roles[currentRole]}
+                                </motion.span>
+                            </AnimatePresence>
                         </S.RoleBadge>
-
                         <S.MainTitle variants={itemVariants}>
                             {heroContent.title.split('').map((char, i) => (
                                 <motion.span
@@ -142,7 +165,7 @@ export function AboutHero() {
                                     animate="center"
                                     exit="exit"
                                     variants={highlightVariants}
-                                    transition={{ duration: 0.5 }}
+                                    transition={{ duration: 0.6 }}
                                     $highlightColor={heroContent.highlights[activeHighlight].color}
                                 >
                                     {heroContent.highlights[activeHighlight].icon}
@@ -150,14 +173,22 @@ export function AboutHero() {
                                 </S.HighlightItem>
                             </AnimatePresence>
                         </S.HighlightsWrapper>
-
                         <S.CTAButton
                             href={heroContent.message}
-                            variants={itemVariants}
                             target="_blank"
                             rel="noopener noreferrer"
+                            variants={itemVariants}
+                            animate={{
+                                rotate: [-2, 2, -2],
+                            }}
+                            transition={{
+                                duration: 2,
+                                repeat: Infinity,
+                                ease: 'easeInOut'
+                            }}
                             whileHover={{
                                 scale: 1.05,
+                                rotate: 0,
                                 boxShadow: '0 8px 25px rgba(99, 102, 241, 0.4)'
                             }}
                             whileTap={{ scale: 0.98 }}
@@ -167,8 +198,16 @@ export function AboutHero() {
                             <FiArrowRight />
                         </S.CTAButton>
                     </S.TextContent>
-
-                    <S.ImageWrapper variants={itemVariants}>
+                    <S.ImageWrapper
+                        animate={{
+                            y: [0, -10, 0]
+                        }}
+                        transition={{
+                            duration: 3,
+                            repeat: Infinity,
+                            ease: 'easeInOut'
+                        }}
+                    >
                         <S.ProfileImage
                             src={homeperson.src}
                             loading="lazy"

@@ -166,7 +166,6 @@ export const CTAButton = styled(motion.a)`
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   border: none;
-  margin-top: 1rem;
   width: fit-content;
 
   svg {
@@ -199,13 +198,14 @@ export const ImageWrapper = styled(motion.div)`
 `
 
 export const ProfileImage = styled.img`
-  width: 100%;
+  width: 80%;
   height: auto;
   object-fit: cover;
   position: relative;
   z-index: 2;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    max-width: 320px;
+    margin-top: 80px;
+    max-width: 300px;
   }
 `
