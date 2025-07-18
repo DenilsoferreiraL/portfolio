@@ -5,9 +5,8 @@ export const Wrapper = styled(motion.section)`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 8rem 2rem;
+  padding: 4rem 2rem;
   background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-  min-height: 100vh;
   color: #fff;
 `;
 

@@ -1,15 +1,11 @@
 'use client'
-import React, { JSX } from 'react'
+import React from 'react'
 import { motion, useAnimation, AnimatePresence } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { FiArrowRight, FiMessageSquare } from 'react-icons/fi'
 import * as S from './styles'
+import homeperson from '../../../public/assets/home.png'
 
-interface HighlightItem {
-    text: string
-    icon: JSX.Element
-    color: string
-}
 
 const LightningIcon = () => <span>⚡</span>
 const DeviceIcon = () => <span>📱</span>
@@ -174,12 +170,12 @@ export function AboutHero() {
 
                     <S.ImageWrapper variants={itemVariants}>
                         <S.ProfileImage
-                            src="/profile-image.jpg" // Substitua pelo caminho da sua imagem
+                            src={homeperson.src}
+                            loading="lazy"
                             alt="Denilso Ferreira - Desenvolvedor Front-end"
                             width={400}
                             height={500}
                         />
-                        <S.ImageDecoration />
                     </S.ImageWrapper>
                 </S.HeroGrid>
             </S.ContentWrapper>

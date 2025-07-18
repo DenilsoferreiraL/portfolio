@@ -9,14 +9,13 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   /* Scroll suave */
-  html {
+  html, body {
   scroll-behavior: smooth;
   scroll-padding-top: 80px;
+  overflow-x: hidden;
+  width: 100%;
+  font-family: 'Inter', sans-serif;
+  background: ${({ theme }) => theme.colors.background};
+  color: ${({ theme }) => theme.colors.text};
 }
-
-  body {
-    font-family: 'Inter', sans-serif;
-    background: ${({ theme }) => theme.colors.background};
-    color: ${({ theme }) => theme.colors.text};
-  }
 `;

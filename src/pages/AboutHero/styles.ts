@@ -4,8 +4,7 @@ import { motion } from 'framer-motion'
 export const HeroContainer = styled(motion.section)`
   position: relative;
   width: 100%;
-  min-height: 100vh;
-  padding: 5rem 2rem;
+  padding: 5rem min(5vw, 2rem); 
   display: flex;
   align-items: center;
   justify-content: center;
@@ -14,7 +13,7 @@ export const HeroContainer = styled(motion.section)`
   color: ${({ theme }) => theme.colors.textPrimary};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    padding: 4rem 1.5rem;
+    padding: 4rem min(3vw, 1.5rem); 
   }
 `
 
@@ -24,6 +23,7 @@ export const ContentWrapper = styled.div`
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 min(3vw, 1rem);
 `
 
 export const HeroGrid = styled.div`
@@ -31,23 +31,26 @@ export const HeroGrid = styled.div`
   grid-template-columns: 1fr 1fr;
   gap: 3rem;
   align-items: center;
+  width: 100%; // Adicionado
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     grid-template-columns: 1fr;
-    gap: 2rem;
+     gap: clamp(1rem, 2vw, 2rem);
   }
 `
 
 export const TextContent = styled(motion.div)`
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: clamp(1rem, 1.5vw, 1.5rem); 
   max-width: 600px;
+  width: 100%; 
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     order: 2;
     text-align: center;
     align-items: center;
+    max-width: 100%; 
   }
 `
 
@@ -151,11 +154,7 @@ export const CTAButton = styled(motion.a)`
   font-weight: 600;
   font-size: 1.1rem;
   color: white;
-  background: linear-gradient(
-    135deg,
-    ${({ theme }) => theme.colors.primary},
-    ${({ theme }) => theme.colors.secondary}
-  );
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
   text-decoration: none;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -185,41 +184,22 @@ export const ImageWrapper = styled(motion.div)`
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%; 
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     order: 1;
-    margin-bottom: 2rem;
+    margin-bottom: clamp(1rem, 2vw, 2rem); 
   }
 `
 
 export const ProfileImage = styled.img`
   width: 100%;
-  max-width: 400px;
   height: auto;
-  border-radius: 16px;
   object-fit: cover;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
   position: relative;
   z-index: 2;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    max-width: 300px;
+    max-width: 400px;
   }
-`
-
-export const ImageDecoration = styled.div`
-  position: absolute;
-  width: 90%;
-  height: 90%;
-  background: linear-gradient(
-    135deg,
-    ${({ theme }) => theme.colors.primary},
-    ${({ theme }) => theme.colors.secondary}
-  );
-  border-radius: 24px;
-  top: 5%;
-  left: 5%;
-  z-index: 1;
-  opacity: 0.3;
-  filter: blur(20px);
 `

@@ -5,8 +5,7 @@ export const ContainerSkills = styled(motion.section)`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 6rem 2rem;
-  min-height: 100vh;
+  padding: 2rem 2rem;
   background: ${({ theme }) => theme.colors.backgroundAlternative};
   color: ${({ theme }) => theme.colors.textPrimary};
 `;

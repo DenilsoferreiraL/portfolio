@@ -28,6 +28,7 @@ const softSkills = [
 export default function SoftSkillsSection() {
     return (
         <S.Wrapper
+            id='soft-skills'
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6 }}
