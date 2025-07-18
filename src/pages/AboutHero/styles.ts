@@ -13,7 +13,7 @@ export const HeroContainer = styled(motion.section)`
   color: ${({ theme }) => theme.colors.textPrimary};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    padding: 4rem min(3vw, 1.5rem); 
+    padding: 2rem min(3vw, 1.5rem); 
   }
 `
 
@@ -23,7 +23,13 @@ export const ContentWrapper = styled.div`
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 min(3vw, 1rem);
+  padding: 65px min(3vw, 1rem);
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}){
+  padding: 20px min(3vw, 1rem);
+  }
+
+
 `
 
 export const HeroGrid = styled.div`
@@ -31,7 +37,7 @@ export const HeroGrid = styled.div`
   grid-template-columns: 1fr 1fr;
   gap: 3rem;
   align-items: center;
-  width: 100%; // Adicionado
+  width: 100%; 
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     grid-template-columns: 1fr;
@@ -200,6 +206,6 @@ export const ProfileImage = styled.img`
   z-index: 2;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    max-width: 400px;
+    max-width: 320px;
   }
 `
