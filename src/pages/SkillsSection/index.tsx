@@ -7,6 +7,7 @@ import {
     SiJavascript, SiTypescript, SiReact, SiNodedotjs, SiNextdotjs, SiFigma,
     SiGit, SiTailwindcss, SiStyledcomponents, SiGraphql, SiMongodb
 } from 'react-icons/si'
+import { MdOutlineKeyboardDoubleArrowRight } from "react-icons/md";
 import { FaServer, FaDatabase, FaMobile } from 'react-icons/fa'
 
 const containerVariants = {
@@ -72,58 +73,59 @@ const skills: Skill[] = [
     {
         name: 'Next.js',
         years: 2,
-        description: 'Criação de aplicações SSR e SSG com Next.js para melhor performance e SEO.',
-        projectsUsed: ['Site Institucional', 'Blog Pessoal', 'Landing Page'],
+        description: 'Criação de aplicações com SSR e SSG usando Next.js, otimizando performance e SEO.',
+        projectsUsed: ['Catálogo de Produtos', 'Sistema de Tarefas'],
         level: 'Intermediário',
         category: 'frontend'
     },
     {
         name: 'React',
         years: 3,
-        description: 'Criação de interfaces de usuário reativas e componentes reutilizáveis com React.js e hooks.',
-        projectsUsed: ['Dashboard Admin', 'E-commerce', 'App de Notícias'],
+        description: 'Desenvolvimento de interfaces dinâmicas com React.js e hooks, componetização e consumo de APIs.',
+        projectsUsed: ['Catálogo de Produtos', 'Sistema de Tarefas'],
         level: 'Avançado',
         category: 'frontend'
     },
     {
         name: 'TypeScript',
         years: 3,
-        description: 'Desenvolvimento de aplicações tipadas com TypeScript para maior segurança e manutenibilidade do código.',
-        projectsUsed: ['Projeto X', 'Sistema Y', 'Plataforma Z'],
-        level: 'Avançado',
+        description: 'Aplicação de tipagem estática para garantir segurança e manutenção de código em projetos front-end e back-end.',
+        projectsUsed: ['Catálogo de Produtos', 'Sistema de Tarefas'],
+        level: 'Intermediário',
         category: 'frontend'
     },
     {
         name: 'Node.js',
         years: 2,
-        description: 'Desenvolvimento de APIs RESTful e aplicações server-side com Node.js e Express.',
-        projectsUsed: ['API de Pagamentos', 'Sistema de Autenticação'],
+        description: 'Criação de back-ends leves com Node.js e Fastify, incluindo validação de dados com Zod e autenticação JWT.',
+        projectsUsed: ['API para Sistema de Tarefas'],
         level: 'Intermediário',
         category: 'backend'
     },
     {
         name: 'Git',
         years: 3,
-        description: 'Controle de versão e trabalho em equipe utilizando Git e plataformas como GitHub e GitLab.',
+        description: 'Versionamento de código e fluxo de trabalho com Git, utilizando GitHub e GitLab em projetos próprios e freelance.',
         level: 'Avançado',
         category: 'tools'
     },
     {
         name: 'Tailwind CSS',
         years: 2,
-        description: 'Estilização rápida e responsiva utilizando a abordagem utility-first do Tailwind CSS.',
+        description: 'Estilização rápida e responsiva com Tailwind CSS, focando em interfaces leves e práticas.',
+        projectsUsed: ['Catálogo de Produtos', 'Sistema de Tarefas'],
         level: 'Intermediário',
         category: 'frontend'
     },
     {
         name: 'UI/UX Design',
         projects: 2,
-        description: 'Design de interfaces focadas na experiência do usuário com prototipação no Figma.',
-        projectsUsed: ['Redesign App Mobile', 'Dashboard Analytics'],
+        description: 'Criação de interfaces no Figma, aplicando princípios de UI/UX voltados para usabilidade e clareza.',
+        projectsUsed: ['Protótipo do Catálogo de Produtos', 'Protótipo do Sistema de Tarefas'],
         level: 'Intermediário',
         category: 'design'
     }
-]
+];
 
 const categoryColors = {
     frontend: '#3498db',
@@ -229,8 +231,10 @@ export function SkillsSection() {
                                             </S.SkillStat>
                                         )}
                                     </S.SkillStats>
-
-                                    <S.SkillLevel $level={skill.level}>{skill.level}</S.SkillLevel>
+                                    <S.SkillContentFooter>
+                                        <S.SkillLevel $level={skill.level}>{skill.level}</S.SkillLevel>
+                                        <S.ButtonDetail>Saiba mais <MdOutlineKeyboardDoubleArrowRight size={16} /></S.ButtonDetail>
+                                    </S.SkillContentFooter>
                                 </S.SkillContent>
                             </S.SkillCard>
                         </motion.div>

@@ -148,6 +148,14 @@ export const StatValue = styled.span`
   color: ${({ theme }) => theme.colors.textSecondary};
 `;
 
+export const SkillContentFooter = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  margin-bottom: 0.5rem;
+`;
+
 export const SkillLevel = styled.span<{ $level: string }>`
   font-size: 0.8rem;
   padding: 0.3rem 0.8rem;
@@ -171,8 +179,18 @@ export const SkillLevel = styled.span<{ $level: string }>`
       default: return '#2196f3';
     }
   }};
-  align-self: flex-start;
   margin-top: auto;
+`;
+
+export const ButtonDetail = styled.button`
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  font-size: 0.8rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: ${({ theme }) => theme.colors.textSecondary};
 `;
 
 export const SkillDetailModal = styled(motion.div)`
@@ -245,10 +263,16 @@ export const ExperienceInfo = styled.div`
 `;
 
 export const ExperienceCard = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+  align-items: center;
   background: ${({ theme }) => theme.colors.backgroundAlternative};
   padding: 1rem 1.5rem;
   border-radius: 10px;
-  min-width: 120px;
+  width: 100%;
+  /* min-width: 120px; */
 `;
 
 export const InfoLabel = styled.div`
