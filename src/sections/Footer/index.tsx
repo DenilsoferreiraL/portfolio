@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { FaArrowRightLong } from "react-icons/fa6";
 import { FiGithub, FiLinkedin, FiInstagram, FiMail, FiPhone, FiMapPin } from 'react-icons/fi'
+import { navLinks } from '@/data/navLinks';
 
 // Animations
 const itemVariants = {
@@ -53,18 +54,17 @@ export function Footer() {
                 <S.FooterSection variants={itemVariants} style={{ width: '250px' }}>
                     <S.FooterTitle variants={itemVariants}>Navegação</S.FooterTitle>
                     <S.FooterLinks style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                        {[
-                            { name: 'Início', href: '/' },
-                            { name: 'Projetos', href: '/#projetos' },
-                            { name: 'Habilidades', href: '/#habilidades' },
-                            { name: 'Contato', href: '/#contato' }
-                        ].map((link) => (
-                            <motion.div key={link.name} variants={itemVariants}>
-                                <Link href={link.href} style={{ textDecoration: 'none' }}>
-                                    <S.NavLink >
-                                        <S.LinkArrow ><FaArrowRightLong /></S.LinkArrow> {link.name}
-                                    </S.NavLink>
-                                </Link>
+                        {navLinks.map((link) => (
+                            <motion.div key={link.label} variants={itemVariants}>
+                                <S.NavLink
+                                    onClick={() => {
+                                        const section = document.querySelector(link.href);
+                                        section?.scrollIntoView({ behavior: 'smooth' });
+                                    }}
+                                    style={{ cursor: 'pointer' }}
+                                >
+                                    <S.LinkArrow><FaArrowRightLong /></S.LinkArrow> {link.label}
+                                </S.NavLink>
                             </motion.div>
                         ))}
                     </S.FooterLinks>
