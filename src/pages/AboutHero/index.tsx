@@ -4,7 +4,7 @@ import { motion, useAnimation, AnimatePresence } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { FiArrowRight, FiMessageSquare } from 'react-icons/fi'
 import * as S from './styles'
-import homeperson from '../../../public/assets/home.png'
+import homeperson from '../../../public/assets/home.webp'
 
 
 const LightningIcon = () => <span>⚡</span>

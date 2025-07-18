@@ -1,5 +1,4 @@
-'use client' // Necessário para usar styled-components no App Router
-
+'use client'
 import { ThemeProvider } from 'styled-components'
 import StyledComponentsRegistry from './lib/registry'
 import { GlobalStyle } from '../styles/global'
