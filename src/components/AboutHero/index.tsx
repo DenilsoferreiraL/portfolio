@@ -1,6 +1,6 @@
 'use client'
 import React, { useEffect, useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence, easeInOut } from 'framer-motion'
 import { FiArrowRight, FiMessageSquare } from 'react-icons/fi'
 import homeperson from '../../../public/assets/home.webp'
 import Image from 'next/image'
@@ -34,13 +34,16 @@ export function AboutHero() {
         return () => clearInterval(roleInterval)
     }, [])
 
+
     const itemVariants = {
+        hidden: { y: 20, opacity: 0 },
         visible: {
             y: 0,
             opacity: 1,
-            transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] },
+            transition: { duration: 0.8, ease: easeInOut },
         },
     }
+
 
     return (
         <S.HeroContainer id="home" initial={false} animate="visible">
@@ -49,7 +52,7 @@ export function AboutHero() {
                     <S.TextContent>
                         <S.RoleBadge
                             variants={itemVariants}
-                            initial="visible"
+                            initial="hidden"
                             animate="visible"
                             style={{ minHeight: '1.5rem' }}
                         >

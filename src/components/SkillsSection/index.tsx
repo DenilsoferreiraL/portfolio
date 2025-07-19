@@ -9,8 +9,9 @@ import {
 } from 'react-icons/si'
 import { MdOutlineKeyboardDoubleArrowRight } from "react-icons/md";
 import { FaServer, FaDatabase, FaMobile } from 'react-icons/fa'
+import { Variants } from 'framer-motion'
 
-const containerVariants = {
+const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
         opacity: 1,
@@ -21,7 +22,7 @@ const containerVariants = {
     }
 }
 
-const itemVariants = {
+const itemVariants: Variants = {
     hidden: { y: 20, opacity: 0 },
     visible: {
         y: 0,
@@ -34,7 +35,7 @@ const itemVariants = {
     }
 }
 
-const hoverVariants = {
+const hoverVariants: Variants = {
     hover: {
         scale: 1.05,
         boxShadow: '0 8px 25px rgba(0,0,0,0.1)',
