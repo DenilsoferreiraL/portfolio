@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, JSX } from 'react'
+import { useState, JSX, useEffect } from 'react'
 import * as S from './styles'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
@@ -127,6 +127,34 @@ const skills: Skill[] = [
     }
 ];
 
+const LightningIcon = () => <span>⚡</span>
+const DeviceIcon = () => <span>📱</span>
+const ScaleIcon = () => <span>🏗️</span>
+const SearchIcon = () => <span>🔍</span>
+
+const highlights = [
+    {
+        text: 'Performance que mantém seus usuários engajados',
+        icon: <LightningIcon />,
+        color: '#0dc97e',
+    },
+    {
+        text: 'Design responsivo que funciona em todos os dispositivos',
+        icon: <DeviceIcon />,
+        color: '#146cd1',
+    },
+    {
+        text: 'Código escalável para crescimento sem dor de cabeça',
+        icon: <ScaleIcon />,
+        color: '#fb4ead',
+    },
+    {
+        text: 'SEO e otimização para você ser encontrado no Google',
+        icon: <SearchIcon />,
+        color: '#ffc60c',
+    },
+];
+
 const categoryColors = {
     frontend: '#3498db',
     backend: '#2ecc71',
@@ -137,10 +165,24 @@ const categoryColors = {
 export function SkillsSection() {
     const [selectedSkill, setSelectedSkill] = useState<Skill | null>(null)
     const [activeCategory, setActiveCategory] = useState<string | null>(null)
+    const [activeHighlight, setActiveHighlight] = useState(0)
 
     const filteredSkills = activeCategory
         ? skills.filter(skill => skill.category === activeCategory)
         : skills
+
+    useEffect(() => {
+        const highlightInterval = setInterval(() => {
+            setActiveHighlight((prev) => (prev + 1) % highlights.length)
+        }, 5000)
+        return () => clearInterval(highlightInterval)
+    }, [])
+
+    const highlightVariants = {
+        enter: { opacity: 0, y: 20 },
+        center: { opacity: 1, y: 0 },
+        exit: { opacity: 0, y: -20 },
+    }
 
     return (
         <S.ContainerSkills
@@ -153,7 +195,6 @@ export function SkillsSection() {
             <S.ContentSkills>
                 <S.SectionTitle variants={itemVariants}>Minhas Habilidades</S.SectionTitle>
                 <S.SectionSubtitle>Conhecimentos e tecnologias que domino</S.SectionSubtitle>
-
                 <S.CategoryFilter>
                     <S.FilterButton
                         $isActive={!activeCategory}
@@ -235,12 +276,29 @@ export function SkillsSection() {
                                         <S.SkillLevel $level={skill.level}>{skill.level}</S.SkillLevel>
                                         <S.ButtonDetail>Saiba mais <MdOutlineKeyboardDoubleArrowRight size={16} /></S.ButtonDetail>
                                     </S.SkillContentFooter>
+
                                 </S.SkillContent>
                             </S.SkillCard>
+
                         </motion.div>
                     ))}
                 </S.SkillsGrid>
-
+                <S.HighlightsWrapper variants={highlightVariants} initial="visible" animate="visible">
+                    <AnimatePresence mode="wait">
+                        <S.HighlightItem
+                            key={activeHighlight}
+                            initial="enter"
+                            animate="center"
+                            exit="exit"
+                            variants={highlightVariants}
+                            transition={{ duration: 0.2, ease: 'easeInOut' }}
+                            $highlightColor={highlights[activeHighlight].color}
+                        >
+                            {highlights[activeHighlight].icon}
+                            {highlights[activeHighlight].text}
+                        </S.HighlightItem>
+                    </AnimatePresence>
+                </S.HighlightsWrapper>
                 <AnimatePresence>
                     {selectedSkill && (
                         <S.SkillDetailModal

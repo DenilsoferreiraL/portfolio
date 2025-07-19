@@ -5,7 +5,7 @@ export const ContainerSkills = styled(motion.section)`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2rem 2rem 4rem 2rem;
+  padding: 2rem 2rem 0rem 2rem;
   background: ${({ theme }) => theme.colors.backgroundAlternative};
   color: ${({ theme }) => theme.colors.textPrimary};
 `;
@@ -333,3 +333,38 @@ export const ModalCloseButton = styled.button`
     color: ${({ theme }) => theme.colors.textPrimary};
   }
 `;
+
+export const HighlightsWrapper = styled(motion.div)`
+  position: relative;
+  height: 3rem;
+  display: flex;
+ text-align: center;
+  margin: 2rem 0;
+  width: 100%;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    justify-content: center;
+  }
+`
+
+export const HighlightItem = styled(motion.div) <{ $highlightColor: string }>`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  gap: 0.5rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: ${({ $highlightColor }) => $highlightColor};
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  background: rgba(223, 223, 223, 0.05);
+  backdrop-filter: blur(5px);
+  left: 0;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    position: relative;
+    font-size: 1rem;
+    left: auto;
+  }
+`
