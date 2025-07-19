@@ -4,12 +4,12 @@ import * as S from './styles'
 
 const softSkills = [
     {
-        title: 'Comunicação Clara',
-        description: 'Transmito ideias de forma objetiva, facilitando a colaboração entre equipes técnicas e não técnicas.',
-    },
-    {
         title: 'Proatividade',
         description: 'Antecipação de problemas e busca por soluções antes mesmo que sejam solicitadas.',
+    },
+    {
+        title: 'Comunicação Clara',
+        description: 'Transmito ideias de forma objetiva, facilitando a colaboração entre equipes técnicas e não técnicas.',
     },
     {
         title: 'Trabalho em Equipe',

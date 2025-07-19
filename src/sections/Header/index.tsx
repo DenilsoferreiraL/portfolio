@@ -55,26 +55,28 @@ export function Header() {
                     </S.LogoContainer>
 
                     <S.DesktopNav>
-                        {navLinks.map(({ label, href }) => (
-                            <S.NavItem
-                                key={href}
-                                initial={false}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0 }}
-                            >
-                                <S.NavLink
-                                    href={href}
-                                    onClick={(e) => {
-                                        e.preventDefault()
-                                        handleNavClick(href)
-                                    }}
-                                    whileHover={{ color: '#8c8c8c' }}
+                        <ul style={{ display: 'flex', gap: '2.5rem', listStyle: 'none', margin: 0, padding: 0 }}>
+                            {navLinks.map(({ label, href }) => (
+                                <S.NavItem
+                                    key={href}
+                                    initial={false}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0 }}
                                 >
-                                    {label}
-                                    <S.NavUnderline />
-                                </S.NavLink>
-                            </S.NavItem>
-                        ))}
+                                    <S.NavLink
+                                        href={href}
+                                        onClick={(e) => {
+                                            e.preventDefault()
+                                            handleNavClick(href)
+                                        }}
+                                        whileHover={{ color: '#8c8c8c' }}
+                                    >
+                                        {label}
+                                        <S.NavUnderline />
+                                    </S.NavLink>
+                                </S.NavItem>
+                            ))}
+                        </ul>
                     </S.DesktopNav>
 
                     <S.MenuToggle onClick={() => setIsMenuOpen(!isMenuOpen)} $isOpen={isMenuOpen}>
