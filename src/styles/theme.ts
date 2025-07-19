@@ -12,7 +12,10 @@ export const defaultTheme: DefaultTheme = {
         cardBackground: '#ffffff',
         border: '#eeeeee',
         textPrimary: '#2c3e50',
-        textSecondary: '#666666'
+        textSecondary: '#666666',
+        primaryLight: '#4a90e2',   // <-- Faltava esse!
+        primaryDark: '#0d47a1',
+        accent: '#ff4081',
     },
     breakpoints: {
         mobile: '768px',
