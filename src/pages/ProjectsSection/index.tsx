@@ -5,6 +5,7 @@ import driveshow from '../../../public/assets/driveshow.png';
 import type { StaticImageData } from 'next/image';
 import Link from 'next/link';
 import { FiExternalLink, FiGithub } from 'react-icons/fi';
+import Image from 'next/image';
 
 const containerVariants = {
     hidden: { opacity: 0 },
@@ -101,11 +102,15 @@ export function ProjectsSection({ title = "Autoria" }: ProjectsSectionProps) {
                         >
                             <S.ProjectImageContainer>
                                 <S.ProjectImage
-                                    src={typeof project.image === "string" ? project.image : project.image.src}
-                                    alt={project.title}
-                                    width={400}
-                                    height={250}
-                                />
+                                >
+                                    <Image
+                                        src={typeof project.image === "string" ? project.image : project.image.src}
+                                        alt={project.title}
+                                        layout="fill"
+                                        objectFit="cover"
+                                    />
+
+                                </S.ProjectImage>
                                 <S.ProjectOverlay>
                                     <S.ProjectFeatures>
                                         {project.features.slice(0, 3).map((feature, index) => (

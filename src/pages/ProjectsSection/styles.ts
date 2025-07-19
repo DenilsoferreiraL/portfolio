@@ -79,7 +79,7 @@ export const ProjectImageContainer = styled.div`
   overflow: hidden;
 `;
 
-export const ProjectImage = styled(motion.img)`
+export const ProjectImage = styled(motion.div)`
   width: 100%;
   height: 100%;
   object-fit: cover;
