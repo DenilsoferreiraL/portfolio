@@ -6,9 +6,10 @@ import { motion } from 'framer-motion'
 import { FaArrowRightLong } from "react-icons/fa6";
 import { FiGithub, FiLinkedin, FiInstagram, FiMail, FiPhone, FiMapPin } from 'react-icons/fi'
 import { navLinks } from '../Header';
+import { Variants } from 'framer-motion';
 
 // Animations
-const itemVariants = {
+const itemVariants: Variants = {
     hidden: { y: 20, opacity: 0 },
     visible: {
         y: 0,
@@ -20,7 +21,7 @@ const itemVariants = {
     }
 }
 
-const bottomVariants = {
+const bottomVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
         opacity: 1,
