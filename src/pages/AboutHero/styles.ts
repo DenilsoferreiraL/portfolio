@@ -65,10 +65,10 @@ export const RoleBadge = styled(motion.div)`
   font-weight: 600;
   padding: 0.5rem 1.25rem;
   border-radius: 50px;
-  background: rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.1);
   color: ${({ theme }) => theme.colors.primary};
   backdrop-filter: blur(5px);
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 1);
   align-self: flex-start;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
@@ -82,7 +82,7 @@ export const MainTitle = styled(motion.h1)`
   font-weight: 800;
   line-height: 1.1;
   margin: 0;
-  color: ${({ theme }) => theme.colors.textPrimary};
+  color: ${({ theme }) => theme.colors.primary};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     font-size: clamp(2rem, 8vw, 3rem);
@@ -92,7 +92,7 @@ export const MainTitle = styled(motion.h1)`
 export const Description = styled(motion.p)`
   font-size: 1.25rem;
   line-height: 1.6;
-  color: ${({ theme }) => theme.colors.textSecondary};
+  color: ${({ theme }) => theme.colors.primary};
   margin: 0;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
@@ -103,50 +103,15 @@ export const Description = styled(motion.p)`
 export const AboutText = styled(motion.p)`
   font-size: 1rem;
   line-height: 1.7;
-  color: ${({ theme }) => theme.colors.textSecondary};
+  color: ${({ theme }) => theme.colors.textLight};
   margin: 1rem 0 0 0;
   padding: 1rem;
-  border-left: 3px solid ${({ theme }) => theme.colors.primary};
-  background: rgba(0, 0, 0, 0.03);
-  border-radius: 0 8px 8px 0;
+ background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  border-radius: 10px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     font-size: 0.95rem;
     padding: 0.8rem;
-  }
-`
-
-export const HighlightsWrapper = styled(motion.div)`
-  position: relative;
-  height: 3rem;
-  display: flex;
-  align-items: center;
-  margin: 1rem 0;
-  width: 100%;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    justify-content: center;
-  }
-`
-
-export const HighlightItem = styled(motion.div) <{ $highlightColor: string }>`
-  position: absolute;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-weight: 600;
-  font-size: 1.1rem;
-  color: ${({ $highlightColor }) => $highlightColor};
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(5px);
-  left: 0;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    position: relative;
-    font-size: 1rem;
-    left: auto;
   }
 `
 

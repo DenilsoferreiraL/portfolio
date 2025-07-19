@@ -2,15 +2,10 @@
 import React, { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { FiArrowRight, FiMessageSquare } from 'react-icons/fi'
-import * as S from './styles'
 import homeperson from '../../../public/assets/home.webp'
 import Image from 'next/image'
+import * as S from './styles'
 
-
-const LightningIcon = () => <span>⚡</span>
-const DeviceIcon = () => <span>📱</span>
-const ScaleIcon = () => <span>🏗️</span>
-const SearchIcon = () => <span>🔍</span>
 
 const heroContent = {
     title: 'Denilso Ferreira',
@@ -21,34 +16,13 @@ const heroContent = {
     about:
         'Como freelancer pleno, já desenvolvi projetos que combinam design, performance e segurança, sempre com foco na solução dos desafios do cliente. Trabalho de forma transparente, entregando código limpo e pronto para escalar conforme sua demanda crescer.',
     cta: 'Vamos conversar',
-    highlights: [
-        {
-            text: 'Performance que mantém seus usuários engajados',
-            icon: <LightningIcon />,
-            color: '#0dc97e',
-        },
-        {
-            text: 'Design responsivo que funciona em todos os dispositivos',
-            icon: <DeviceIcon />,
-            color: '#146cd1',
-        },
-        {
-            text: 'Código escalável para crescimento sem dor de cabeça',
-            icon: <ScaleIcon />,
-            color: '#fb4ead',
-        },
-        {
-            text: 'SEO e otimização para você ser encontrado no Google',
-            icon: <SearchIcon />,
-            color: '#ffc60c',
-        },
-    ],
+
 }
 
 const roles = ['Desenvolvedor Front-end', 'Front-end Developer']
 
 export function AboutHero() {
-    const [activeHighlight, setActiveHighlight] = useState(0)
+
     const [currentRole, setCurrentRole] = useState(0)
 
 
@@ -59,12 +33,7 @@ export function AboutHero() {
         return () => clearInterval(roleInterval)
     }, [])
 
-    useEffect(() => {
-        const highlightInterval = setInterval(() => {
-            setActiveHighlight((prev) => (prev + 1) % heroContent.highlights.length)
-        }, 5000)
-        return () => clearInterval(highlightInterval)
-    }, [])
+
 
 
     const itemVariants = {
@@ -73,12 +42,6 @@ export function AboutHero() {
             opacity: 1,
             transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] },
         },
-    }
-
-    const highlightVariants = {
-        enter: { opacity: 0, y: 20 },
-        center: { opacity: 1, y: 0 },
-        exit: { opacity: 0, y: -20 },
     }
 
     return (
@@ -124,24 +87,6 @@ export function AboutHero() {
                         <S.AboutText variants={itemVariants} initial="visible" animate="visible">
                             {heroContent.about}
                         </S.AboutText>
-
-                        <S.HighlightsWrapper variants={itemVariants} initial="visible" animate="visible">
-                            <AnimatePresence mode="wait">
-                                <S.HighlightItem
-                                    key={activeHighlight}
-                                    initial="enter"
-                                    animate="center"
-                                    exit="exit"
-                                    variants={highlightVariants}
-                                    transition={{ duration: 0.2, ease: 'easeInOut' }}
-                                    $highlightColor={heroContent.highlights[activeHighlight].color}
-                                >
-                                    {heroContent.highlights[activeHighlight].icon}
-                                    {heroContent.highlights[activeHighlight].text}
-                                </S.HighlightItem>
-                            </AnimatePresence>
-                        </S.HighlightsWrapper>
-
                         <S.CTAButton
                             href={heroContent.message}
                             target="_blank"
@@ -191,10 +136,12 @@ export function AboutHero() {
                                 height: 'auto',
                                 objectFit: 'cover',
                                 zIndex: 2,
+                                marginTop: '4rem',
                             }}
                         />
                     </S.ImageWrapper>
                 </S.HeroGrid>
+
             </S.ContentWrapper>
         </S.HeroContainer>
     )
