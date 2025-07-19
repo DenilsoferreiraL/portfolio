@@ -131,8 +131,9 @@ export function ProjectsSection({ title = "Autoria" }: ProjectsSectionProps) {
                                         src={typeof project.image === "string" ? project.image : project.image.src}
                                         alt={project.title}
                                         layout="fill"
-                                        objectFit="cover"
+                                        fetchPriority="low"
                                         priority
+                                        quality={100}
                                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                         style={{ objectFit: 'cover' }}
                                     />

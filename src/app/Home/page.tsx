@@ -1,7 +1,9 @@
-import { AboutHero } from '@/pages/AboutHero'
-import { ProjectsSection } from '@/pages/ProjectsSection'
-import { SkillsSection } from '@/pages/SkillsSection'
-import SoftSkillsSection from '@/pages/SoftSkillsSection'
+'use client'
+
+import { AboutHero } from '@/components/AboutHero'
+import { ProjectsSection } from '@/components/ProjectsSection'
+import { SkillsSection } from '@/components/SkillsSection'
+import SoftSkillsSection from '@/components/SoftSkillsSection'
 
 export const AboutPage = () => {
     return (
