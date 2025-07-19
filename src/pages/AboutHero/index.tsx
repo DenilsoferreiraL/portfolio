@@ -5,6 +5,7 @@ import { FiArrowRight, FiMessageSquare } from 'react-icons/fi'
 import homeperson from '../../../public/assets/home.webp'
 import Image from 'next/image'
 import * as S from './styles'
+import { TechCarousel } from './TechCarousel'
 
 
 const heroContent = {
@@ -138,7 +139,7 @@ export function AboutHero() {
                         />
                     </S.ImageWrapper>
                 </S.HeroGrid>
-
+                <TechCarousel />
             </S.ContentWrapper>
         </S.HeroContainer>
     )
