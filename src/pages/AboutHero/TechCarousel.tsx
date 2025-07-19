@@ -51,6 +51,10 @@ const CarouselWrapper = styled.div`
   padding: 6rem 0;
   background: ${({ theme }) => theme.colors.backgroundAlternative};
   border-top: 1px solid rgba(255,255,255,0.1);
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    padding: 2rem 0;
+  }
 `
 
 const IconWrapper = styled.div`

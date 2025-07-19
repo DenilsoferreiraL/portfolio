@@ -2,6 +2,7 @@
 
 import * as S from './styles';
 import driveshow from '../../../public/assets/driveshow.png';
+import catalogshow from '../../../public/assets/catalogshow.png';
 import type { StaticImageData } from 'next/image';
 import Link from 'next/link';
 import { FiExternalLink, FiGithub } from 'react-icons/fi';
@@ -39,7 +40,6 @@ interface Project {
     id: number;
     title: string;
     description: string;
-    detailedDescription: string;
     image: StaticImageData | string;
     date: string;
     url: string;
@@ -56,8 +56,7 @@ const projectsData: Project[] = [
     {
         id: 1,
         title: "DriveShow",
-        description: "Plataforma imersiva para exibição de veículos de luxo com tecnologia web avançada",
-        detailedDescription: "Solução completa para concessionárias premium, oferecendo experiência de visualização 360° interativa, configurador de veículos em tempo real e integração com realidade aumentada. Desenvolvido para aumentar engajamento e conversões através de uma experiência de usuário cinematográfica.",
+        description: "Catálogo digital completo e interativo para lojas de veículos de alto padrão.",
         image: driveshow,
         date: "Maio 2025",
         url: "https://driveshow.vercel.app/",
@@ -76,7 +75,32 @@ const projectsData: Project[] = [
             "Filtro avançado de veículos",
             "Animações fluidas e microinterações"
         ]
+    },
+    {
+        id: 2,
+        title: "CatalogShow",
+        description: "Página institucional sobre a importância de um catálogo digital interativo para lojas de veículos premium.",
+        image: catalogshow,
+        date: "Junho 2025",
+        url: "https://catalogshow.vercel.app/",
+        githubUrl: "https://api.whatsapp.com/send?phone=5563992922509&text=Ol%C3%A1%2C%20tenho%20interesse%20em%20saber%20mais%20sobre%20o%20CatalogShow%20que%20vi%20em%20seu%20portf%C3%B3lio.",
+        technologies: [
+            "Next.js 13.5 (App Router)",
+            "Tailwind Animate",
+            "Framer Motion 11",
+            "Lucide React (ícones)",
+            "Radix UI (Tabs e Slot)",
+            "React Intersection Observer",
+        ],
+        features: [
+            "Apresentação dos diferenciais de um catálogo digital interativo",
+            "Explicação sobre o impacto na experiência do cliente",
+            "Demonstração de como o catálogo ajuda na geração de leads",
+            "Animações suaves e interação fluída para maior imersão",
+            "Design responsivo e adaptável a qualquer dispositivo"
+        ]
     }
+
 
 ]
 
@@ -108,8 +132,11 @@ export function ProjectsSection({ title = "Autoria" }: ProjectsSectionProps) {
                                         alt={project.title}
                                         layout="fill"
                                         objectFit="cover"
+                                        priority
+                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                        style={{ objectFit: 'cover' }}
                                     />
-
+                                    <S.DetailHint>Clique para detalhes</S.DetailHint>
                                 </S.ProjectImage>
                                 <S.ProjectOverlay>
                                     <S.ProjectFeatures>

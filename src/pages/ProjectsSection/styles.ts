@@ -96,7 +96,7 @@ export const ProjectOverlay = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 60%);
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 50%, rgba(0,0,0,0) 100%);
   opacity: 0;
   transition: opacity 0.3s ease;
   display: flex;
@@ -252,3 +252,19 @@ export const GithubButton = styled.button`
     transform: translateY(-2px);
   }
 `;
+
+export const DetailHint = styled.p`
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 5px 8px;
+  border-radius: 10px;
+  font-size: 0.875rem;
+  display: none;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    display: block;
+  }
+`
