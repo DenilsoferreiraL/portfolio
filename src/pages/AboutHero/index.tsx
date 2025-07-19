@@ -4,6 +4,8 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { FiArrowRight, FiMessageSquare } from 'react-icons/fi'
 import * as S from './styles'
 import homeperson from '../../../public/assets/home.webp'
+import Image from 'next/image'
+
 
 const LightningIcon = () => <span>⚡</span>
 const DeviceIcon = () => <span>📱</span>
@@ -177,12 +179,19 @@ export function AboutHero() {
                             ease: 'easeInOut',
                         }}
                     >
-                        <S.ProfileImage
-                            src={homeperson.src}
-                            loading="lazy"
+                        <Image
+                            src={homeperson}
                             alt="Denilso Ferreira - Desenvolvedor Front-end"
                             width={400}
                             height={500}
+                            priority
+                            quality={80}
+                            style={{
+                                width: '80%',
+                                height: 'auto',
+                                objectFit: 'cover',
+                                zIndex: 2,
+                            }}
                         />
                     </S.ImageWrapper>
                 </S.HeroGrid>

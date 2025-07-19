@@ -197,15 +197,4 @@ export const ImageWrapper = styled(motion.div)`
   }
 `
 
-export const ProfileImage = styled.img`
-  width: 80%;
-  height: auto;
-  object-fit: cover;
-  position: relative;
-  z-index: 2;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    margin-top: 80px;
-    max-width: 300px;
-  }
-`
