@@ -73,8 +73,8 @@ export const NavItem = styled(motion.li)`
 export const NavLink = styled(motion.a)`
   color: ${({ theme }) => theme.colors.text};
   text-decoration: none;
-  font-weight: 500;
-  font-size: 1rem;
+  font-weight: bold;
+  font-size: 1.1rem;
   position: relative;
   padding: 0.5rem 0;
   transition: color 0.3s ease;
