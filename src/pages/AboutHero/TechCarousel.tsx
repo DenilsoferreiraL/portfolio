@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import styled from 'styled-components'
 import {
-    FaReact, FaNodeJs, FaHtml5, FaCss3Alt, FaJsSquare, FaGitAlt, FaGithub, FaDocker, FaFigma, FaSass, FaAws,
+    FaReact, FaNodeJs, FaHtml5, FaCss3Alt, FaJsSquare, FaGitAlt, FaGithub, FaDocker, FaFigma, FaAws,
 } from 'react-icons/fa'
 import {
     SiNextdotjs, SiTypescript, SiPostgresql, SiMongodb, SiTailwindcss
@@ -22,7 +22,6 @@ const techIcons = [
     <FaGithub key="github" color="#000" />,
     <FaDocker key="docker" color="#0db7ed" />,
     <FaFigma key="figma" color="#F24E1E" />,
-    <FaSass key="sass" color="#CD6799" />,
     <SiPostgresql key="postgres" color="#336791" />,
     <SiMongodb key="mongo" color="#4DB33D" />,
     <FaAws key="aws" color="#FF9900" />,
@@ -49,7 +48,7 @@ export function TechCarousel() {
 const CarouselWrapper = styled.div`
   width: 100%;
   overflow: hidden;
-  padding: 2rem 0;
+  padding: 6rem 0;
   background: ${({ theme }) => theme.colors.backgroundAlternative};
   border-top: 1px solid rgba(255,255,255,0.1);
 `

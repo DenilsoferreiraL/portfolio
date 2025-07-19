@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 export const HeroContainer = styled(motion.section)`
   position: relative;
   width: 100%;
-  padding: 8rem min(5vw, 2rem); 
+  padding: 8rem  min(5vw, 2rem) 0px; 
   display: flex;
   align-items: center;
   justify-content: center;
@@ -23,7 +23,7 @@ export const ContentWrapper = styled.div`
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 65px min(3vw, 1rem);
+  padding: 65px 0px 0px 0px  min(3vw, 1rem);
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}){
   padding: 20px min(3vw, 1rem);
@@ -117,6 +117,7 @@ export const AboutText = styled(motion.p)`
 
 export const CTAButton = styled(motion.a)`
   display: inline-flex;
+  margin-top: 1.5rem;
   align-items: center;
   justify-content: center;
   gap: 0.75rem;
