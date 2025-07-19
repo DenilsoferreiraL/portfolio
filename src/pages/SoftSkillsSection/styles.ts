@@ -42,7 +42,7 @@ export const SkillCard = styled(motion.div)`
   transition: 0.3s all;
 `;
 
-export const SkillTitle = styled.h3`
+export const SkillTitle = styled.h1`
   font-size: 1.2rem;
   margin-bottom: 1rem;
   color: #fff;

@@ -14,7 +14,7 @@ const heroContent = {
     description:
         'Eu ajudo empresas e empreendedores a transformar ideias em aplicações web modernas, rápidas e funcionais. Com React, Next.js e TypeScript, entrego soluções que melhoram a experiência do usuário e impulsionam resultados reais para o seu negócio.',
     about:
-        'Como freelancer pleno, já desenvolvi projetos que combinam design, performance e segurança, sempre com foco na solução dos desafios do cliente. Trabalho de forma transparente, entregando código limpo e pronto para escalar conforme sua demanda crescer.',
+        'Como freelancer, já desenvolvi projetos que combinam design, performance e segurança, sempre com foco na solução dos desafios do cliente. Trabalho de forma transparente, entregando código limpo e pronto para escalar conforme sua demanda crescer.',
     cta: 'Vamos conversar',
 
 }
@@ -32,9 +32,6 @@ export function AboutHero() {
         }, 3000)
         return () => clearInterval(roleInterval)
     }, [])
-
-
-
 
     const itemVariants = {
         visible: {

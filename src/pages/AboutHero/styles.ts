@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 export const HeroContainer = styled(motion.section)`
   position: relative;
   width: 100%;
-  padding: 5rem min(5vw, 2rem); 
+  padding: 8rem min(5vw, 2rem); 
   display: flex;
   align-items: center;
   justify-content: center;

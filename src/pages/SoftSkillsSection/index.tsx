@@ -12,10 +12,6 @@ const softSkills = [
         description: 'Transmito ideias de forma objetiva, facilitando a colaboração entre equipes técnicas e não técnicas.',
     },
     {
-        title: 'Trabalho em Equipe',
-        description: 'Atuação colaborativa com foco em resultados, respeitando as diferentes opiniões e competências.',
-    },
-    {
         title: 'Aprendizado Contínuo',
         description: 'Compromisso constante com a evolução técnica e comportamental.',
     },
