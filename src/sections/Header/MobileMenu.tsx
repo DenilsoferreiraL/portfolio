@@ -2,7 +2,7 @@
 
 import * as S from './styles'
 import { motion } from 'framer-motion'
-import { navLinks } from '@/data/navLinks'
+import { navLinks } from '../../sections/Header'
 
 interface MobileMenuProps {
     onClose: () => void

@@ -4,8 +4,15 @@ import * as S from './styles'
 import { CgMenuRight, CgClose } from 'react-icons/cg'
 import { AnimatePresence } from 'framer-motion'
 import { useState, useEffect } from 'react'
-import { navLinks } from '@/data/navLinks'
 import dynamic from 'next/dynamic'
+
+export const navLinks = [
+    { label: 'Início', href: '#home' },
+    { label: 'Habilidades', href: '#skills' },
+    { label: 'Habilidades Interpessoais', href: '#soft-skills' },
+    { label: 'Projetos', href: '#projects' },
+];
+
 
 const MobileMenu = dynamic(() => import('./MobileMenu'), {
     ssr: false
