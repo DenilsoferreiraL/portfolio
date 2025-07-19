@@ -118,7 +118,6 @@ export function ProjectsSection({ title = "Autoria" }: ProjectsSectionProps) {
         >
             <S.Title variants={itemVariants}>{title}</S.Title>
             <S.Subtitle variants={itemVariants}>Projetos selecionados com dedicação e expertise</S.Subtitle>
-
             <S.ProjectsGrid>
                 {projectsData.map((project) => (
                     <S.ProjectCardWrapper key={project.id}>

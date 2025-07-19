@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'website',
-    url: 'https://seusite.com',
+    url: 'https://denilsoferreira.vercel.app/',
     title: 'Denilso Ferreira | Desenvolvedor Front-end',
     description: 'Portfólio profissional com projetos modernos e focados em performance.',
     images: [
