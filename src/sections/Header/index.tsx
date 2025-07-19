@@ -56,6 +56,7 @@ export function Header() {
                 <S.HeaderContent>
                     <S.LogoContainer>
                         <S.Logo
+                            href='https://denilsoferreira.vercel.app/'
                             initial={false}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0 }}
